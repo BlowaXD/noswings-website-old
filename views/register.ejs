@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include shared/head.ejs %>
+</head>
+<body class="fixed-header menu-pin">
+<div class="register-container full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+        <div style="text-align: center;"><img src="/assets/img/logo.svg" alt="logo" data-src="/assets/img/logo.svg" data-src-retina="/assets/img/logo.svg" width="500"></div>
+        <h3>{TITLE}</h3>
+        <p>
+            {YOLOSWAG}
+        </p>
+        <form id="form-register" class="p-t-15" role="form" action="/register">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Username</label>
+                        <input type="text" name="uname" placeholder="Username" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Password</label>
+                        <input type="password" name="pass" placeholder="******" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Confirm password</label>
+                        <input type="password" name="passconfirmation" placeholder="******" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Un mail de confirmation vous sera envoyé" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-t-10">
+                <div class="col-lg-6">
+                    <p><small>I agree to the <a href="#" class="text-info">Pages Terms</a> and <a href="#" class="text-info">Privacy</a>.</small></p>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <a href="#" class="text-info small">{Already registered}</a>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-cons m-t-10" type="submit">{Create Account}</button>
+        </form>
+    </div>
+</div>
+<!-- BEGIN VENDOR JS -->
+<% include shared/javascript.ejs %>
+<script>
+    $(function()
+    {
+        $('#form-register').validate()
+    })
+</script>
+</body>
+</html>
