@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 /*
 ** ROUTES
 */
-const user = require('./routes/index');
+const user = require('./routes/user');
 const admin = require('./routes/admin');
 const moderator = require('./routes/moderator');
 
@@ -44,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Basic routes */
 app.use('/', user);
-
 
 /*
     AUTH LEVEL

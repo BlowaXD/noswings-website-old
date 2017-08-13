@@ -1,3 +1,5 @@
+**/package-lock.json
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -69,6 +71,7 @@ typings/
 .idea/dictionaries
 
 # Sensitive or high-churn files:
+.idea/
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.xml
@@ -103,4 +106,3 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
