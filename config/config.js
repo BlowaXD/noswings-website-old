@@ -6,4 +6,7 @@ module.exports = {
     api: {
         login_route: `${api_host}/user/login`,
     },
+    secret: {
+        jwt_key: ''
+    },
 };
