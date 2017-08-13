@@ -72,7 +72,6 @@ router.post('/login', function (req, res) {
 */
 router.use(authMiddleware);
 router.get('/dashboard', function (req, res) {
-    console.log(req.user);
     res.render('dashboard', {title: global.translate.TITLE_DASHBOARD});
 });
 

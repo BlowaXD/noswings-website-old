@@ -9,4 +9,8 @@ module.exports = {
     secret: {
         jwt_key: ''
     },
+    e_permissions: {
+        IS_ADMIN:       0b00000001,
+        IS_MODERATOR:   0b00000010,
+    }
 };
