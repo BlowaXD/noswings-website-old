@@ -8,7 +8,7 @@ function authRequired(req, res, next)
     const token = cookies.get('token');
 
     if (!token)
-        return res.sendStatus(403);
+        return res.redirect(req.protocol + '://' + req.get('host') + '/login');
 
     try
     {
@@ -16,7 +16,7 @@ function authRequired(req, res, next)
     }
     catch(err)
     {
-        return res.sendStatus(403);
+        return res.redirect(req.protocol + '://' + req.get('host') + '/login');
     }
     next();
 }
