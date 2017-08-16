@@ -26,12 +26,6 @@ async function register(req, res) {
     const passwordConfirmation = req.body.passwordConfirmation;
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-    console.error("I'm in");
-    console.error("Email : " + email);
-    console.error("Username : " + username);
-    console.error("password : " + password);
-    console.error("passwordConfirmation : " + passwordConfirmation);
-
     /* Some checks */
     if (!validator.isEmail(email))
         return res.status(403).send({error: global.translate.WRONG_EMAIL});
@@ -42,6 +36,7 @@ async function register(req, res) {
     if (password.length < 6 || password.length > 15)
         return res.status(403).send({error: global.translate.WRONG_PASSWORD_LENGTH});
 
+    sql.close();
     /* Await the BD connection & check if username is already taken */
     let recordset;
     try {
@@ -92,6 +87,7 @@ async function register(req, res) {
     };
 
     mailOptions.html = mailOptions.html.replaceAll("{LOGO}", config.urls.logo);
+    console.error(config.urls.logo);
     mailOptions.html = mailOptions.html.replaceAll("{SERVER}", config.server);
     mailOptions.html = mailOptions.html.replaceAll("{GREETINGS}", global.translate.REGISTRATION_GREETINGS);
     mailOptions.html = mailOptions.html.replaceAll("{USER}", username);

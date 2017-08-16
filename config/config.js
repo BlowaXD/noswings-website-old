@@ -15,15 +15,15 @@ module.exports = {
     },
     urls: {
         logo: "https://static.noswings.fr/assets/img/logo.png",
-        site: "https://noswings.fr/",
+        site: "https://moncompte.noswings.fr/",
         discord: "http://discord.noswings.fr/",
         forum: "https://forum.noswings.fr/",
-        validate: "https://moncompte.noswings.fr/validate/"
+        validate: "https://moncompte.noswings.fr/register/validate/"
     },
     db: {
         user: "noswings_site",
-        password: "Cb1tx3f0e2G9nn3h1mib3zWg",
-        server: "163.172.106.204",
+        password: "2J9V86ueLRAd9Qyhi6H6Zde6",
+        server: "164.132.206.181",
         database: "opennos"
     },
     smtp: {

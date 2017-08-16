@@ -22,13 +22,14 @@ router.get('/', function (req, res) {
 
     if (cookies.get('token'))
         return res.redirect(req.protocol + '://' + req.get('host') + '/dashboard');
-    res.redirect(req.protocol + '://' + req.get('host') + '/login');
+    res.redirect(req.protocol + '://' + req.get('host') + '/register');
 });
 
 router.get('/register', function (req, res) {
     res.render('register', {title: global.translate.TITLE_REGISTER})
 });
 
+/*
 router.get('/login', function (req, res) {
     const cookies = new Cookies(req, res);
 
@@ -63,13 +64,14 @@ router.post('/login', function (req, res) {
         if (!body.success || !body.token)
             return res.sendStatus(500);
 
-        /* Store cookies into a cookie */
+        // STORE INTO A COOKIE
         const cookies = new Cookies(req, res);
 
         cookies.set('token', body.token);
         res.redirect(req.protocol + '://' + req.get('host') + '/dashboard');
     });
 });
+*/
 
 router.get('/register/validate/:validationtoken', modules.validate);
 router.post('/register', modules.register);
@@ -79,11 +81,11 @@ router.post('/forgotten', modules.forgotten);
 ** ------------                 Require authentication                 ------------
 ** --------------------------------------------------------------------------------
 */
+
+/*
 router.use(authMiddleware);
 
 router.post('/password', modules.password);
-
-
 
 router.get('/dashboard', function (req, res) {
     res.render('dashboard', {title: global.translate.TITLE_DASHBOARD});
@@ -100,5 +102,5 @@ router.get('/shop/', function (req, res) {
 router.get('/user', function (req, res) {
     res.render('user', {title: global.translate.TITLE_USER_MANAGEMENT});
 });
-
+*/
 module.exports = router;
