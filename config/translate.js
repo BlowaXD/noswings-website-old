@@ -15,7 +15,7 @@ module.exports = {
     "REGISTER_SUCCESSFULL": "",
     "REGISTRATION_MESSAGE": "",
     "REGISTRATION_BUTTON_DESCRIPTION":"Vérifier mon compte",
-    "REGISTRATION_BUTTON_TITLE": "",
+    "REGISTRATION_BUTTON_TITLE": "Vérifier mon compte",
     "REGISTRATION_EMAIL_ERROR": "Une erreur est survenue en voulant vous envoyer un mail",
     "REGISTRATION_EMAIL_SENDER": "Inscription NosWings",
     "REGISTRATION_GREETINGS": "Salutations",

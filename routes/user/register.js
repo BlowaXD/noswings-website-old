@@ -4,12 +4,32 @@ const nodemailer = require("nodemailer");
 const sql = require("mssql");
 const fs = require('fs');
 const crypto = require('crypto');
+const reCaptcha = require('recaptcha2');
 const config = require('../../config/config.js');
 
+const recaptcha = new reCaptcha({
+    siteKey: '6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm',
+    secretKey: '6Lf-Gi0UAAAAAPXVYs2J8kcZJDoG2POKjsuACA5T'
+});
 const REGISTER_REQUEST = 'SELECT TOP 1 Name FROM [dbo].[Account] WHERE [Name] = @username;';
 const INSERT_USER_REQUEST = 'INSERT INTO dbo.Account (Authority, Name, Password, Email, RegistrationIp, VerificationToken) VALUES (-1, @username, @password, @email, @registrationIp, @veriftoken);';
 
+String.prototype.replaceAll = function(search, replacement) {
+    const target = this;
+    return target.split(search).join(replacement);
+};
+
 async function register(req, res) {
+    try {
+        await recaptcha.validateRequest(req);
+    }
+    catch (error)
+    {
+        return res.render('register', {
+            error: "Recaptcha fail"
+        });
+    }
+
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
@@ -70,40 +90,43 @@ async function register(req, res) {
         console.log(error);
         return res.status(500).send({error: global.translate.ERROR_IN_DATABASE});
     }
+    sql.close();
 
     /* SEND MAIL TO CONFIRM */
     let transporter = nodemailer.createTransport(config.smtp);
     let mailOptions = {
-        from: global.translate.REGISTRATION_EMAIL_SENDER + '<' + config.server.mail + '>', // sender address
+        from: global.translate.REGISTRATION_EMAIL_SENDER + '<' + config.smtp.auth.user + '>', // sender address
         to: email, // list of receivers
         subject: global.translate.REGISTRATION_EMAIL_SUBJECT, // Subject line
+        html: ''+fs.readFileSync("./views/mails/mail.html", 'utf8')
     };
 
-    let mailhtml = fs.readFileSync("./views/mails/mail.html", 'utf8');
+    mailOptions.html.replaceAll("{LOGO}", config.urls.logo);
+    mailOptions.html.replaceAll("{SERVER}", config.server);
+    mailOptions.html.replaceAll("{GREETINGS", global.translate.REGISTRATION_GREETINGS);
+    mailOptions.html.replaceAll("{USER}", username);
+    mailOptions.html.replaceAll("{EMAIL}", email);
+    mailOptions.html.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
+    mailOptions.html.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
+    mailOptions.html.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
+    mailOptions.html.replaceAll("{BUTTON_LINK}", config.urls.validate + verificationToken);
+    mailOptions.html.replaceAll("{FOOTER_DESCRIPTION", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
+    mailOptions.html.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
+    mailOptions.html.replaceAll("{FORUM_LINK}", config.urls.forum);
+    mailOptions.html.replaceAll("{DISCORD_LINK}", config.urls.discord);
+    mailOptions.html.replaceAll("{SITE_LINK}", config.urls.site);
+    console.error(mailOptions.html);
 
-    mailhtml.replaceAll("{LOGO}", config.urls.logo);
-    mailhtml.replaceAll("{SERVER}", config.server);
-    mailhtml.replaceAll("{GREETINGS", global.translate.REGISTRATION_GREETINGS);
-    mailhtml.replaceAll("{USER}", username);
-    mailhtml.replaceAll("{EMAIL}", email);
-    mailhtml.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
-    mailhtml.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
-    mailhtml.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
-    mailhtml.replaceAll("{BUTTON_LINK}", config.urls.validate + verificationToken);
-    mailhtml.replaceAll("{FOOTER_DESCRIPTION", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
-    mailhtml.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
-    mailhtml.replaceAll("{FORUM_LINK}", config.urls.forum);
-    mailhtml.replaceAll("{DISCORD_LINK}", config.urls.discord);
-    mailhtml.replaceAll("{SITE_LINK}", config.urls.site);
-    mailOptions.html = mailhtml;
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).send({error: global.translate.REGISTRATION_EMAIL_ERROR});
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
 
-    recordset = await transporter.sendMail(mailOptions);
-    if (recordset) {
-        return res.status(500).send({error: global.translate.REGISTRATION_EMAIL_ERROR});
-    }
-
-    /* REGISTRATION DONE SUCCESSFULLY */
-    return res.status(200).send({success: global.translate.REGISTER_SUCCESSFULL});
+        /* REGISTRATION DONE SUCCESSFULLY */
+        return res.status(200).send({success: global.translate.REGISTER_SUCCESSFULL});
+    });
 }
 
 module.exports = register;

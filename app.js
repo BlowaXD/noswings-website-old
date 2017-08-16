@@ -24,11 +24,6 @@ global.translate = require("./config/translate");
 
 const app = express();
 
-String.prototype.replaceAll = function(search, replacement) {
-    const target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
-};
-
 app.use(function (req, res, next) {
     res.locals.domain = global.config.domain;
     res.locals.discordLink = global.config.urls.discord;
