@@ -20,6 +20,15 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 async function register(req, res) {
+    try {
+        await recaptcha.validateRequest(req);
+    }
+    catch (error)
+    {
+        return res.render('register', {
+            error: "Recaptcha fail"
+        });
+    }
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
