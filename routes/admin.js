@@ -13,5 +13,13 @@ router.get('/', function (req, res) {
 
     res.render('admin/dashboard', {title: global.translate.TITLE_DASHBOARD});
 });
+router.get('/patch', function (req, res) {
+    const permissions = req.user.permissions;
+
+    if (!permissions || (permissions | global.config.e_permissions.IS_ADMIN) === 0)
+        return res.sendStatus(403);
+
+    res.render('admin/patch', {title: global.translate.TITLE_DASHBOARD});
+});
 
 module.exports = router;

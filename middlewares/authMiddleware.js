@@ -13,6 +13,7 @@ function authRequired(req, res, next)
     try
     {
         req.user = jwt.verify(token, global.config.secret.jwt_key);
+        res.locals.user = req.user;
     }
     catch(err)
     {

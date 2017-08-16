@@ -1,7 +1,7 @@
 const express = require('express');
-const sha512 = require('sha512');
 const request = require('request');
 const Cookies = require('cookies');
+const crypto = require('crypto');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
@@ -39,7 +39,7 @@ router.post('/login', function (req, res) {
     if (!username || !password)
         return res.sendStatus(400);
 
-    const hashedPassword = sha512(password).toString('hex');
+    const hashedPassword = crypto.createHash('sha512').update(password).digest('hex');
     const options = {
         url: global.config.api.login_route,
         method: 'post',
@@ -71,6 +71,17 @@ router.post('/login', function (req, res) {
 ** --------------------------------------------------------------------------------
 */
 router.use(authMiddleware);
+
+const modules = {
+    register: require('./user/register.js'),
+    forgotten: require('./user/forgotten.js'),
+    password: require('./user/password.js'),
+};
+
+router.post('/register', modules.register);
+router.post('/password', modules.password);
+router.post('/forgotten', modules.forgotten);
+
 router.get('/dashboard', function (req, res) {
     res.render('dashboard', {title: global.translate.TITLE_DASHBOARD});
 });

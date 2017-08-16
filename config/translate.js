@@ -13,6 +13,8 @@ module.exports = {
     "USER_DOES_NOT_EXIST": "",
     "ERROR_IN_DATABASE": "",
     "REGISTER_SUCCESSFULL": "",
+    "REGISTRATION_EMAIL_SENDER": "Inscription NosWings",
+    "REGISTRATION_GREETINGS": "Salutations",
     "REGISTRATION_EMAIL_SUBJECT": "",
     "REGISTRATION_EMAIL_HTML": "",
     "REGISTRATION_EMAIL_HTML_REGARDS": "",
