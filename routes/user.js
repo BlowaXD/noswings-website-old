@@ -5,6 +5,11 @@ const crypto = require('crypto');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
+const modules = {
+    register: require('./user/register.js'),
+    forgotten: require('./user/forgotten.js'),
+    password: require('./user/password.js'),
+};
 
 /*
 ** --------------------------------------------------------------------------------
@@ -65,6 +70,8 @@ router.post('/login', function (req, res) {
     });
 });
 
+router.post('/register', modules.register);
+router.post('/forgotten', modules.forgotten);
 /*
 ** --------------------------------------------------------------------------------
 ** ------------                 Require authentication                 ------------
@@ -72,15 +79,9 @@ router.post('/login', function (req, res) {
 */
 router.use(authMiddleware);
 
-const modules = {
-    register: require('./user/register.js'),
-    forgotten: require('./user/forgotten.js'),
-    password: require('./user/password.js'),
-};
-
-router.post('/register', modules.register);
 router.post('/password', modules.password);
-router.post('/forgotten', modules.forgotten);
+
+
 
 router.get('/dashboard', function (req, res) {
     res.render('dashboard', {title: global.translate.TITLE_DASHBOARD});

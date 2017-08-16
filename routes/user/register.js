@@ -6,8 +6,8 @@ const fs = require('fs');
 const crypto = require('crypto');
 const config = require('../../config/config.js');
 
-const REGISTER_REQUEST = 'SELECT TOP 1 Name FROM [dbo].[Account] WHERE [Name] = @username';
-const INSERT_USER_REQUEST = 'INSERT INTO dbo.Account (Authority, LastCompliment, LastSession, Name, Password, Email, RegistrationIp, VerificationToken) VALUES (0, 0, 0, @username, @password, @email, @registrationIp, @veriftoken)';
+const REGISTER_REQUEST = 'SELECT TOP 1 Name FROM [dbo].[Account] WHERE [Name] = @username;';
+const INSERT_USER_REQUEST = 'INSERT INTO dbo.Account (Authority, Name, Password, Email, RegistrationIp, VerificationToken) VALUES (-1, @username, @password, @email, @registrationIp, @veriftoken);';
 
 async function register(req, res) {
     const email = req.body.email;
@@ -15,6 +15,12 @@ async function register(req, res) {
     const password = req.body.password;
     const passwordConfirmation = req.body.passwordConfirmation;
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+    console.error("I'm in");
+    console.error("Email : " + email);
+    console.error("Username : " + username);
+    console.error("password : " + password);
+    console.error("passwordConfirmation : " + passwordConfirmation);
 
     /* Some checks */
     if (!validator.isEmail(email))
@@ -33,13 +39,15 @@ async function register(req, res) {
 
         const request = new sql.Request();
         request.input('username', sql.VarChar, username);
-        recordset = await request.query(`${REGISTER_REQUEST} @username`);
+        recordset = await request.query(`${REGISTER_REQUEST}`);
     }
     catch (error) {
+        sql.close();
         console.log(error);
         return res.status(500).send({error: global.translate.ERROR_IN_DATABASE});
     }
 
+    recordset = recordset.recordset;
     /* If yes, throw an error */
     if (recordset.length !== 0)
         return res.status(403).send({error: global.translate.USER_ALREADY_EXIST});
@@ -53,11 +61,12 @@ async function register(req, res) {
         request.input('username', sql.VarChar, username);
         request.input('password', sql.VarChar, hashedPassword);
         request.input('email', sql.VarChar, email);
-        request.input('ip', sql.VarChar, ip);
+        request.input('registrationIp', sql.VarChar, ip);
         request.input('veriftoken', sql.VarChar, verificationToken);
         await request.query(`${INSERT_USER_REQUEST}`);
     }
     catch (error) {
+        sql.close();
         console.log(error);
         return res.status(500).send({error: global.translate.ERROR_IN_DATABASE});
     }
@@ -70,7 +79,7 @@ async function register(req, res) {
         subject: global.translate.REGISTRATION_EMAIL_SUBJECT, // Subject line
     };
 
-    let mailhtml = await fs.readFile("../../../mails/mail.html", 'utf8');
+    let mailhtml = fs.readFileSync("./views/mails/mail.html", 'utf8');
 
     mailhtml.replaceAll("{LOGO}", config.urls.logo);
     mailhtml.replaceAll("{SERVER}", config.server);
@@ -80,13 +89,12 @@ async function register(req, res) {
     mailhtml.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
     mailhtml.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
     mailhtml.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
-    mailhtml.replaceAll("{BUTTON_LINK}", config.urls.validate + VerificationToken);
+    mailhtml.replaceAll("{BUTTON_LINK}", config.urls.validate + verificationToken);
     mailhtml.replaceAll("{FOOTER_DESCRIPTION", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
     mailhtml.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
     mailhtml.replaceAll("{FORUM_LINK}", config.urls.forum);
     mailhtml.replaceAll("{DISCORD_LINK}", config.urls.discord);
     mailhtml.replaceAll("{SITE_LINK}", config.urls.site);
-
     mailOptions.html = mailhtml;
 
     recordset = await transporter.sendMail(mailOptions);

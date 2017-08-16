@@ -6,15 +6,6 @@ module.exports = {
     api: {
         login_route: `${api_host}/user/login`,
     },
-    smtp: {
-        host: 'noswings.fr',
-        port: 465,
-        secure: false, // secure:true for port 465, secure:false for port 587
-        auth: {
-            user: 'username@example.com',
-            pass: 'userpass'
-        }
-    },
     secret: {
         jwt_key: ''
     },
@@ -26,7 +17,25 @@ module.exports = {
         logo: "https://static.noswings.fr/assets/img/logo.png",
         site: "https://noswings.fr/",
         discord: "http://discord.noswings.fr/",
-        forum: "https://forum.noswings.fr/"
+        forum: "https://forum.noswings.fr/",
+        validate: "https://moncompte.noswings.fr/"
     },
-    db: {}
+    db: {
+        user: "noswings_site",
+        password: "",
+        server: "",
+        database: "opennos"
+    },
+    smtp: {
+        host: 'noswings.fr',
+        port: 587,
+        secure: false, // secure:true for port 465, secure:false for port 587
+        auth: {
+            user: '',
+            pass: ''
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    }
 };
