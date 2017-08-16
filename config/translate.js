@@ -14,7 +14,7 @@ module.exports = {
     "ERROR_IN_DATABASE": "",
     "REGISTER_SUCCESSFULL": "",
     "REGISTRATION_MESSAGE": "",
-    "REGISTRATION_BUTTON_DESCRIPTION":"Vérifier mon compte",
+    "REGISTRATION_BUTTON_DESCRIPTION":"Cliquez sur le bouton afin de vérifier votre compte",
     "REGISTRATION_BUTTON_TITLE": "Vérifier mon compte",
     "REGISTRATION_EMAIL_ERROR": "Une erreur est survenue en voulant vous envoyer un mail",
     "REGISTRATION_EMAIL_SENDER": "Inscription NosWings",

@@ -20,16 +20,6 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 async function register(req, res) {
-    try {
-        await recaptcha.validateRequest(req);
-    }
-    catch (error)
-    {
-        return res.render('register', {
-            error: "Recaptcha fail"
-        });
-    }
-
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
@@ -101,21 +91,20 @@ async function register(req, res) {
         html: ''+fs.readFileSync("./views/mails/mail.html", 'utf8')
     };
 
-    mailOptions.html.replaceAll("{LOGO}", config.urls.logo);
-    mailOptions.html.replaceAll("{SERVER}", config.server);
-    mailOptions.html.replaceAll("{GREETINGS", global.translate.REGISTRATION_GREETINGS);
-    mailOptions.html.replaceAll("{USER}", username);
-    mailOptions.html.replaceAll("{EMAIL}", email);
-    mailOptions.html.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
-    mailOptions.html.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
-    mailOptions.html.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
-    mailOptions.html.replaceAll("{BUTTON_LINK}", config.urls.validate + verificationToken);
-    mailOptions.html.replaceAll("{FOOTER_DESCRIPTION", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
-    mailOptions.html.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
-    mailOptions.html.replaceAll("{FORUM_LINK}", config.urls.forum);
-    mailOptions.html.replaceAll("{DISCORD_LINK}", config.urls.discord);
-    mailOptions.html.replaceAll("{SITE_LINK}", config.urls.site);
-    console.error(mailOptions.html);
+    mailOptions.html = mailOptions.html.replaceAll("{LOGO}", config.urls.logo);
+    mailOptions.html = mailOptions.html.replaceAll("{SERVER}", config.server);
+    mailOptions.html = mailOptions.html.replaceAll("{GREETINGS}", global.translate.REGISTRATION_GREETINGS);
+    mailOptions.html = mailOptions.html.replaceAll("{USER}", username);
+    mailOptions.html = mailOptions.html.replaceAll("{EMAIL}", email);
+    mailOptions.html = mailOptions.html.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
+    mailOptions.html = mailOptions.html.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
+    mailOptions.html = mailOptions.html.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
+    mailOptions.html = mailOptions.html.replaceAll("{BUTTON_LINK}", config.urls.validate + verificationToken);
+    mailOptions.html = mailOptions.html.replaceAll("{FOOTER_DESCRIPTION}", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
+    mailOptions.html = mailOptions.html.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
+    mailOptions.html = mailOptions.html.replaceAll("{FORUM_LINK}", config.urls.forum);
+    mailOptions.html = mailOptions.html.replaceAll("{DISCORD_LINK}", config.urls.discord);
+    mailOptions.html = mailOptions.html.replaceAll("{SITE_LINK}", config.urls.site);
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {

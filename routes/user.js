@@ -9,6 +9,7 @@ const modules = {
     register: require('./user/register.js'),
     forgotten: require('./user/forgotten.js'),
     password: require('./user/password.js'),
+    validate: require('./user/validate.js')
 };
 
 /*
@@ -70,6 +71,7 @@ router.post('/login', function (req, res) {
     });
 });
 
+router.get('/register/validate/:validationtoken', modules.validate);
 router.post('/register', modules.register);
 router.post('/forgotten', modules.forgotten);
 /*

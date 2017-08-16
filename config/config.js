@@ -18,12 +18,12 @@ module.exports = {
         site: "https://noswings.fr/",
         discord: "http://discord.noswings.fr/",
         forum: "https://forum.noswings.fr/",
-        validate: "https://moncompte.noswings.fr/"
+        validate: "https://moncompte.noswings.fr/validate/"
     },
     db: {
         user: "noswings_site",
-        password: "",
-        server: "",
+        password: "Cb1tx3f0e2G9nn3h1mib3zWg",
+        server: "163.172.106.204",
         database: "opennos"
     },
     smtp: {
@@ -31,8 +31,8 @@ module.exports = {
         port: 587,
         secure: false, // secure:true for port 465, secure:false for port 587
         auth: {
-            user: '',
-            pass: ''
+            user: 'noreply@noswings.fr',
+            pass: 'cZhz57@8DOpqnzwn'
         },
         tls: {
             rejectUnauthorized: false
