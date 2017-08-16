@@ -63,7 +63,7 @@ async function register(req, res) {
     }
 
     /* SEND MAIL TO CONFIRM */
-    let transport = nodemailer.createTransport(config.smtp);
+    let transporter = nodemailer.createTransport(config.smtp);
     let mailOptions = {
         from: global.translate.REGISTRATION_EMAIL_SENDER + '<' + config.server.mail + '>', // sender address
         to: email, // list of receivers
@@ -73,16 +73,16 @@ async function register(req, res) {
     let mailhtml = await fs.readFile("../../../mails/mail.html", 'utf8');
 
     mailhtml.replaceAll("{LOGO}", config.urls.logo);
+    mailhtml.replaceAll("{SERVER}", config.server);
     mailhtml.replaceAll("{GREETINGS", global.translate.REGISTRATION_GREETINGS);
     mailhtml.replaceAll("{USER}", username);
+    mailhtml.replaceAll("{EMAIL}", email);
     mailhtml.replaceAll("{MESSAGE}", global.translate.REGISTRATION_MESSAGE);
     mailhtml.replaceAll("{BUTTON_DESCRIPTION}", global.translate.REGISTRATION_BUTTON_DESCRIPTION);
     mailhtml.replaceAll("{BUTTON_TITLE}", global.translate.REGISTRATION_BUTTON_TITLE);
+    mailhtml.replaceAll("{BUTTON_LINK}", config.urls.validate + VerificationToken);
     mailhtml.replaceAll("{FOOTER_DESCRIPTION", global.translate.REGISTRATION_FOOTER_DESCRIPTION);
     mailhtml.replaceAll("{FOOTER_STAFF_NAME}", global.translate.STAFF_NAME);
-    mailhtml.replaceAll("{EMAIL}", email);
-    mailhtml.replaceAll("{SERVER}", config.server);
-    mailhtml.replaceAll("{BUTTON_LINK}", config.urls.validate + VerificationToken);
     mailhtml.replaceAll("{FORUM_LINK}", config.urls.forum);
     mailhtml.replaceAll("{DISCORD_LINK}", config.urls.discord);
     mailhtml.replaceAll("{SITE_LINK}", config.urls.site);

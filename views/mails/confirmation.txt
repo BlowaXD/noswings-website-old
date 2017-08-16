@@ -1,6 +1,0 @@
-Bonjour,
-
-Validation de l'inscription : @@USERVALIDATIONLINK@@
-
-Cordialement,
-@@SERVER@@
