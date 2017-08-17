@@ -13,7 +13,7 @@ module.exports = {
     "USER_DOES_NOT_EXIST": "",
     "ACCOUNT_ALREADY_VALIDATED": "Votre compte a déjà été validé",
     "ERROR_IN_DATABASE": "Erreur dans la base de données",
-    "REGISTER_SUCCESSFULL": "",
+    "REGISTER_SUCCESSFULL": "Votre inscription s'est déroulée avec succès, vous allez recevoir un mail de validation",
     "REGISTRATION_MESSAGE": "",
     "REGISTRATION_BUTTON_DESCRIPTION":"Cliquez sur le bouton afin de vérifier votre compte",
     "REGISTRATION_BUTTON_TITLE": "Vérifier mon compte",

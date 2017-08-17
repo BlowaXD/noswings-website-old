@@ -18,11 +18,11 @@ module.exports = {
         site: "https://moncompte.noswings.fr/",
         discord: "http://discord.noswings.fr/",
         forum: "https://forum.noswings.fr/",
-        validate: "https://moncompte.noswings.fr/register/validate/"
+        validate: "https://moncompte.v4.noswings.fr/register/validate/"
     },
     db: {
         user: "noswings_site",
-        password: "2J9V86ueLRAd9Qyhi6H6Zde6",
+        password: "6XjF7hX3P6siR96HB6Krp28qxe",
         server: "164.132.206.181",
         database: "opennos"
     },
