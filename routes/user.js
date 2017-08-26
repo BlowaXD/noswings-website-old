@@ -29,7 +29,6 @@ router.get('/register', function (req, res) {
     res.render('register', {title: global.translate.TITLE_REGISTER})
 });
 
-/*
 router.get('/login', function (req, res) {
     const cookies = new Cookies(req, res);
 
@@ -71,7 +70,6 @@ router.post('/login', function (req, res) {
         res.redirect(req.protocol + '://' + req.get('host') + '/dashboard');
     });
 });
-*/
 
 router.get('/register/validate/:validationtoken', modules.validate);
 router.post('/register', modules.register);
@@ -82,12 +80,10 @@ router.post('/forgotten', modules.forgotten);
 ** --------------------------------------------------------------------------------
 */
 
-/*
-router.use(authMiddleware);
+//router.use(authMiddleware);
 
 router.post('/password', modules.password);
-
-router.get('/dashboard', function (req, res) {
+router.get('/accueil', function (req, res) {
     res.render('dashboard', {title: global.translate.TITLE_DASHBOARD});
 });
 
@@ -95,12 +91,20 @@ router.get('/recharge', function (req, res) {
     res.render('recharge', {title: global.translate.TITLE_DASHBOARD});
 });
 
-router.get('/shop/', function (req, res) {
+router.get('/boutique', function (req, res) {
     res.render('shop', {title: global.translate.TITLE_DASHBOARD});
 });
 
 router.get('/user', function (req, res) {
     res.render('user', {title: global.translate.TITLE_USER_MANAGEMENT});
 });
-*/
+
+router.get('/patch', function(req, res){
+   res.render('patch.ejs', {title: global.translate.TITLE_PATCH});
+});
+
+router.get('/patch/list', function(req, res) {
+    res.render('patch_list.ejs', {title : global.translate.TITLE_PATCH});
+});
+
 module.exports = router;

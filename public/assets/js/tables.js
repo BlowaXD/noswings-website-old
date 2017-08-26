@@ -89,7 +89,7 @@
         });
 
         // Add event listener for opening and closing details
-        $('#detailedTable tbody').on('click', 'tr', function() {
+        $('#detailedTable').find('tbody').on('click', 'tr', function() {
             //var row = $(this).parent()
             if ($(this).hasClass('shown') && $(this).next().hasClass('row-details')) {
                 $(this).removeClass('shown');
