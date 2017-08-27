@@ -32,21 +32,23 @@
                                     <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                                         <thead>
                                         <tr>
-                                            <th style="width:25%">ID</th>
-                                            <th style="width:25%">HASH CLIENT</th>
+                                            <th style="width:10%">ID</th>
+                                            <th style="width:40%">HASH CLIENT</th>
                                             <th style="width:25%">IP</th>
                                             <th style="width:25%">PORT</th>
                                             <th style="width:25%">MULTICLIENT</th>
+                                            <th style="width:25%">SUPPRIMER</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <% for (var i in locals.patchs) { %>
+                                        <% for (var i in locals.patch) { %>
                                         <tr>
-                                            <td class="v-align-middle semi-bold"><%- i.Id %></td>
-                                            <td class="v-align-middle"><%- i.Hash %></td>
-                                            <td class="v-align-middle semi-bold"><%- i.Ip %></td>
-                                            <td class="v-align-middle"><%- i.Port %></td>
-                                            <td class="v-align-middle"><%- i.Multiclient === 1 ? "Oui" : "Non" %></td>
+                                            <td class="v-align-middle semi-bold"><%- locals.patch[i].Id %></td>
+                                            <td class="v-align-middle"><%- locals.patch[i].Hash %></td>
+                                            <td class="v-align-middle semi-bold"><%- locals.patch[i].Ip %></td>
+                                            <td class="v-align-middle"><%- locals.patch[i].Port %></td>
+                                            <td class="v-align-middle"><%- locals.patch[i].Multiclient === true ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' %></td>
+                                            <td class="v-align-middle"><btn class="btn btn-xs btn-primary"><i class="fa fa-trash-o"></i></btn></td>
                                         </tr>
                                         <% } %>
                                         </tbody>

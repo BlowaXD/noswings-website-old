@@ -8,12 +8,10 @@
 
  */
 
-const express = require('express');
-const router = express.Router();
 const sql = require('mssql');
 const QUERY_GET_PATCH_LIST = 'SELECT * FROM _GF_Launcher_Patchs;';
 
-router.get('/patch_list', async function (req, res) {
+async function patch_list(req, res) {
     sql.close();
 
     let recordset;
@@ -35,8 +33,8 @@ router.get('/patch_list', async function (req, res) {
         return res.render('patch_list', {error: 'Error in database'});
     }
 
+    console.error(recordset);
+    return res.render('patch_list', {patch: recordset});
+}
 
-    return res.render('patch_list', {patchs: recordset});
-});
-
-module.exports = router;
+module.exports = patch_list;
