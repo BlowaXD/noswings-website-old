@@ -27,21 +27,30 @@
                                 </div>
                             </div>
                             <div class="card-block no-scroll no-padding">
-                                <form action="/admin/patch" class="dropzone no-margin" method="post">
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple/>
-                                    </div>
+                                <form action="/admin/patch" method="post" enctype="multipart/form-data">
                                     <div class="form-group required">
                                         <label>IP</label>
                                         <span class="help">Exemple : 127.0.0.1</span>
-                                        <input class="form-control" required="" type="email" placeholder="127.0.0.1">
+                                        <input name="ip" class="form-control" required="" placeholder="127.0.0.1">
                                     </div>
                                     <div class="form-group required">
                                         <label>Port</label>
                                         <span class="help">Exemple : (0-65535)</span>
-                                        <input data-v-min="0" data-v-max="65535" class="autonumeric form-control">
+                                        <input name="port" data-v-min="0" data-v-max="65535" class="autonumeric form-control">
                                     </div>
-                                    <input type="checkbox" data-init-plugin="switchery"/> Multiclient
+                                    <input name="multiclient" type="checkbox" data-init-plugin="switchery" class="form-control"/> Multiclient
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+
+                                    <div class="fallback">
+                                        <input name="file" type="file"/>
+                                    </div>
+                                    <br/>
+
+                                    <button class="btn btn-primary">Salut</button>
                                 </form>
                             </div>
                         </div>

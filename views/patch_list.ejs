@@ -40,13 +40,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <% for (var i in locals.patchs) { %>
                                         <tr>
-                                            <td class="v-align-middle semi-bold">1</td>
-                                            <td class="v-align-middle">EF3453405430FEJG</td>
-                                            <td class="v-align-middle semi-bold">127.0.0.1</td>
-                                            <td class="v-align-middle">4500</td>
-                                            <td class="v-align-middle">OUI</td>
+                                            <td class="v-align-middle semi-bold"><%- i.Id %></td>
+                                            <td class="v-align-middle"><%- i.Hash %></td>
+                                            <td class="v-align-middle semi-bold"><%- i.Ip %></td>
+                                            <td class="v-align-middle"><%- i.Port %></td>
+                                            <td class="v-align-middle"><%- i.Multiclient === 1 ? "Oui" : "Non" %></td>
                                         </tr>
+                                        <% } %>
                                         </tbody>
                                     </table>
                                 </div>

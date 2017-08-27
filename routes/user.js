@@ -103,8 +103,6 @@ router.get('/patch', function(req, res){
    res.render('patch.ejs', {title: global.translate.TITLE_PATCH});
 });
 
-router.get('/patch/list', function(req, res) {
-    res.render('patch_list.ejs', {title : global.translate.TITLE_PATCH});
-});
+router.get('/patch/list', require('./admin/patch/patch_list.js'));
 
 module.exports = router;

@@ -21,9 +21,9 @@ module.exports = {
         validate: "https://moncompte.v4.noswings.fr/register/validate/"
     },
     db: {
-        user: "noswings_site",
-        password: "6XjF7hX3P6siR96HB6Krp28qxe",
-        server: "164.132.206.181",
+        user: "sa",
+        password: "root",
+        server: "127.0.0.1",
         database: "opennos"
     },
     smtp: {
