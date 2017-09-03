@@ -100,7 +100,7 @@ router.get('/user', function (req, res) {
 });
 
 router.get('/patch', function(req, res){
-   res.render('patch.ejs', {title: global.translate.TITLE_PATCH});
+   res.render('admin/patch.ejs', {title: global.translate.TITLE_PATCH});
 });
 
 router.get('/patch/list', require('./admin/patch/patch_list.js'));

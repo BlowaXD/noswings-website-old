@@ -18,7 +18,7 @@ const port = require('./port.js');
 const multiclient = require('./multiclient.js');
 const QUERY_VERIFY_HASH_CLONE = 'SELECT TOP 1 * FROM [dbo].[_GF_Launcher_Patchs] WHERE [Hash] = @hash;';
 const QUERY_ADD_PATCH = "INSERT INTO [dbo].[_GF_Launcher_Patchs] ([Hash], [Ip], [Port], [Multiclient]) VALUES (@hash, @ip, @port, @multiclient)";
-const QUERY_ADD_PATCH_VALUES = "INSERT INTO [dbo].[_GF_Launcher_Patchs] ([HashId], [Offset], [Value]) VALUES (@hashid, @offset, @data)";
+const QUERY_ADD_PATCH_VALUES = "INSERT INTO [dbo].[_GF_Launcher_PatchValues] ([HashId], [Offset], [Value]) VALUES (@hashid, @offset, @data)";
 
 router.post('/patch', function (req, res) {
     fs.readFile(req.file.path, async function (err, filedata) {
@@ -28,8 +28,6 @@ router.post('/patch', function (req, res) {
             port: req.body.port,
             multiclient: req.body.multiclient === 'on'
         };
-
-        console.error(patchs);
 
         if (!filedata || !patchs.ip || !patchs.port || !patchs.multiclient) {
             fs.unlinkSync(req.file.path);
@@ -96,7 +94,7 @@ router.post('/patch', function (req, res) {
             return res.render('patch', {error: 'Error in database'});
         }
 
-        const patchId = recordset.recordset;
+        const patchId = recordset.recordset[0].Id;
 
         if (!patchId) {
             fs.unlinkSync(req.file.path);
@@ -105,11 +103,13 @@ router.post('/patch', function (req, res) {
 
         /* UPLOAD NEW PATCH VALUES */
         for (const i in replacements) {
+            console.error("replacements[i] = ");
+            console.error(replacements[i]);
             try {
                 const request = new sql.Request();
                 request.input('hashid', sql.BigInt, patchId);
-                request.input('offset', sql.BigInt, i.offset);
-                request.input('value', sql.SmallInt, i.data);
+                request.input('offset', sql.BigInt, replacements[i].offset);
+                request.input('data', sql.SmallInt, replacements[i].data);
                 recordset = await request.query(`${QUERY_ADD_PATCH_VALUES}`);
             }
             catch (error) {
@@ -120,6 +120,7 @@ router.post('/patch', function (req, res) {
             }
         }
 
+        fs.unlinkSync(req.file.path);
         return res.render('patch', {success: 'Patch applied successfully'});
     });
 });
