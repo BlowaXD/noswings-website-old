@@ -3,7 +3,7 @@ module.exports = {
     "PASSWORD_SUCCESSFULLY_CHANGED": "",
     "WRONG_SERVER": "",
     "WRONG_PASSWORD": "",
-    "WRONG_PASSWORD_LENGTH": "",
+    "WRONG_PASSWORD_LENGTH": "La taille du mot de passe doit être comprise entre 6 et 20 caractères",
     "WRONG_PASSWORD_CONFIRMATION": "",
     "WRONG_PASSWORD_EQUALS": "Mots de passes non similaires",
     "WRONG_USERNAME": "",

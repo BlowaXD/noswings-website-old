@@ -42,7 +42,7 @@ async function register(req, res) {
         return res.status(403).send({error: global.translate.WRONG_USERNAME_NOT_ALPHA});
     if (!validator.equals(password, passwordConfirmation))
         return res.status(403).send({error: global.translate.WRONG_PASSWORD_CONFIRMATION});
-    if (password.length < 6 || password.length > 15)
+    if (password.length < 6 || password.length > 25)
         return res.status(403).send({error: global.translate.WRONG_PASSWORD_LENGTH});
 
     sql.close();
