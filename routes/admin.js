@@ -4,7 +4,7 @@ const router = express.Router();
 const multer = require('multer');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-router.post('/patch', multer({dest: 'uploads/'}).single('file') ,require('./admin/patch/index'));
+//router.post('/patch', multer({dest: 'uploads/'}).single('file') ,require('./admin/patch/index'));
 /* GET Packs. */
 router.use(authMiddleware);
 router.get('/', function (req, res) {
