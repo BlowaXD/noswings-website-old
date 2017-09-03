@@ -116,8 +116,7 @@ async function register(req, res) {
             console.error(error);
             return res.status(500).send({error: global.translate.REGISTRATION_EMAIL_ERROR});
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
-
+        console.log('Nouvel inscrit : ' + email + ' : ' + ip);
         /* REGISTRATION DONE SUCCESSFULLY */
         return res.status(200).send({success: global.translate.REGISTER_SUCCESSFULL});
     });

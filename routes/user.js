@@ -80,7 +80,8 @@ router.post('/forgotten', modules.forgotten);
 ** --------------------------------------------------------------------------------
 */
 
-//router.use(authMiddleware);
+/*
+router.use(authMiddleware);
 
 router.post('/password', modules.password);
 router.get('/accueil', function (req, res) {
@@ -104,5 +105,5 @@ router.get('/patch', function(req, res){
 });
 
 router.get('/patch/list', require('./admin/patch/patch_list.js'));
-
+*/
 module.exports = router;
