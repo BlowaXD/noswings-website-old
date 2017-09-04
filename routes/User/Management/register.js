@@ -5,7 +5,7 @@ const sql = require("mssql");
 const fs = require('fs');
 const crypto = require('crypto');
 const reCaptcha = require('recaptcha2');
-const config = require('../../config/config.js');
+const config = require('../../../config/config.js');
 
 const recaptcha = new reCaptcha({
     siteKey: '6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm',

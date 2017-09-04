@@ -2,14 +2,14 @@ const express = require('express');
 const request = require('request');
 const Cookies = require('cookies');
 const crypto = require('crypto');
-const authMiddleware = require('../middlewares/authMiddleware');
+const authMiddleware = require('../../middlewares/authMiddleware');
 
 const router = express.Router();
 const modules = {
-    register: require('./user/register.js'),
-    forgotten: require('./user/forgotten.js'),
-    password: require('./user/password.js'),
-    validate: require('./user/validate.js')
+    register: require('./Management/register.js'),
+    forgotten: require('./Management/forgotten.js'),
+    password: require('./Management/password.js'),
+    validate: require('./Management/validate.js')
 };
 
 /*
@@ -96,14 +96,14 @@ router.get('/boutique', function (req, res) {
     res.render('shop', {title: global.translate.TITLE_DASHBOARD});
 });
 
-router.get('/user', function (req, res) {
-    res.render('user', {title: global.translate.TITLE_USER_MANAGEMENT});
+router.get('/User', function (req, res) {
+    res.render('User', {title: global.translate.TITLE_USER_MANAGEMENT});
 });
 
 router.get('/patch', function(req, res){
-   res.render('admin/patch.ejs', {title: global.translate.TITLE_PATCH});
+   res.render('Admin/patch.ejs', {title: global.translate.TITLE_PATCH});
 });
 
-router.get('/patch/list', require('./admin/patch/patch_list.js'));
+router.get('/patch/list', require('./Admin/patch/patch_list.js'));
 */
 module.exports = router;

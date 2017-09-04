@@ -1354,7 +1354,7 @@
       onToolbarClick: null,
 
       /**
-       * manipulate link address when user create link
+       * manipulate link address when User create link
        * @param {String} sLinkUrl
        * @return {String}
        */
@@ -4216,7 +4216,7 @@
      * attach eventhandler
      *
      * @param {Object} layoutInfo - layout Informations
-     * @param {Object} options - user options include custom event handlers
+     * @param {Object} options - User options include custom event handlers
      * @param {Function} options.enter - enter key handler
      */
     this.attach = function (layoutInfo, options) {

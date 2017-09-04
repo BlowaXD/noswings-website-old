@@ -21,9 +21,9 @@ module.exports = {
         validate: "https://moncompte.v4.noswings.fr/register/validate/"
     },
     db: {
-        user: "sa",
-        password: "root",
-        server: "127.0.0.1",
+        user: "",
+        password: "",
+        server: "",
         database: "opennos"
     },
     smtp: {
@@ -31,8 +31,8 @@ module.exports = {
         port: 587,
         secure: false, // secure:true for port 465, secure:false for port 587
         auth: {
-            user: 'noreply@noswings.fr',
-            pass: 'cZhz57@8DOpqnzwn'
+            user: '',
+            pass: ''
         },
         tls: {
             rejectUnauthorized: false

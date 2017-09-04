@@ -2,9 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const authMiddleware = require('../middlewares/authMiddleware');
+const authMiddleware = require('../../middlewares/authMiddleware');
 
-//router.post('/patch', multer({dest: 'uploads/'}).single('file') ,require('./admin/patch/index'));
+//router.post('/patch', multer({dest: 'uploads/'}).single('file') ,require('./Admin/patch/index'));
 /* GET Packs. */
 router.use(authMiddleware);
 router.get('/', function (req, res) {
@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
     if (!permissions || (permissions | global.config.e_permissions.IS_ADMIN) === 0)
         return res.sendStatus(403);
 
-    res.render('admin/dashboard', {title: global.translate.TITLE_DASHBOARD});
+    res.render('Admin/dashboard', {title: global.translate.TITLE_DASHBOARD});
 });
 
 router.get('/patch', function (req, res) {
@@ -22,7 +22,7 @@ router.get('/patch', function (req, res) {
     if (!permissions || (permissions | global.config.e_permissions.IS_ADMIN) === 0)
         return res.sendStatus(403);
 
-    res.render('admin/patch', {title: global.translate.TITLE_DASHBOARD});
+    res.render('Admin/patch', {title: global.translate.TITLE_DASHBOARD});
 });
 
 module.exports = router;

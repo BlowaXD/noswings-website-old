@@ -449,7 +449,7 @@
     $cancelButton.onblur = handleOnBlur;
 
     window.onfocus = function() {
-      // When the user has focused away and focused back from the whole window.
+      // When the User has focused away and focused back from the whole window.
       window.setTimeout(function() {
         // Put in a timeout to jump out of the event sequence. Calling focus() in the event
         // sequence confuses things.

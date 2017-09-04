@@ -251,7 +251,7 @@
                         .useInteractiveGuideline(true) //Tooltips which show all data points. Very nice!
                         .rightAlignYAxis(true) //Let's move the y-axis to the right side.
                         .transitionDuration(500)
-                        .showControls(true) //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                        .showControls(true) //Allow User to choose 'Stacked', 'Stream', 'Expanded' mode.
                         .clipEdge(true);
 
                     //Format x-axis labels with custom function.

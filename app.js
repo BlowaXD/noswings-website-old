@@ -12,9 +12,9 @@ const bodyParser = require("body-parser");
 /*
 ** ROUTES
 */
-const user = require('./routes/user');
-const admin = require('./routes/admin');
-const moderator = require('./routes/moderator');
+const user = require('./routes/User/index');
+const admin = require('./routes/Admin/index');
+const moderator = require('./routes/Moderator/index');
 
 /*
 ** GLOBALS
@@ -23,15 +23,6 @@ global.config = require("./config/config");
 global.translate = require("./config/translate");
 
 const app = express();
-
-app.use(function (req, res, next) {
-    res.locals.domain = global.config.domain;
-    res.locals.discordLink = global.config.urls.discord;
-    res.locals.forumLink = global.config.urls.forumLink;
-    res.locals.siteLink = global.config.urls.site;
-    res.locals.logoLink = global.config.urls.logo;
-    next();
-});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,23 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Basic routes */
 app.use('/', user);
-
-/*
-    AUTH LEVEL
-    >= ADMIN
- */
-app.use('/admin', admin);
-
-/*
-    AUTH LEVEL
-    >= GM
- */
-app.use('/moderator', moderator);
-
-// NEED TO CHECK IF SESSION OR REDIRECT TO LOGIN
-/*app.get('*', function(req, res) {
-   res.render('dashboard');
-});*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
