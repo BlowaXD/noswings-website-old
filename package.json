@@ -1,26 +1,25 @@
 {
-  "name": "userinterface",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "cookies": "^0.7.0",
-    "debug": "~2.6.3",
-    "ejs": "~2.5.6",
-    "express": "^4.15.4",
-    "helmet": "^3.8.1",
-    "jsonwebtoken": "^7.4.2",
-    "morgan": "~1.8.1",
-    "mssql": "^4.0.4",
-    "multer": "^1.3.0",
-    "nodemailer": "^4.0.1",
-    "recaptcha2": "^1.3.2",
-    "request": "^2.81.0",
-    "serve-favicon": "~2.4.2",
-    "validator": "^8.0.0"
-  }
+    "name": "user_interface",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "body-parser": "~1.17.1",
+        "cookies": "^0.7.0",
+        "debug": "~2.6.3",
+        "ejs": "~2.5.6",
+        "express": "^4.15.4",
+        "helmet": "^3.8.1",
+        "jsonwebtoken": "^7.4.2",
+        "morgan": "~1.8.1",
+        "mssql": "^4.0.4",
+        "multer": "^1.3.0",
+        "nodemailer": "^4.0.1",
+        "recaptcha2": "^1.3.2",
+        "request": "^2.81.0",
+        "serve-favicon": "~2.4.2",
+        "validator": "^8.0.0"
+    }
 }

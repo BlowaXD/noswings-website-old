@@ -6,15 +6,7 @@ const express = require("express");
 const helmet = require("helmet");
 const path = require("path");
 const logger = require("morgan");
-const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-
-/*
-** ROUTES
-*/
-const user = require('./routes/User/index');
-const admin = require('./routes/Admin/index');
-const moderator = require('./routes/Moderator/index');
 
 /*
 ** GLOBALS
@@ -22,26 +14,30 @@ const moderator = require('./routes/Moderator/index');
 global.config = require("./config/config");
 global.translate = require("./config/translate");
 
-const app = express();
+/*
+** ROUTES
+*/
+const routes = require('./routes');
 
+/*
+** SETUP EXPRESS
+*/
+const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 /*
 ** MIDDLEWARES
 */
+app.use(helmet());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    limit: '8mb',
-    extended: false
-}));
-app.use(cookieParser());
-app.use(helmet());
+app.use(bodyParser.urlencoded({ limit: '8mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* Basic routes */
-app.use('/', user);
+/* CREATE ROUTES */
+app.get('/', routes.home);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
