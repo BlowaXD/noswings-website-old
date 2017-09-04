@@ -2,7 +2,7 @@
 
 function get(req, res)
 {
-    res.render('user/home');
+    res.render('user/login');
 }
 
 module.exports = get;
