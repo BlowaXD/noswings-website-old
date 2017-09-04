@@ -1,24 +1,25 @@
 'use strict';
 const Cookies = require('cookies');
-const jwt = require('jsonwebtoken');
 
 function authRequired(req, res, next)
 {
     const cookies = new Cookies(req, res);
     const token = cookies.get('token');
 
+    /* No token */
     if (!token)
         return res.redirect(req.protocol + '://' + req.get('host') + '/login');
 
-    try
-    {
-        req.user = jwt.verify(token, global.config.secret.jwt_key);
-        res.locals.user = req.user;
-    }
-    catch(err)
-    {
-        return res.redirect(req.protocol + '://' + req.get('host') + '/login');
-    }
+    const params = token.split('.');
+
+    /* Test token
+    ** - check params.length === 3
+    ** - check expiration date
+    ** - check 'basic' variables (username, hashedPassword, permissions)'
+    **
+    ** OK : set res.locals.user/req.user
+    ** KO : return res.redirect(req.protocol + '://' + req.get('host') + '/login')
+    */
     next();
 }
 
