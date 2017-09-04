@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-    home: require('./user').home,
+    home: require('./home.js'),
 };
