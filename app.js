@@ -18,8 +18,10 @@ global.translate = require("./config/translate");
 ** ROUTES
 */
 const routes = require('./routes');
-const route_home = routes.home;
+const route_admin = routes.admin;
+const route_shop = routes.shop;
 const route_user = routes.user;
+const route_moderator = routes.moderator;
 
 /*
 ** SETUP EXPRESS
@@ -38,8 +40,10 @@ app.use(bodyParser.urlencoded({ limit: '8mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* CREATE ROUTES */
-app.get('/', route_home);
 app.use(route_user);
+app.use('/admin', route_admin);
+app.use('/shop', route_shop);
+app.use('/moderator', route_moderator);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

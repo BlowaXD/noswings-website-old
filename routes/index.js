@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = {
-    home: require('./user/home.js'),
     user: require('./user'),
+    shop: require('./shop'),
+    admin: require('./admin'),
+    moderator: require('./moderator')
 };
