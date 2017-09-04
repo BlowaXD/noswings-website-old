@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function (req, res, next) {
     res.locals.domain = global.config.domain;
     res.locals.discordLink = global.config.urls.discord;
