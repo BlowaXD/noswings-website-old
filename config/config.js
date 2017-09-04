@@ -1,13 +1,10 @@
 'use strict';
-const api_host = 'http://localhost:4000';
+const api_host = 'http://localhost:4500';
 
 module.exports = {
     server: 'NosWings',
     api: {
         login_route: `${api_host}/user/login`,
-    },
-    secret: {
-        jwt_key: ''
     },
     e_permissions: {
         IS_ADMIN: 0b00000001,
@@ -19,23 +16,5 @@ module.exports = {
         discord: "http://discord.noswings.fr/",
         forum: "https://forum.noswings.fr/",
         validate: "https://moncompte.v4.noswings.fr/register/validate/"
-    },
-    db: {
-        user: "",
-        password: "",
-        server: "",
-        database: "opennos"
-    },
-    smtp: {
-        host: 'noswings.fr',
-        port: 587,
-        secure: false, // secure:true for port 465, secure:false for port 587
-        auth: {
-            user: '',
-            pass: ''
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
     }
 };
