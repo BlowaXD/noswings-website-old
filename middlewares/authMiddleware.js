@@ -17,7 +17,7 @@ function authRequired(req, res, next)
     ** - check expiration date
     ** - check 'basic' variables (username, hashedPassword, permissions)'
     **
-    ** OK : set res.locals.user/req.user
+    ** OK : set req.user
     ** KO : return res.redirect(req.protocol + '://' + req.get('host') + '/login')
     */
     next();
