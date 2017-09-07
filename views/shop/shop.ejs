@@ -29,134 +29,44 @@
                         <o class="breadcrumb"></o>
                         <!-- BEGIN PlACE PAGE CONTENT HERE -->
                         <div class="row">
+                            <%
+                                if (error)
+                                {
+                                    %>
+                                    <p>Error : <%= error %></p>
+                                    <%
+                                }
+
+                                if (!packs)
+                                    return;
+
+                                for (const pack of packs)
+                                {
+                            %>
                             <div class="col-lg-4">
                                 <div class="card card-default">
                                     <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
+                                        <div class="card-title"><%= pack.Name %></div>
                                     </div>
                                     <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
+                                        <div class="nw-shop-image">
+                                            <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
+                                        </div>
+                                        <p><%= pack.Description %></p>
                                         <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                1337€
+                                            <button class="btn btn-success btn-md m-t-10">
+                                                <i class="fa fa-shopping-cart"></i> <%= pack.Price %>€
                                             </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
+                                            <button class="pull-right btn btn-complete btn-md m-t-10">
+                                                <i class="fa fa-info-circle"></i> {DETAILS}
                                             </button>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                100€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                100€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                100€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                100€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{TITRE PACK}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image"><p><a>
-                                                    <img src="http://staticns.ankama.com/ankama/cms/images/273/2016/04/28/495073.jpg"
-                                                         class="nw-shop-item"/></a></p></div>
-                                        <p>Description...</p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10"><i class="fa fa-shopping-cart"></i>
-                                                 100€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10"><i
-                                                        class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <%
+                                }
+                            %>
                         </div>
                         <!-- END PLACE PAGE CONTENT HERE -->
                     </div>
