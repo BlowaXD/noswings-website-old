@@ -12,48 +12,60 @@
         <ul class="menu-items">
             <li class="m-t-30">
                 <a href="/" class="detailed">
-                    <span class="title">Accueil</span>
-                    <span class="details">{DESCRIPTION ACCUEIL}</span>
+                    <span class="title"><%= global.translate.SIDE_BAR.HOME %></span>
+                    <span class="details"><%= global.translate.SIDE_BAR.HOME_DESC %></span>
                 </a>
                 <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
             <li>
                 <a href="/account" class="detailed">
-                    <span class="title">Mon compte</span>
-                    <span class="details">Modifiez votre compte</span>
+                    <span class="title"><%= global.translate.SIDE_BAR.ACCOUNT %></span>
+                    <span class="details"><%= global.translate.SIDE_BAR.ACCOUNT_DESC %></span>
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
             </li>
             <li>
                 <a href="/shop/recharge" class="detailed">
-                    <span class="title">Donation</span>
-                    <span class="details">Faites un don aidez nous !</span>
+                    <span class="title"><%= global.translate.SIDE_BAR.DONATE %></span>
+                    <span class="details"><%= global.translate.SIDE_BAR.DONATE_DESC %></span>
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-paypal"></i></span>
             </li>
             <li>
-                <a href="javascript:;"><span class="title">Boutique</span>
+                <a href="javascript:;"><span class="title"><%= global.translate.SIDE_BAR.SHOP %></span>
                     <span class=" arrow"></span></a>
                 <span class="icon-thumbnail"><i class="pg-shopping_cart"></i></span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="/shop/">Catégories</a>
+                        <a href="/shop/"><%= global.translate.SIDE_BAR.SHOP %></a>
                         <span class="icon-thumbnail">{B}</span>
                     </li>
                 </ul>
             </li>
+            <%
+                if (user && user.permissions && user.permissions.IS_GM)
+                {
+            %>
             <li class="m-t-30">
                 <a href="/moderator/" class="detailed">
-                    <span class="title">Panel GM</span>
+                    <span class="title"><%= global.translate.SIDE_BAR.GM_PANEL %></span>
                 </a>
                 <span class="bg-warning icon-thumbnail"><i class="fa fa-fire"></i></span>
             </li>
-            <li class="">
+            <%
+                }
+                if (user && user.permissions && user.permissions.IS_ADMIN)
+                {
+            %>
+            <li class="m-t-30">
                 <a href="/admin/" class="detailed">
-                    <span class="title">Panel Admin</span>
+                    <span class="title"><%= global.translate.SIDE_BAR.ADMIN_PANEL %></span>
                 </a>
                 <span class="bg-danger icon-thumbnail"><i class="fa fa-fire"></i></span>
             </li>
+            <%
+                }
+            %>
         </ul>
         <div class="clearfix"></div>
     </div>

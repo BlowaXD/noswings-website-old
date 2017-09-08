@@ -2,7 +2,13 @@
 
 function get(req, res)
 {
-    res.render('user/account');
+    const data = {
+        user: req.user,
+        global: global,
+        title: global.translate.ACCOUNT_PAGE.TITLE
+    };
+
+    res.render('user/account', data);
 }
 
 module.exports = get;

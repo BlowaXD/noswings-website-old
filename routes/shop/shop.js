@@ -3,17 +3,27 @@ const request = require('request');
 
 function get(req, res)
 {
+    let data = {
+        user: req.user,
+        global: global,
+        title: global.translate.SHOP_PAGE.TITLE
+    };
+
     request(global.config.api.get_packs, (err, response, body) => {
         if (err || response.statusCode !== 200)
             return res.render('shop/shop', { packs: [], error: err || `Status code : ${response.statusCode}` });
 
         try
         {
-            res.render('shop/shop', { packs: JSON.parse(body) || [], error: null });
+            data.packs = JSON.parse(body) || [];
+            data.error = null;
+            res.render('shop/shop', data);
         }
         catch (error)
         {
-            res.render('shop/shop', { packs: [], error });
+            data.packs = [];
+            data.error = error;
+            res.render('shop/shop', data);
         }
     });
 }
