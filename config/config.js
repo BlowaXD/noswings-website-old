@@ -4,6 +4,7 @@ const api_host = 'http://localhost:4500';
 module.exports = {
     server: 'NosWings',
     api: {
+        get_token: `${api_host}/user/token`,
         get_packs: `${api_host}/shop/packs`,
     },
     e_permissions: {

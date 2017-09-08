@@ -4,8 +4,8 @@ const auth_middleware = require('../../middlewares/authMiddleware.js');
 
 const router = express.Router();
 
-router.get('/login', require('./login.js'));
-router.get('/register', require('./register.js'));
+router.use('/login', require('./login.js'));
+router.use('/register', require('./register.js'));
 
 /* Require authentification */
 router.use(auth_middleware);
