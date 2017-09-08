@@ -9,6 +9,6 @@ module.exports = {
     },
     e_permissions: {
         IS_ADMIN: 0b00000001,
-        IS_MODERATOR: 0b00000010,
+        IS_GM: 0b00000010,
     },
 };
