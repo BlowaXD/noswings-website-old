@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
         /* Store token in cookies */
         const cookies = new Cookies(req, res);
 
-        cookies.set(`${global.config.server}-token`, req_res.data, { maxAge: 7200 });
+        cookies.set(`${global.config.server}-token`, req_res.data, { expires: new Date(Date.now() + (7200 * 1000)) });
         return res.redirect(req.protocol + '://' + req.get('host'));
     });
 });
