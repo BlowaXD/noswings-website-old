@@ -12,8 +12,22 @@ function authRequired(req, res, next)
 
     const params = token.split('.');
 
+    if (params.length !== 3)
+        return res.redirect(req.protocol + '://' + req.get('host') + '/login');
+
+    try
+    {
+        const data = new Buffer(params[1], 'base64').toString('utf-8');
+
+        console.log(data);
+    }
+    catch (e)
+    {
+        return res.redirect(req.protocol + '://' + req.get('host') + '/login');
+    }
+
+
     /* Test token
-    ** - check params.length === 3
     ** - check expiration date
     ** - check 'basic' variables (username, hashedPassword, permissions)'
     **
