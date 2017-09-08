@@ -35,6 +35,15 @@ function authRequired(req, res, next)
         return res.redirect(req.protocol + '://' + req.get('host') + '/login');
 
     /* That's ok */
+    const permissions = user.permissions;
+
+    if (permissions)
+    {
+        user.permissions = {};
+        user.permissions.IS_ADMIN = (permissions & global.config.e_permissions.IS_ADMIN) === 1;
+        user.permissions.IS_GM = (permissions & global.config.e_permissions.IS_GM >> 1) === 1;
+    }
+    console.log(user);
     req.user = user;
     req.user.token = token;
     next();
