@@ -7,8 +7,13 @@ router.get('/', (req, res) => {
         user: req.user,
         title: global.translate.SHOP_PAGE.TITLE
     };
+    const opt = {
+        method: 'get',
+        url: global.config.api.get_packs,
+        headers: { 'x-access-token': req.user.token }
+    };
 
-    request(global.config.api.get_packs, (err, response, body) => {
+    request(opt, (err, response, body) => {
         if (err || response.statusCode !== 200)
             return res.render('shop/shop', { packs: [], error: err || `Status code : ${response.statusCode}` });
 
@@ -31,8 +36,9 @@ router.post('/', (req, res) => {
     const opt = {
         method: 'post',
         json: true,
-        url: global.config.api.get_packs,
-        body: { PackId: req.body.PackId }
+        url: global.config.api.post_buy,
+        body: { PackId: req.body.PackId },
+        headers: { 'x-access-token': req.user.token }
     };
 
     request(opt, (err, response, body) => {
