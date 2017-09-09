@@ -43,27 +43,30 @@
                                 for (const pack of packs)
                                 {
                             %>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title"><%= pack.Name %></div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image">
-                                            <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
+                            <form action="/shop" method="POST" class="col-lg-4">
+                                <div>
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <div class="card-title"><%= pack.Name %></div>
                                         </div>
-                                        <p><%= pack.Description %></p>
-                                        <p>
-                                            <button class="btn btn-success btn-md m-t-10">
-                                                <i class="fa fa-shopping-cart"></i> <%= pack.Price %>€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                <i class="fa fa-info-circle"></i> {DETAILS}
-                                            </button>
-                                        </p>
+                                        <div class="card-block">
+                                            <div class="nw-shop-image">
+                                                <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
+                                            </div>
+                                            <p><%= pack.Description %></p>
+                                            <p>
+                                                <button type="submit" class="btn btn-success btn-md m-t-10">
+                                                    <i class="fa fa-shopping-cart"></i> <%= pack.Price %>€
+                                                </button>
+                                                <button class="pull-right btn btn-complete btn-md m-t-10">
+                                                    <i class="fa fa-info-circle"></i> {DETAILS}
+                                                </button>
+                                            </p>
+                                            <input type="hidden" name="PackId" value="<%= pack.PackId %>">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                             <%
                                 }
                             %>

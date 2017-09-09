@@ -1,8 +1,8 @@
 'use strict';
 const request = require('request');
+const router = require('express').Router();
 
-function get(req, res)
-{
+router.get('/', (req, res) => {
     let data = {
         user: req.user,
         title: global.translate.SHOP_PAGE.TITLE
@@ -25,6 +25,10 @@ function get(req, res)
             res.render('shop/shop', data);
         }
     });
-}
+});
 
-module.exports = get;
+router.post('/', (req, res) => {
+    console.log(req.body);
+});
+
+module.exports = router;
