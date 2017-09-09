@@ -28,7 +28,19 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    const opt = {
+        method: 'post',
+        json: true,
+        url: global.config.api.get_packs,
+        body: { PackId: req.body.PackId }
+    };
+
+    request(opt, (err, response, body) => {
+        /*
+        ** CHECK DU BODY
+        */
+        res.redirect(req.protocol + '://' + req.get('host') + '/shop');
+    });
 });
 
 module.exports = router;
