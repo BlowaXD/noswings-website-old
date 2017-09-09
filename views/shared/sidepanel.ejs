@@ -32,15 +32,11 @@
                 <span class="icon-thumbnail"><i class="fa fa-paypal"></i></span>
             </li>
             <li>
-                <a href="javascript:;"><span class="title"><%= translate.SIDE_BAR.SHOP %></span>
-                    <span class=" arrow"></span></a>
+                <a href="/shop" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.SHOP %></span>
+                    <span class="details"><%= translate.SIDE_BAR.SHOP_DESC %></span>
+                </a>
                 <span class="icon-thumbnail"><i class="pg-shopping_cart"></i></span>
-                <ul class="sub-menu">
-                    <li class="">
-                        <a href="/shop/"><%= translate.SIDE_BAR.SHOP %></a>
-                        <span class="icon-thumbnail">{B}</span>
-                    </li>
-                </ul>
             </li>
             <%
                 if (user && user.permissions && user.permissions.IS_GM)

@@ -14,6 +14,7 @@ module.exports = {
         DONATE: 'Donate',
         DONATE_DESC: 'Donate desc',
         SHOP: 'Shop',
+        SHOP_DESC: 'Shop Desc',
         GM_PANEL: 'GM Panel',
         ADMIN_PANEL: 'Admin Panel',
     },
