@@ -5,7 +5,6 @@ function get(req, res)
 {
     let data = {
         user: req.user,
-        global: global,
         title: global.translate.SHOP_PAGE.TITLE
     };
 

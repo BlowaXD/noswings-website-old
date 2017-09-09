@@ -2,7 +2,11 @@
 
 function get(req, res)
 {
-    res.render('user/register');
+    const data = {
+        title: global.translate.REGISTER_PAGE.TITLE
+    };
+
+    res.render('user/register', data);
 }
 
 module.exports = get;

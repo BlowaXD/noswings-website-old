@@ -5,7 +5,11 @@ const request = require('request');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('user/login');
+    const data = {
+        title: global.translate.LOGIN_PAGE.TITLE
+    };
+
+    res.render('user/login', data);
 });
 
 router.post('/', (req, res) => {

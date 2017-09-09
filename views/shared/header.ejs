@@ -16,7 +16,7 @@
             <li class="p-r-10 inline">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"><%= global.translate.SERVER_NAME %></a></li>
+                    <li class="breadcrumb-item"><a href="/"><%= translate.SERVER_NAME %></a></li>
                     <li class="breadcrumb-item active"><%= title %></li>
                 </ol>
                 <!-- END BREADCRUMB -->
@@ -30,15 +30,15 @@
             <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                 <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-                    <span><i class="fa fa-bolt"></i> <%= user.money || '????' %></span>
+                    <span><i class="fa fa-bolt"></i> <%= user.money || '???' %></span>
                     |
                     <span class="semi-bold"><%= user.username || 'None' %></span>
                 </div>
             </button>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                <a href="#" class="dropdown-item"><i class="pg-settings_small"></i><%= global.translate.HEADER_BAR.SETTING %></a>
+                <a href="#" class="dropdown-item"><i class="pg-settings_small"></i><%= translate.HEADER_BAR.SETTING %></a>
                 <a href="/logout" class="clearfix bg-master-lighter dropdown-item">
-                    <span class="pull-left"><%= global.translate.HEADER_BAR.LOGOUT %></span>
+                    <span class="pull-left"><%= translate.HEADER_BAR.LOGOUT %></span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                 </a>
             </div>

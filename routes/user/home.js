@@ -4,7 +4,6 @@ function get(req, res)
 {
     const data = {
         user: req.user,
-        global: global,
         title: global.translate.HOME_PAGE.TITLE
     };
 

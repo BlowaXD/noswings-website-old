@@ -17,6 +17,12 @@ module.exports = {
         GM_PANEL: 'GM Panel',
         ADMIN_PANEL: 'Admin Panel',
     },
+    LOGIN_PAGE: {
+        TITLE: 'Login'
+    },
+    REGISTER_PAGE: {
+        TITLE: 'Register'
+    },
     HOME_PAGE: {
         TITLE: 'Home'
     },
