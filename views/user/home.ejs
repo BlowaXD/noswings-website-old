@@ -18,75 +18,38 @@
                         <o class="breadcrumb"></o>
                         <!-- BEGIN PlACE PAGE CONTENT HERE -->
                         <div class="row">
+                            <%
+                                for (const char of locals.user.characters)
+                                {
+                            %>
                             <div class="col-lg-4">
                                 <div class="card card-default">
                                     <div class="card-header">
-                                        <div class="card-title">{NOM PERSONNAGE 1}
-                                        </div>
+                                        <div class="card-title"><%= char.name %></div>
                                         <div class="card-controls">
                                             <ul>
-                                                <li><a data-toggle="close" class="card-close" href="#"><i
-                                                                class="card-icon card-icon-close"></i></a>
+                                                <li>
+                                                    <a data-toggle="close" class="card-close" href="#">
+                                                        <i class="card-icon card-icon-close"></i>
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <p><img src="http://www.renders-graphiques.fr/image/upload/normal/1052_render_sp4archer.png"
-                                                height="100"/></p>
-                                        <p><b>CLASSE</b> : {CLASS}</p>
-                                        <p><b>LEVEL</b> : {LEVEL}(+XX)</p>
-                                        <p><b>JOB LEVEL</b> : {JOBLEVEL}</p>
-                                        <p><b>GOLD</b> : {1 000 000 000}</p>
+                                        <p>
+                                            <img src="http://www.renders-graphiques.fr/image/upload/normal/1052_render_sp4archer.png" height="100"/>
+                                        </p>
+                                        <p><b>CLASSE</b> : <%= char.class %></p>
+                                        <p><b>LEVEL</b> : <%= char.level %>(+XX)</p>
+                                        <p><b>JOB LEVEL</b> : <%= char.job_level %></p>
+                                        <p><b>GOLD</b> : <%= char.gold %></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{NOM PERSONNAGE 1}
-                                        </div>
-                                        <div class="card-controls">
-                                            <ul>
-                                                <li><a data-toggle="close" class="card-close" href="#"><i
-                                                                class="card-icon card-icon-close"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <p><img src="http://www.renders-graphiques.fr/image/upload/normal/1052_render_sp4archer.png"
-                                                height="100"/></p>
-                                        <p><b>CLASSE</b> : {CLASS}</p>
-                                        <p><b>LEVEL</b> : {LEVEL}(+XX)</p>
-                                        <p><b>JOB LEVEL</b> : {JOBLEVEL}</p>
-                                        <p><b>GOLD</b> : {1 000 000 000}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">{NOM PERSONNAGE 1}
-                                        </div>
-                                        <div class="card-controls">
-                                            <ul>
-                                                <li><a data-toggle="close" class="card-close" href="#"><i
-                                                                class="card-icon card-icon-close"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <p><img src="http://www.renders-graphiques.fr/image/upload/normal/1052_render_sp4archer.png"
-                                                height="100"/></p>
-                                        <p><b>CLASSE</b> : {CLASS}</p>
-                                        <p><b>LEVEL</b> : {LEVEL}(+XX)</p>
-                                        <p><b>JOB LEVEL</b> : {JOBLEVEL}</p>
-                                        <p><b>GOLD</b> : {1 000 000 000}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <%
+                                }
+                            %>
                         </div>
                         <!-- END PLACE PAGE CONTENT HERE -->
                     </div>

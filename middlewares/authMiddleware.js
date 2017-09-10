@@ -63,6 +63,7 @@ function authRequired(req, res, next)
             return res.redirect(req.protocol + '://' + req.get('host') + '/login');
         }
 
+        user.characters = info.characters;
         user.money = info.money || null;
         user.permissions = {};
         user.permissions.IS_ADMIN = (info.permissions & global.config.e_permissions.IS_ADMIN) === 1;
