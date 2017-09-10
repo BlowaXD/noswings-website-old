@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
         method: 'post',
         json: true,
         url: global.config.api.post_buy,
-        body: { PackId: req.body.PackId },
+        body: { PackId: req.body.PackId, character: 'DarkyZ' },
         headers: { 'x-access-token': req.user.token }
     };
 
