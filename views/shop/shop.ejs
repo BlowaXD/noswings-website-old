@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <% include ../shared/head.ejs %>
-        <style>
-            .nw-shop-item
-            {
-                max-height: 200px;
-            }
+<head>
+    <% include ../shared/head.ejs %>
+    <style></style>
+    <style>
+        .nw-shop-item {
+            max-height: 200px;
+        }
 
-            .nw-shop-image
-            {
-                text-align: center;
-            }
-        </style>
-    </head>
+        .nw-shop-image {
+            text-align: center;
+        }
+    </style>
+</head>
 
-    <body class="fixed-header menu-pin">
-        <% include ../shared/sidepanel.ejs %>
-        <!-- START PAGE-CONTAINER -->
-        <div class="page-container">
-            <% include ../shared/header.ejs %>
-            <!-- START PAGE CONTENT WRAPPER -->
-            <div class="page-content-wrapper">
-                <!-- START PAGE CONTENT -->
-                <div class="content">
-                    <!-- START CONTAINER FLUID -->
-                    <div class="container-fluid container-fixed-lg">
-                        <o class="breadcrumb"></o>
-                        <!-- BEGIN PlACE PAGE CONTENT HERE -->
-                        <div class="row">
-                            <%
-                                if (error)
-                                {
-                                    %>
-                                    <p>Error : <%= error %></p>
-                                    <%
-                                }
+<body class="fixed-header menu-pin">
+<% include ../shared/sidepanel.ejs %>
+<!-- START PAGE-CONTAINER -->
+<div class="page-container">
+    <% include ../shared/header.ejs %>
+    <!-- START PAGE CONTENT WRAPPER -->
+    <div class="page-content-wrapper">
+        <!-- START PAGE CONTENT -->
+        <div class="content">
+            <!-- START CONTAINER FLUID -->
+            <div class="container-fluid container-fixed-lg">
+                <o class="breadcrumb"></o>
+                <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                <div class="row">
+                    <%
+                    if (error)
+                    {
+                    %>
+                    <p>Error : <%= error %></p>
+                    <%
+                    }
 
-                                if (!packs)
-                                    return;
+                    if (!packs)
+                        return;
 
-                                for (const pack of packs)
-                                {
-                            %>
-                            <form action="/shop" method="POST" class="col-lg-4">
-                                <div>
-                                    <div class="card card-default">
-                                        <div class="card-header">
-                                            <div class="card-title"><%= pack.Name %></div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="nw-shop-image">
-                                                <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
-                                            </div>
-                                            <p><%= pack.Description %></p>
-                                            <p>
-                                                <button type="submit" class="btn btn-success btn-md m-t-10">
-                                                    <i class="fa fa-shopping-cart"></i> <%= pack.Price %>€
-                                                </button>
-                                                <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                    <i class="fa fa-info-circle"></i> {DETAILS}
-                                                </button>
-                                            </p>
-                                            <input type="hidden" name="PackId" value="<%= pack.PackId %>">
-                                        </div>
-                                    </div>
+                            for (const pack of packs)
+                    {
+                    %>
+                    <form action="/shop" method="POST" class="col-lg-4">
+                        <div>
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <div class="card-title"><%= pack.Name %></div>
                                 </div>
-                            </form>
-                            <%
-                                }
-                            %>
+                                <div class="card-block">
+                                    <div class="nw-shop-image">
+                                        <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
+                                    </div>
+                                    <p style="margin-bottom: 10px;"><%= pack.Description %></p>
+                                    <div style="display: flex; align-items: center;justify-content: center;">
+                                        <span>Personnage à livrer : </span>
+                                    </div>
+                                    <div style="display: flex; align-items: center;justify-content: center;">
+                                        <select class="pull-left cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                            <%
+                                            for (const char of locals.user.characters)
+                                            {
+                                            %>
+                                            <option value="<%= char.name %>"><%= char.name %></option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div style="display: flex; align-items: center;justify-content: center;">
+                                    <button type="submit" class="btn btn-success btn-md m-t-10">
+                                        </i><%= pack.Price %> <i class="fa fa-money"></i>
+                                    </button>
+                                    </div>
+                                    <input type="hidden" name="PackId" value="<%= pack.PackId %>">
+                                </div>
+                            </div>
                         </div>
-                        <!-- END PLACE PAGE CONTENT HERE -->
-                    </div>
-                    <!-- END CONTAINER FLUID -->
+                    </form>
+                    <%
+                    }
+                    %>
                 </div>
-                <!-- END PAGE CONTENT -->
-                <% include ../shared/copyright.ejs %>
+                <!-- END PLACE PAGE CONTENT HERE -->
             </div>
-            <!-- END PAGE CONTENT WRAPPER -->
+            <!-- END CONTAINER FLUID -->
         </div>
-        <!-- END PAGE CONTAINER -->
-        <% include ../shared/javascript.ejs %>
-    </body>
+        <!-- END PAGE CONTENT -->
+        <% include ../shared/copyright.ejs %>
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTAINER -->
+<% include ../shared/javascript.ejs %>
+</body>
 </html>
