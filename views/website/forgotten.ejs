@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../shared/head.ejs %>
+</head>
+
+<body class="fixed-header menu-pin">
+<div class="register-container full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height">
+        <div style="text-align: center;"><img src="/assets/img/logo.svg" alt="logo" data-src="/assets/img/logo.svg" data-src-retina="/assets/img/logo.svg" width="500"></div>
+        <h3>NosWings : Reborn</h3>
+        <p>
+            Mot de passe oublié
+            Un mail de récupération de mot de passe vous sera envoyé
+        </p>
+        <form id="form-register" class="p-t-15" role="form" action="/forgotten" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Identifiant" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Un mail de récupération de mot de passe vous sera envoyé" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm"></div>
+            <button class="btn btn-primary btn-cons m-t-10" type="submit">Envoyer</button>
+        </form>
+    </div>
+</div>
+<!-- BEGIN VENDOR JS -->
+<% include ../shared/javascript.ejs %>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+</html>

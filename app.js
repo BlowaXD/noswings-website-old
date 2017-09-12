@@ -22,6 +22,7 @@ const route_admin = routes.admin;
 const route_shop = routes.shop;
 const route_user = routes.user;
 const route_moderator = routes.moderator;
+const route_website = routes.website;
 
 /*
 ** SETUP EXPRESS
@@ -41,7 +42,8 @@ app.use(bodyParser.urlencoded({ limit: '8mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* CREATE ROUTES */
-app.use(route_user);
+app.use(route_website);
+app.use('/user', route_user);
 app.use('/admin', route_admin);
 app.use('/shop', route_shop);
 app.use('/moderator', route_moderator);
