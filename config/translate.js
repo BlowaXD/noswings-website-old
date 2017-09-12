@@ -19,21 +19,24 @@ module.exports = {
         ADMIN_PANEL: 'Admin Panel',
     },
     LOGIN_PAGE: {
-        TITLE: 'Login'
+        TITLE: 'Connexion'
     },
     REGISTER_PAGE: {
-        TITLE: 'Register'
+        TITLE: 'Inscription'
+    },
+    FORGOTTEN_PAGE: {
+        TITLE: 'Mot de passe oublié'
     },
     HOME_PAGE: {
-        TITLE: 'Home'
+        TITLE: 'Accueil'
     },
     ACCOUNT_PAGE: {
-        TITLE: 'Account'
+        TITLE: 'Mon Compte'
     },
     DONATE_PAGE: {
-        TITLE: 'Donate'
+        TITLE: 'Donations'
     },
     SHOP_PAGE: {
-        TITLE: 'Shop'
+        TITLE: 'KFC-SHOP'
     },
 };

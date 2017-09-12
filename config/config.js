@@ -8,7 +8,8 @@ module.exports = {
         get_token: `${api_host}/user/token`,
         get_packs: `${api_host}/shop/packs`,
         post_buy: `${api_host}/shop/buy`,
-        post_register: `${api_host}/register`
+        post_register: `${api_host}/register`,
+        post_forgotten: `${api_host}/forgotten`
     },
     links:
         {
