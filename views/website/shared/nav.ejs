@@ -1,0 +1,45 @@
+<!-- Header -->
+<header>
+    <!-- Header menu -->
+    <nav class="header-menu page-wide-container">
+        <div class="nav-part left-side">
+            <ul class="nav-menu">
+                <li class="menu-item menu-item-server">
+                    <div class="menu-item-label">
+                        Status du serveur: <span class="server-status">En ligne</span>
+                    </div>
+                </li>
+                <li class="menu-item menu-item-support">
+                    <a href="/classement" class="menu-item-label">
+                        Classement
+                    </a>
+                </li>
+                <li class="menu-item menu-item-forum">
+                    <a href="<%- links.forum; %>" class="menu-item-label">
+                        Forum
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-part right-side">
+            <ul class="nav-menu nav-menu">
+                <li class="menu-item menu-item-login">
+                    <a href="#modal" class="login-trigger menu-item-label">
+                        Inscription
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header logo -->
+    <a href="/">
+        <figure class="header-logo page-wide-container">
+            <picture class="image">
+                <img alt="Noswing" src="<%- links.staticDomain; %>/assets/img/logo.png">
+            </picture>
+            <figcaption class="caption">NosWings Reborn</figcaption>
+        </figure>
+    </a>
+</header>

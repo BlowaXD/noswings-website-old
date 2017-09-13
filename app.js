@@ -5,6 +5,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const path = require("path");
+const favicon = require("serve-favicon");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 
@@ -22,14 +23,16 @@ const route_admin = routes.admin;
 const route_shop = routes.shop;
 const route_user = routes.user;
 const route_moderator = routes.moderator;
+const route_website = routes.website;
 
 /*
 ** SETUP EXPRESS
 */
 const app = express();
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.locals = { translate: global.translate };
+app.locals = { translate: global.translate, links: global.config.links };
 
 /*
 ** MIDDLEWARES
@@ -41,7 +44,8 @@ app.use(bodyParser.urlencoded({ limit: '8mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* CREATE ROUTES */
-app.use(route_user);
+app.use(route_website);
+app.use('/user', route_user);
 app.use('/admin', route_admin);
 app.use('/shop', route_shop);
 app.use('/moderator', route_moderator);

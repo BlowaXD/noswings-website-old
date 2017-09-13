@@ -18,23 +18,34 @@ module.exports = {
         GM_PANEL: 'GM Panel',
         ADMIN_PANEL: 'Admin Panel',
     },
-    LOGIN_PAGE: {
-        TITLE: 'Login'
+    WEBSITE: {
+        HOME_PAGE: {
+          TITLE: 'Serveur privé Nostale | Accueil',
+          DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+          'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        REGISTER_PAGE: {
+            TITLE: 'Inscription'
+        },
+        FORGOTTEN_PAGE: {
+            TITLE: 'Mot de passe oublié'
+        }
     },
-    REGISTER_PAGE: {
-        TITLE: 'Register'
-    },
-    HOME_PAGE: {
-        TITLE: 'Home'
-    },
-    ACCOUNT_PAGE: {
-        TITLE: 'Account'
-    },
-    DONATE_PAGE: {
-        TITLE: 'Donate'
-    },
-    SHOP_PAGE: {
-        TITLE: 'Shop',
-        DETAILS: 'Details',
-    },
+    USER: {
+        LOGIN_PAGE: {
+            TITLE: 'Connexion'
+        },
+        HOME_PAGE: {
+            TITLE: 'Accueil'
+        },
+        ACCOUNT_PAGE: {
+            TITLE: 'Mon Compte'
+        },
+        DONATE_PAGE: {
+            TITLE: 'Donations'
+        },
+        SHOP_PAGE: {
+            TITLE: 'KFC-SHOP'
+        }
+    }
 };

@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <% include ./shared/header.ejs %>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+<div id="page-container">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">Vous utilisez un <strong>vieux</strong> navigateur. S'il vous plaît <a
+            href="http://browsehappy.com/">passez sur un navigateur plus récent</a> pour améliorer votre expérience.</p>
+    <![endif]-->
+
+    <% include ./shared/nav.ejs %>
+
+    <!-- Main -->
+    <main id="page-main" class="page-wide-container">
+        <!-- Main navigation bar -->
+        <nav class="main-nav">
+            <ul class="nav-menu nav-menu-wide">
+                <li class="menu-item">
+                    <a href="#" class="menu-item-label">
+                                            <span class="parent-link-wrapper">
+                                              <i class="icon icon-news fa fa-newspaper-o"></i>
+                                                Nouveautés
+                                              </span>
+                        <i class="arrow"></i>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="http://www.rpg-paradize.com/?page=vote&vote=108093" class="menu-item-label">
+                                            <span class="parent-link-wrapper">
+                                              <i class="icon icon-news fa fa-thumbs-up"></i>
+                                              Votez pour nous !
+                                            </span>
+                        <i class="arrow"></i>
+                    </a>
+                </li>
+                <li class="menu-item menu-item-primary menu-item-play">
+                    <a href="" role="button" class="login-trigger menu-item-label"
+                       data-hash="#register">
+                        Téléchargez notre launcher
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Feed -->
+        <div class="main-content">
+            <!-- Feed -->
+            <div class="main-feed">
+                <!-- News feed -->
+                <section class="news-block">
+                    <!-- Article feed -->
+                    <div class="news-block-layout">
+                        <header class="news-block-header">
+                            <a href="/news">Les dernières nouvelles</a>
+                        </header>
+                        <div class="news-feed">
+                            <article class="new">
+                                <div class="image">
+                                    <a class="img" href="">
+                                        <div class="cover" data-more="Read more"
+                                             data-desc="go to article to read more and discuss this article"></div>
+                                        <img src="" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <header class="header">
+                                        <a class="title" href="">[] </a>
+                                        <div class="desc">
+
+                                        </div>
+                                    </header>
+                                    <div class="info">
+                                        <div class="info">
+                                            <span></span>
+                                            <span>Categories: <a href=""></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</div>
+<% include shared/footer.ejs %>
+<% include shared/scripts.ejs %>
+</body>
+
+</html>
