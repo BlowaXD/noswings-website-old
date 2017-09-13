@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-    <% include shared/header.ejs %>
+    <% include ./shared/header.ejs %>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
@@ -12,7 +12,7 @@
             href="http://browsehappy.com/">passez sur un navigateur plus récent</a> pour améliorer votre expérience.</p>
     <![endif]-->
 
-    <% include shared/top_nav.ejs %>
+    <% include ./shared/nav.ejs %>
 
     <!-- Main -->
     <main id="page-main" class="page-wide-container">
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="menu-item menu-item-primary menu-item-play">
-                    <a href="<%- launcherLink; %>" role="button" class="login-trigger menu-item-label"
+                    <a href="" role="button" class="login-trigger menu-item-label"
                        data-hash="#register">
                         Téléchargez notre launcher
                     </a>
@@ -53,54 +53,37 @@
                 <!-- News feed -->
                 <section class="news-block">
                     <!-- Article feed -->
-                    <% if (locals.news) { %>
                     <div class="news-block-layout">
                         <header class="news-block-header">
                             <a href="/news">Les dernières nouvelles</a>
                         </header>
                         <div class="news-feed">
-                            <% for (var i = 0; i < news.length; i++) { %>
                             <article class="new">
                                 <div class="image">
-                                    <a class="img" href="<%- news[i].Link; %>">
+                                    <a class="img" href="">
                                         <div class="cover" data-more="Read more"
                                              data-desc="go to article to read more and discuss this article"></div>
-                                        <img src="<%- news[i].Image; %>" alt="<%- news[i].Title; %>">
+                                        <img src="" alt="">
                                     </a>
                                 </div>
                                 <div class="text">
                                     <header class="header">
-                                        <a class="title" href="<%- news[i].Link; %>">[<%- news[i].Tag; %>
-                                            ] <%- news[i].Title; %></a>
+                                        <a class="title" href="">[] </a>
                                         <div class="desc">
-                                            <%- news[i].Description; %>
+
                                         </div>
                                     </header>
                                     <div class="info">
                                         <div class="info">
-                                            <span><%- news[i].Date; %></span>
-                                            <span>Categories: <a href="<%- news[i].Link; %>"><%- news[i].Tag; %></a></span>
+                                            <span></span>
+                                            <span>Categories: <a href=""></a></span>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-                            <% } %>
                         </div>
                     </div>
-                    <% } %>
                 </section>
-            </div>
-            <!-- Sidebar -->
-            <div class="main-sidebar">
-                <a href="<%- launcherLink; %>">
-                    <img src="<%- staticDomain; %>/images/global/widgets/widget_launcher.png" alt="Launcher NosWings">
-                </a>
-                <a href="<%- forumDomain; %>">
-                    <img src="<%- staticDomain; %>/images/global/widgets/widget_forum.png" alt="Forum NosWings">
-                </a>
-                <a href="http://discord.noswings.fr">
-                    <img src="<%- staticDomain; %>/images/global/widgets/widget_discord.png" alt="Discord NosWings">
-                </a>
             </div>
         </div>
     </main>

@@ -15,30 +15,13 @@
                     </a>
                 </li>
                 <li class="menu-item menu-item-forum">
-                    <a href="<%- forumDomain; %>" class="menu-item-label">
+                    <a href="<%- links.forum; %>" class="menu-item-label">
                         Forum
                     </a>
                 </li>
             </ul>
         </div>
 
-        <% if (locals.user) { %>
-
-        <div class="nav-part right-side">
-            <ul class="nav-menu nav-menu">
-                <li class="menu-item menu-item-claim">
-                    <a href="#modal" class="login-trigger menu-item-label">
-                        CashPoints
-                    </a>
-                </li>
-                <li class="menu-item menu-item-logged">
-                    <a href="#modal" class="login-trigger menu-item-label">
-                        <%- user.Identifiant; %>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <% } else { %>
         <div class="nav-part right-side">
             <ul class="nav-menu nav-menu">
                 <li class="menu-item menu-item-login">
@@ -48,14 +31,13 @@
                 </li>
             </ul>
         </div>
-        <% } %>
     </nav>
 
     <!-- Header logo -->
     <a href="/">
         <figure class="header-logo page-wide-container">
             <picture class="image">
-                <img alt="Noswing" src="<%- staticDomain; %>/assets/img/logo.png">
+                <img alt="Noswing" src="<%- links.staticDomain; %>/assets/img/logo.png">
             </picture>
             <figcaption class="caption">NosWings Reborn</figcaption>
         </figure>

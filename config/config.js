@@ -13,6 +13,7 @@ module.exports = {
     },
     links:
         {
+            staticDomain: `https://static.noswings.fr`,
             launcher: `https://static.noswings.fr/NosWings.exe`,
             website: `https://noswings.fr/`,
             forum: `https://forum.noswings.fr/`,

@@ -3,13 +3,13 @@
 
 <!-- SEO -->
 <title>NosWings | Serveur privé Nostale
-    <% if (locals.pageName) { %>
-    | <%- pageName; %>
+    <% if (locals.title) { %>
+    | <%- title %>
     <% } %>
 </title>
 <meta name="description" content="
-<% if (locals.pageDescription) { %>
-  <%- pageDescription; %>
+<% if (locals.desc) { %>
+  <%- desc %>
 <% } else { %>
   NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
   Rejoignez nous dès maintenant et découvrez notre serveur !
@@ -19,21 +19,23 @@
 <meta name="author" content="NosWings">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="apple-touch-icon" href="<%- staticDomain; %>/assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="<%- links.staticDomain; %>/assets/apple-touch-icon.png">
 <!-- Place favicon.ico in the root directory -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!-- Place favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/vendor/normalize.min.css">
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/vendor/font-awesome.min.css">
 
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/main.css">
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/navigation.css">
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/wide.css">
-<link rel="stylesheet" href="<%- staticDomain; %>/assets/css/login.css">
-<script src="<%- staticDomain; %>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/vendor/normalize.min.css">
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/vendor/font-awesome.min.css">
+
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/main.css">
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/navigation.css">
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/wide.css">
+<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/login.css">
+<script src="<%- links.staticDomain; %>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">

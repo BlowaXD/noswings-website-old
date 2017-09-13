@@ -5,6 +5,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const path = require("path");
+const favicon = require("serve-favicon");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 
@@ -28,9 +29,10 @@ const route_website = routes.website;
 ** SETUP EXPRESS
 */
 const app = express();
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.locals = { translate: global.translate };
+app.locals = { translate: global.translate, links: global.config.links };
 
 /*
 ** MIDDLEWARES
