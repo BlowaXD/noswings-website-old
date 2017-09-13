@@ -34,6 +34,7 @@ module.exports = {
         TITLE: 'Donate'
     },
     SHOP_PAGE: {
-        TITLE: 'Shop'
+        TITLE: 'Shop',
+        DETAILS: 'Details',
     },
 };

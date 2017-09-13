@@ -15,17 +15,21 @@ router.get('/', (req, res) => {
 
     request(opt, (err, response, body) => {
         if (err || response.statusCode !== 200)
-            return res.render('shop/shop', { packs: [], error: err || `Status code : ${response.statusCode}` });
+            return res.render('shop/shop', { error: err || `Status code : ${response.statusCode}` });
 
         try
         {
             data.packs = JSON.parse(body) || [];
-            data.error = null;
+            data.categories = data.packs
+                .map((p, i, l) => { if (l.indexOf(p.CategoryId) === -1) return p.CategoryId; })
+                .map(cat => {
+                    const elem = data.packs.find(pack => pack.CategoryId === cat);
+                    return new Object({ name: elem.CName, id: elem.CategoryId });
+                });
             res.render('shop/shop', data);
         }
         catch (error)
         {
-            data.packs = [];
             data.error = error;
             res.render('shop/shop', data);
         }

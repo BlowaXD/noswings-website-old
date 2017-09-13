@@ -19,6 +19,8 @@
         <% include ../shared/sidepanel.ejs %>
         <!-- START PAGE-CONTAINER -->
         <div class="page-container">
+            <!-- DA JOKE XD -->
+            <span id="api-info" style="display: none;"><%= JSON.stringify(locals.packs) %></span>
             <% include ../shared/header.ejs %>
             <!-- START PAGE CONTENT WRAPPER -->
             <div class="page-content-wrapper">
@@ -26,48 +28,26 @@
                 <div class="content">
                     <!-- START CONTAINER FLUID -->
                     <div class="container-fluid container-fixed-lg">
-                        <o class="breadcrumb"></o>
                         <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                        <div style="margin-top: 10px;margin-bottom: 18px;">
+                            <label for="cat-select">Category : </label>
+                            <select id="cat-select" onchange="updateCategory()">
+                                <option value="0" selected>All</option>
+                                <%
+                                    for (const cat of locals.categories)
+                                    {
+                                %>
+                                <option value="<%= cat.id %>"><%= cat.name %></option>
+                                <%
+                                    }
+                                %>
+                            </select>
+                        </div>
                         <div class="row">
                             <%
-                                if (error)
+                                if (locals.error)
                                 {
-                                    %>
-                                    <p>Error : <%= error %></p>
-                                    <%
-                                }
-
-                                if (!packs)
-                                    return;
-
-                                for (const pack of packs)
-                                {
-                            %>
-                            <form action="/shop" method="POST" class="col-lg-4">
-                                <div>
-                                    <div class="card card-default">
-                                        <div class="card-header">
-                                            <div class="card-title"><%= pack.Name %></div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="nw-shop-image">
-                                                <p><img src="<%= pack.Image %>" class="nw-shop-item"/></p>
-                                            </div>
-                                            <p><%= pack.Description %></p>
-                                            <p>
-                                                <button type="submit" class="btn btn-success btn-md m-t-10">
-                                                    <i class="fa fa-shopping-cart"></i> <%= pack.Price %>€
-                                                </button>
-                                                <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                    <i class="fa fa-info-circle"></i> {DETAILS}
-                                                </button>
-                                            </p>
-                                            <input type="hidden" name="PackId" value="<%= pack.PackId %>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <%
+                                    %><p>Error : <%= locals.error %></p><%
                                 }
                             %>
                         </div>
@@ -82,5 +62,49 @@
         </div>
         <!-- END PAGE CONTAINER -->
         <% include ../shared/javascript.ejs %>
+        <script>
+            updateCategory();
+            function updateCategory()
+            {
+                let shop = '';
+                const cat_id = parseInt($('#cat-select').val());
+                const packs = JSON.parse($('#api-info').text());
+
+                for (const pack of packs)
+                {
+                    if (cat_id !== 0 && pack.CategoryId !== cat_id)
+                        continue;
+
+                    shop += `
+                        <form action="/shop" method="POST" class="col-lg-4">
+                            <div>
+                                <div class="card card-default">
+                                    <div class="card-header">
+                                        <div class="card-title">${pack.Name}</div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="nw-shop-image">
+                                            <p><img src="${pack.Image}" class="nw-shop-item"/></p>
+                                        </div>
+                                        <p>${pack.Description}</p>
+                                        <p>
+                                            <button type="submit" class="btn btn-success btn-md m-t-10">
+                                                <i class="fa fa-shopping-cart"></i> ${pack.Price}€
+                                            </button>
+                                            <button class="pull-right btn btn-complete btn-md m-t-10">
+                                                <i class="fa fa-info-circle"></i> <%= locals.translate.SHOP_PAGE.DETAILS %>
+                                            </button>
+                                        </p>
+                                        <input type="hidden" name="PackId" value="${pack.PackId}">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>`;
+                }
+
+                $('div.row').html('');
+                $('div.row').append($(shop));
+            }
+        </script>
     </body>
 </html>
