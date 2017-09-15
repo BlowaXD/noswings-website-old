@@ -2,16 +2,6 @@
 <html>
 <head>
     <% include ../shared/head.ejs %>
-    <style></style>
-    <style>
-        .nw-shop-item {
-            max-height: 200px;
-        }
-
-        .nw-shop-image {
-            text-align: center;
-        }
-    </style>
 </head>
 
     <body class="fixed-header menu-pin">
@@ -46,11 +36,12 @@
                             <%
                                 if (locals.error)
                                 {
-                                    %><p>Error : <%= locals.error %></p><%
+                            %>
+                            <p>Error : <%= locals.error %></p>
+                            <%
                                 }
                             %>
                         </div>
-                    </form>
                     <%
                     }
                     %>
@@ -91,7 +82,7 @@
                                                 <i class="fa fa-shopping-cart"></i> ${pack.Price}€
                                             </button>
                                             <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                <i class="fa fa-info-circle"></i> <%= locals.translate.SHOP_PAGE.DETAILS %>
+                                                <i class="fa fa-info-circle"></i> <%= locals.translate.USER.SHOP_PAGE.DETAILS %>
                                             </button>
                                         </p>
                                         <input type="hidden" name="PackId" value="${pack.PackId}">
