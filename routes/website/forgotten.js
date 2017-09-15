@@ -9,7 +9,7 @@ const recaptcha = new reCaptcha({
 
 router.get('/', (req, res) => {
     const data = {
-        title: global.translate.FORGOTTEN_PAGE.TITLE
+        title: global.translate.WEBSITE.FORGOTTEN_PAGE.TITLE
     };
 
     res.render('website/forgotten', data);
