@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
         const cookies = new Cookies(req, res);
 
         cookies.set(`${global.config.server}-token`, req_res.data, { expires: new Date(Date.now() + (7200 * 1000)) });
-        return res.redirect(req.protocol + '://' + req.get('host'));
+        return res.redirect(req.protocol + '://' + req.get('host') + '/user');
     });
 });
 

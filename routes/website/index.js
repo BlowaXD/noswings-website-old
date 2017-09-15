@@ -11,6 +11,7 @@ router.use('/login', require('./login.js'));
 router.use('/register', require('./register.js'));
 router.use('/forgotten', require('./forgotten.js'));
 
+/*
 // catch 404 and forward to error handler
 router.use(function (req, res, next) {
     const err = new Error('Not Found');
@@ -28,5 +29,6 @@ router.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('website/home', { title: 'Error', user: {} });
 });
+*/
 
 module.exports = router;
