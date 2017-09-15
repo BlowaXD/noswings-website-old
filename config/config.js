@@ -8,6 +8,7 @@ module.exports = {
             get_patchs : `${api_host}/admin/patchs`,
             post_patch : `${api_host}/admin/patchs`,
         },
+        get_news: `${api_host}/get_news`,
         get_info: `${api_host}/user/get_info`,
         get_token: `${api_host}/user/token`,
         get_packs: `${api_host}/shop/packs`,

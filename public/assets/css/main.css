@@ -213,16 +213,6 @@ html, button, input, select, textarea {
         display: none;
     }
 }
-.main-sidebar {
-    float: right;
-    width: 25%;
-    background: rgb(40, 44, 43);
-}
-@media only screen and (max-width:798px) {
-    .main-sidebar {
-        float: none;
-    }
-}
 .news-feed .new .image .img {
     float: left;
     position: relative;
