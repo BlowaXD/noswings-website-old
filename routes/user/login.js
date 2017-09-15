@@ -6,7 +6,7 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     const data = {
-        title: global.translate.LOGIN_PAGE.TITLE
+        title: global.translate.USER.LOGIN_PAGE.TITLE
     };
 
     res.render('user/login', data);

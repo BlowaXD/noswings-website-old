@@ -5,7 +5,7 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
     let data = {
         user: req.user,
-        title: global.translate.SHOP_PAGE.TITLE
+        title: global.translate.USER.SHOP_PAGE.TITLE
     };
     const opt = {
         method: 'get',
