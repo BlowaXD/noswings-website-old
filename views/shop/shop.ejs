@@ -78,19 +78,18 @@
                                                 <button type="submit" class="btn btn-success btn-md m-t-10">
                                                     <i class="fa fa-shopping-cart"></i> ${pack.Price} <i class="fa fa-money"></i>
                                                 </button>
-
-                                            <select class="cs-select cs-skin-slide" value="character">
-                                                <%
-                                                    for (const character of locals.user.characters)
-                                                    {
-                                                %>
-                                                <option value="<%= character.name %>"><%= character.name %></option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
+                                                <select class="cs-select cs-skin-slide" value="character">
+                                                    <%
+                                                        for (const character of locals.user.characters)
+                                                        {
+                                                    %>
+                                                    <option value="<%= character.name %>"><%= character.name %></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
                                                 <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                    <i class="fa fa-info-circle"></i> <%= locals.translate.SHOP_PAGE.DETAILS %>
+                                                    <i class="fa fa-info-circle"></i> <%= locals.translate.USER.SHOP_PAGE.DETAILS %>
                                                 </button>
                                             </p>
                                             <input type="hidden" name="PackId" value="${pack.PackId}">
