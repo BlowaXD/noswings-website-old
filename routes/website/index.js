@@ -25,7 +25,7 @@ router.use(function (err, req, res, next) {
 
     console.error(err);
     res.status(err.status || 500);
-    res.render('website/index', { title: 'Error', user: {} });
+    res.render('website/home', { title: 'Error', user: {} });
 });
 
 module.exports = router;
