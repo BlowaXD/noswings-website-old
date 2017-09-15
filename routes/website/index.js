@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', require('./home.js'));
 router.get('/ranking', require('./ranking.js'));
 
+router.use('/login', require('./login.js'));
 router.use('/register', require('./register.js'));
 router.use('/forgotten', require('./forgotten.js'));
 
