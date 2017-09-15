@@ -19,31 +19,28 @@
 <meta name="author" content="NosWings">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="apple-touch-icon" href="<%- links.staticDomain; %>/assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <!-- Place favicon.ico in the root directory -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="shortcut icon" href="/favicon.ico">
-
-
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/vendor/normalize.min.css">
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/vendor/font-awesome.min.css">
-
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/main.css">
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/navigation.css">
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/wide.css">
-<link rel="stylesheet" href="<%- links.staticDomain; %>/assets/css/login.css">
-<script src="<%- links.staticDomain; %>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="/assets/css/normalize.css">
+<link rel="stylesheet" href="/assets/css/font-awesome.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/navigation.css">
+<link rel="stylesheet" href="/assets/css/wide.css">
+<script src="/assets/js/modernizr.js"></script>
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@noswings">
 <meta name="twitter:title" content="NosWings">
 <meta name="twitter:description"
-      content="NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
-  Rejoignez nous dès maintenant et découvrez notre serveur !">
+      content="<% if (locals.desc) { %>
+  <%- desc %>
+<% } else { %>
+  NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
+  Rejoignez nous dès maintenant et découvrez notre serveur !
+<% } %>">
 <meta name="twitter:creator" content="@noswings">
 <meta name="twitter:image" content="http://static.noswings.fr/images/global/logo/logo.png"/>
 <!-- Open Graph -->
@@ -51,7 +48,11 @@
 <meta property="og:url" content="http://www.noswings.fr/"/>
 <meta property="og:image" content="http://static.noswings.fr/images/global/logo/logo.png"/>
 <meta property="og:description"
-      content="NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
-  Rejoignez nous dès maintenant et découvrez notre serveur !">
+      content="<% if (locals.desc) { %>
+  <%- desc %>
+<% } else { %>
+  NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
+  Rejoignez nous dès maintenant et découvrez notre serveur !
+<% } %>">
 <meta property="og:site_name" content="NosWings"/>
 <meta property="fb:admins" content="310252406042338"/>

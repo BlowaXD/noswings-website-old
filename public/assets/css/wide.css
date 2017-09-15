@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+.layout {
+    width: 1260px;
+    margin: 0 auto;
+    background: none;
+}
+@media only screen and (max-width:1260px) {
+    .layout {
+        width: auto;
+        margin: 0 2rem;
+    }
+}
+/* ==========================================================================
+   Page
+   ========================================================================== */
+.page-wide-container {
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1260px;
+    min-width: 320px;
+}
+@media only screen and (max-width:1260px) {
+    .page-wide-container {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.nav-menu-wide .menu-item {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(40, 44, 43);
+}
+.nav-menu-wide .menu-item-label {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-menu-wide {
+    margin-right: 0;
+    margin-left: 0;
+    list-style: none;
+    will-change: auto;
+}
+@media only screen and (max-width:1024px) {
+    .nav-menu-wide {
+        margin-bottom: 2rem;
+    }
+    .nav-menu-wide .menu-item {
+        flex-grow: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        width: 33%;
+    }
+}
+@media only screen and (max-width:583px) {
+    .nav-menu-wide .menu-item {
+        width: inherit;
+    }
+}
+.nav-menu-wide .parent-link-wrapper {
+    line-height: 5.8rem;
+    vertical-align: middle;
+}
+.nav-menu-wide .parent-link-wrapper .icon {
+    display: inline-block;
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
+.menu-item-play {
+    margin-right: 0;
+    min-width: 25%;
+}
+.menu-item-play .menu-item-label {
+    display: inline-block;
+    width: 100%;
+    border-left-width: 0;
+    text-align: center;
+    line-height: 5.8rem;
+}
+@media only screen and (max-width:1024px) {
+    .menu-item-play {
+        order: 6;
+        margin-right: 1px;
+        -webkit-box-ordinal-group: 7;
+        -webkit-order: 6;
+        -ms-flex-order: 6;
+    }
+}
