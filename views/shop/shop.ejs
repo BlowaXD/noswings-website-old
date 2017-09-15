@@ -20,7 +20,7 @@
                         <!-- BEGIN PlACE PAGE CONTENT HERE -->
                         <div style="margin-top: 10px;margin-bottom: 18px;">
                             <label for="cat-select">Category : </label>
-                            <select id="cat-select" onchange="updateCategory()">
+                            <select class="cs-select cs-skin-slide" id="cat-select" onchange="updateCategory()">
                                 <option value="0" selected>All</option>
                                 <%
                                     for (const cat of locals.categories)
@@ -78,6 +78,17 @@
                                                 <button type="submit" class="btn btn-success btn-md m-t-10">
                                                     <i class="fa fa-shopping-cart"></i> ${pack.Price}€
                                                 </button>
+
+                                            <select class="cs-select cs-skin-slide" value="character">
+                                                <%
+                                                    for (const character of locals.user.characters)
+                                                    {
+                                                %>
+                                                <option value="<%= character.name %>"><%= character.name %></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
                                                 <button class="pull-right btn btn-complete btn-md m-t-10">
                                                     <i class="fa fa-info-circle"></i> <%= locals.translate.SHOP_PAGE.DETAILS %>
                                                 </button>
