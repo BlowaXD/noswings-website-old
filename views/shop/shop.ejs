@@ -42,56 +42,57 @@
                                 }
                             %>
                         </div>
+                    </div>
+                    <!-- END PLACE PAGE CONTENT HERE -->
                 </div>
-                <!-- END PLACE PAGE CONTENT HERE -->
+                <!-- END CONTAINER FLUID -->
             </div>
-            <!-- END CONTAINER FLUID -->
-        </div>
-        <!-- END PAGE CONTAINER -->
-        <% include ../shared/javascript.ejs %>
-        <script>
-            updateCategory();
-            function updateCategory()
-            {
-                let shop = '';
-                const cat_id = parseInt($('#cat-select').val());
-                const packs = JSON.parse($('#api-info').text());
-
-                for (const pack of packs)
+            <!-- END PAGE CONTAINER -->
+            <% include ../shared/javascript.ejs %>
+            <script>
+                updateCategory();
+                function updateCategory()
                 {
-                    if (cat_id !== 0 && pack.CategoryId !== cat_id)
-                        continue;
+                    let shop = '';
+                    const cat_id = parseInt($('#cat-select').val());
+                    const packs = JSON.parse($('#api-info').text());
 
-                    shop += `
-                        <form action="/shop" method="POST" class="col-lg-4">
-                            <div>
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                        <div class="card-title">${pack.Name}</div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="nw-shop-image">
-                                            <p><img src="${pack.Image}" class="nw-shop-item"/></p>
+                    for (const pack of packs)
+                    {
+                        if (cat_id !== 0 && pack.CategoryId !== cat_id)
+                            continue;
+
+                        shop += `
+                            <form action="/shop" method="POST" class="col-lg-4">
+                                <div>
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <div class="card-title">${pack.Name}</div>
                                         </div>
-                                        <p>${pack.Description}</p>
-                                        <p>
-                                            <button type="submit" class="btn btn-success btn-md m-t-10">
-                                                <i class="fa fa-shopping-cart"></i> ${pack.Price}€
-                                            </button>
-                                            <button class="pull-right btn btn-complete btn-md m-t-10">
-                                                <i class="fa fa-info-circle"></i> <%= locals.translate.USER.SHOP_PAGE.DETAILS %>
-                                            </button>
-                                        </p>
-                                        <input type="hidden" name="PackId" value="${pack.PackId}">
+                                        <div class="card-block">
+                                            <div class="nw-shop-image">
+                                                <p><img src="${pack.Image}" class="nw-shop-item"/></p>
+                                            </div>
+                                            <p>${pack.Description}</p>
+                                            <p>
+                                                <button type="submit" class="btn btn-success btn-md m-t-10">
+                                                    <i class="fa fa-shopping-cart"></i> ${pack.Price}€
+                                                </button>
+                                                <button class="pull-right btn btn-complete btn-md m-t-10">
+                                                    <i class="fa fa-info-circle"></i> <%= locals.translate.SHOP_PAGE.DETAILS %>
+                                                </button>
+                                            </p>
+                                            <input type="hidden" name="PackId" value="${pack.PackId}">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>`;
-                }
+                            </form>`;
+                    }
 
-                $('div.row').html('');
-                $('div.row').append($(shop));
-            }
-        </script>
+                    $('div.row').html('');
+                    $('div.row').append($(shop));
+                }
+            </script>
+        </div>
     </body>
 </html>
