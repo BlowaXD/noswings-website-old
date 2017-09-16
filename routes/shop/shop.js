@@ -21,11 +21,15 @@ router.get('/', (req, res) => {
         {
             data.packs = JSON.parse(body) || [];
             data.categories = data.packs
-                .map((p, i, l) => { if (l.indexOf(p.CategoryId) === -1) return p.CategoryId; })
-                .map(cat => {
-                    const elem = data.packs.find(pack => pack.CategoryId === cat);
-                    return new Object({ name: elem.CName, id: elem.CategoryId });
-                });
+            .map((p, i) => {
+                if (data.packs.findIndex(e => e.CategoryId === p.CategoryId) === i)
+                return p.CategoryId;
+            })
+          .filter(e => e !== undefined)
+          .map(cat => {
+                const elem = data.packs.find(pack => pack.CategoryId === cat);
+                return new Object({ name: elem.CName, id: elem.CategoryId });
+            });
             res.render('shop/shop', data);
         }
         catch (error)
