@@ -12,6 +12,7 @@ module.exports = {
         get_info: `${api_host}/user/get_info`,
         get_token: `${api_host}/user/token`,
         get_packs: `${api_host}/shop/packs`,
+        get_validate: `${api_host}/register/validate/`,
         post_kick: `${api_host}/user/kick`,
         post_buy: `${api_host}/shop/buy`,
         post_register: `${api_host}/register`,
