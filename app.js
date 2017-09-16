@@ -30,6 +30,7 @@ const route_website = routes.website;
 */
 const app = express();
 app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.locals = { translate: global.translate, links: global.config.links };
@@ -41,7 +42,6 @@ app.use(helmet());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: '8mb', extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 /* CREATE ROUTES */
 app.use(route_website);
