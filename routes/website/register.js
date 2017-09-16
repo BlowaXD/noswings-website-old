@@ -44,6 +44,7 @@ router.post('/', async (req, res) => {
         json: true,
         url: global.config.api.post_register,
         body: {
+            server: 'NosWings',
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
