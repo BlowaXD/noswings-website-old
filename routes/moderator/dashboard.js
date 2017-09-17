@@ -2,7 +2,12 @@
 
 function get(req, res)
 {
-    res.render('moderator/dashboard');
+    let data = {
+        user: req.user,
+        title: global.translate.MODERATOR.HOME_PAGE.TITLE,
+        desc: global.translate.MODERATOR.HOME_PAGE.DESC,
+    };
+    res.render('moderator/dashboard', data);
 }
 
 module.exports = get;

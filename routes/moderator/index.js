@@ -11,5 +11,6 @@ router.use((req, res, next) => {
     res.redirect(req.protocol + '://' + req.get('host') + '/');
 });
 router.get('/', require('./dashboard.js'));
+router.get('*', require('./dashboard.js'));
 
 module.exports = router;

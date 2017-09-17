@@ -19,6 +19,13 @@ module.exports = {
         KICK_DESC: 'ID Déjà utilisé ? Appuyez ici !',
         GM_PANEL: 'GM Panel',
         ADMIN_PANEL: 'Admin Panel',
+        USER_PANEL: 'User Panel',
+        GM : {
+            GIVE : 'GIVE'
+        },
+        ADMIN : {
+            ADD_MONEY : 'Ajouter des Nuggets'
+        }
     },
     WEBSITE: {
         HOME_PAGE: {
@@ -39,6 +46,13 @@ module.exports = {
     ADMIN: {
         HOME_PAGE: {
             TITLE: 'Admin Panel | Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
+    },
+    MODERATOR: {
+        HOME_PAGE: {
+            TITLE: 'GM Panel | Accueil',
             DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
             'Rejoignez nous dès maintenant et découvrez notre serveur !',
         },

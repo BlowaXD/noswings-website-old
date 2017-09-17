@@ -2,8 +2,7 @@
 const Cookies = require('cookies');
 const request = require('request');
 
-function authRequired(req, res, next)
-{
+function authRequired(req, res, next) {
     const cookies = new Cookies(req, res);
     const token = cookies.get(`${global.config.server}-token`);
 
@@ -18,12 +17,10 @@ function authRequired(req, res, next)
 
     /* Parse token */
     let user;
-    try
-    {
+    try {
         user = JSON.parse(new Buffer(params[1], 'base64').toString('utf-8'));
     }
-    catch (e)
-    {
+    catch (e) {
         return res.redirect(req.protocol + '://' + req.get('host') + '/login');
     }
 
@@ -39,26 +36,23 @@ function authRequired(req, res, next)
     const opt = {
         method: 'get',
         url: global.config.api.get_info,
-        headers: { 'x-access-token': token }
+        headers: {'x-access-token': token}
     };
 
     request(opt, (err, response, body) => {
-        if (err || response.statusCode !== 200)
-        {
+        if (err || response.statusCode !== 200) {
             console.log(response ? response.statusCode : '', err);
             return res.redirect(req.protocol + '://' + req.get('host') + '/login');
         }
 
         let info;
-        try
-        {
+        try {
             info = JSON.parse(body);
             if (!info.success)
                 throw new Error('Not succeed');
             info = info.data;
         }
-        catch (e)
-        {
+        catch (e) {
             console.log(e);
             return res.redirect(req.protocol + '://' + req.get('host') + '/login');
         }
@@ -68,6 +62,15 @@ function authRequired(req, res, next)
         user.permissions = {};
         user.permissions.IS_ADMIN = (info.permissions & global.config.e_permissions.IS_ADMIN) === 1;
         user.permissions.IS_GM = (info.permissions & global.config.e_permissions.IS_GM >> 1) === 1;
+        if (req.originalUrl.startsWith("/admin")) {
+            user.actualPanel = "admin";
+        }
+        else if (req.originalUrl.startsWith("/moderator")) {
+            user.actualPanel = "moderator";
+        }
+        else {
+            user.actualPanel = "user";
+        }
         req.user = user;
         req.user.token = token;
         next();
