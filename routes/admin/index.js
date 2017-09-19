@@ -12,6 +12,7 @@ router.use((req, res, next) => {
 });
 router.use('/patch', require('./patch.js'));
 router.get('/', require('./dashboard.js'));
+router.get('/addMoney', require('addMoney.js'));
 router.get('*', require('./dashboard.js'));
 
 module.exports = router;
