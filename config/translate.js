@@ -49,6 +49,11 @@ module.exports = {
             DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
             'Rejoignez nous dès maintenant et découvrez notre serveur !',
         },
+        ADD_MONEY: {
+            TITLE: 'Admin Panel | AJOUT DONATION',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
     },
     MODERATOR: {
         HOME_PAGE: {

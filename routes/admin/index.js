@@ -11,8 +11,8 @@ router.use((req, res, next) => {
     res.redirect(req.protocol + '://' + req.get('host') + '/login');
 });
 router.use('/patch', require('./patch.js'));
+router.use('/addMoney', require('./addmoney.js'));
 router.get('/', require('./dashboard.js'));
-router.get('/addMoney', require('addMoney.js'));
 router.get('*', require('./dashboard.js'));
 
 module.exports = router;
