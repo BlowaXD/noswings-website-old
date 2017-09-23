@@ -8,5 +8,7 @@ const router = express.Router();
 router.use(auth_middleware);
 router.get('/', require('./home.js'));
 router.get('/account', require('./account.js'));
+router.post('/kick', require('./kick.js'));
+router.get('*', require('./home.js'));
 
 module.exports = router;

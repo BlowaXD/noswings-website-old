@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../shared/head.ejs %>
+</head>
+
+<body class="fixed-header menu-pin">
+<% include ../shared/sidepanel.ejs %>
+<!-- START PAGE-CONTAINER -->
+<div class="page-container">
+    <% include ../shared/header.ejs %>
+    <!-- START PAGE CONTENT WRAPPER -->
+    <div class="page-content-wrapper">
+        <!-- START PAGE CONTENT -->
+        <div class="content">
+            <!-- START CONTAINER FLUID -->
+            <div class=" container-fluid   container-fixed-lg">
+                <o class="breadcrumb"></o>
+                <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <!-- START card -->
+                        <div class="card card-default">
+                            <div class="card-header ">
+                                <div class="card-title">Ajouter des Nuggets <i class="fa fa-money"></i>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <h5>Ajouter des Nuggets</h5>
+                                <br>
+                                <form role="form" method="POST" action="/admin/addmoney">
+                                    <div class="form-group">
+                                        <label>Nom du personnage</label>
+                                        <span class="help"></span>
+                                        <input class="form-control" type="text" name="character"
+                                               placeholder="Personnage">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Montant Donation</label>
+                                        <span class="help"></span>
+                                        <input data-v-min="0" data-v-max="15000" class="autonumeric form-control"
+                                               type="text" name="money" placeholder="100">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Donation Flooz</label>
+                                        <span class="help"></span>
+                                        <input type="checkbox" data-init-plugin="switchery" name="flooz"/>
+                                    </div>
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-check"></i> Ajouter
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END card -->
+                    </div>
+                </div>
+                <!-- END PLACE PAGE CONTENT HERE -->
+            </div>
+            <!-- END CONTAINER FLUID -->
+        </div>
+        <!-- END PAGE CONTENT -->
+        <% include ../shared/copyright.ejs %>
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTAINER -->
+<% include ../shared/javascript.ejs %>
+</body>
+</html>

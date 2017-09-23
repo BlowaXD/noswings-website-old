@@ -2,7 +2,12 @@
 
 function get(req, res)
 {
-    res.render('admin/dashboard');
+    let data = {
+        user: req.user,
+        title: global.translate.ADMIN.HOME_PAGE.TITLE,
+        desc: global.translate.ADMIN.HOME_PAGE.DESC,
+    };
+    res.render('admin/dashboard', data);
 }
 
 module.exports = get;

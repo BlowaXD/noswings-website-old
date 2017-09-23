@@ -58,29 +58,35 @@
                             <a href="/news">Les dernières nouvelles</a>
                         </header>
                         <div class="news-feed">
+                            <%
+                                for (const actualNews of locals.news)
+                                {
+                            %>
                             <article class="new">
                                 <div class="image">
-                                    <a class="img" href="">
-                                        <div class="cover" data-more="Read more"
-                                             data-desc="go to article to read more and discuss this article"></div>
-                                        <img src="" alt="">
+                                    <a class="img" href="<%- actualNews.Link %>">
+                                        <div class="cover" data-more="Read more" data-desc="go to article to read more and discuss this article"></div>
+                                        <img src="<%- actualNews.Image %>" alt="<%- actualNews.Title %>">
                                     </a>
                                 </div>
                                 <div class="text">
                                     <header class="header">
-                                        <a class="title" href="">[] </a>
+                                        <a class="title" href="<%- actualNews.Link %>">[<%- actualNews.Tag %>] <%- actualNews.Title %></a>
                                         <div class="desc">
-
+                                            <%- actualNews.Description %>
                                         </div>
                                     </header>
                                     <div class="info">
                                         <div class="info">
-                                            <span></span>
-                                            <span>Categories: <a href=""></a></span>
+                                            <span><%- actualNews.Date %></span>
+                                            <span>Categories: <a href="<%- actualNews.Link %>"><%- actualNews.Tag %></a></span>
                                         </div>
                                     </div>
                                 </div>
                             </article>
+                            <%
+                                }
+                            %>
                         </div>
                     </div>
                 </section>

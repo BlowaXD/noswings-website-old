@@ -7,6 +7,20 @@ const recaptcha = new reCaptcha({
     secretKey: '6Lf-Gi0UAAAAAPXVYs2J8kcZJDoG2POKjsuACA5T'
 });
 
+router.get('/validate/:validationToken', (req, res) => {
+    const opt = {
+        method: 'get',
+        url: global.config.api.get_validate + req.params.validationToken
+    };
+
+    request(opt, (err, response, body) => {
+        /*
+        ** CHECK DU BODY
+        */
+        res.redirect(req.protocol + '://' + req.get('host') + '/');
+    });
+});
+
 router.get('/', (req, res) => {
     const data = {
         title: global.translate.WEBSITE.REGISTER_PAGE.TITLE
@@ -30,6 +44,7 @@ router.post('/', async (req, res) => {
         json: true,
         url: global.config.api.post_register,
         body: {
+            server: 'NosWings',
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,

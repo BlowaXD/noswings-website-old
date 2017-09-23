@@ -7,16 +7,25 @@ module.exports = {
         LOGOUT: 'Logout',
     },
     SIDE_BAR: {
-        HOME: 'Home',
-        HOME_DESC: 'Home Desc',
-        ACCOUNT: 'Account',
-        ACCOUNT_DESC: 'Account desc',
-        DONATE: 'Donate',
-        DONATE_DESC: 'Donate desc',
-        SHOP: 'Shop',
-        SHOP_DESC: 'Shop Desc',
+        HOME: 'Accueil',
+        HOME_DESC: 'L\'interface de gestion de compte',
+        ACCOUNT: 'Mon compte',
+        ACCOUNT_DESC: 'Changements d\'informations',
+        DONATE: 'Donations',
+        DONATE_DESC: 'GO DISCORD TEMPORAIREMENT',
+        SHOP: 'Boutique',
+        SHOP_DESC: 'Le nosmall de NosWings',
+        KICK: 'Kick en jeu',
+        KICK_DESC: 'ID Déjà utilisé ? Appuyez ici !',
         GM_PANEL: 'GM Panel',
         ADMIN_PANEL: 'Admin Panel',
+        USER_PANEL: 'User Panel',
+        GM : {
+            GIVE : 'GIVE'
+        },
+        ADMIN : {
+            ADD_MONEY : 'Ajouter des Nuggets'
+        }
     },
     WEBSITE: {
         HOME_PAGE: {
@@ -27,12 +36,11 @@ module.exports = {
         REGISTER_PAGE: {
             TITLE: 'Inscription',
             DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
-            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+            'Inscrit toi dès maintenant pour nous rejoindre !'
         },
         FORGOTTEN_PAGE: {
             TITLE: 'Mot de passe oublié',
-            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
-            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+            DESC: 'Vous avez oublié votre mot de passe ? Vous voulez le retrouver ? C\'est ici !'
         }
     },
     ADMIN: {
@@ -41,12 +49,24 @@ module.exports = {
             DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
             'Rejoignez nous dès maintenant et découvrez notre serveur !',
         },
+        ADD_MONEY: {
+            TITLE: 'Admin Panel | AJOUT DONATION',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
+    },
+    MODERATOR: {
+        HOME_PAGE: {
+            TITLE: 'GM Panel | Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
     },
     USER: {
         LOGIN_PAGE: {
             TITLE: 'Connexion',
             DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
-            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+            'Connectez vous pour accéder aux paramètres de votre compte'
         },
         HOME_PAGE: {
             TITLE: 'Accueil',
