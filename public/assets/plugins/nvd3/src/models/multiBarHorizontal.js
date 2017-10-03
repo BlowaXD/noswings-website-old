@@ -8,12 +8,12 @@ nv.models.multiBarHorizontal = function() {
   var margin = {top: 0, right: 0, bottom: 0, left: 0}
     , width = 960
     , height = 500
-    , id = Math.floor(Math.random() * 10000) //Create semi-unique ID in case user doesn't select one
+    , id = Math.floor(Math.random() * 10000) //Create semi-unique ID in case User doesn't select one
     , x = d3.scale.ordinal()
     , y = d3.scale.linear()
     , getX = function(d) { return d.x }
     , getY = function(d) { return d.y }
-    , forceY = [0] // 0 is forced by default.. this makes sense for the majority of bar graphs... user can always do chart.forceY([]) to remove
+    , forceY = [0] // 0 is forced by default.. this makes sense for the majority of bar graphs... User can always do chart.forceY([]) to remove
     , color = nv.utils.defaultColor()
     , barColor = null // adding the ability to set the color for each rather than the whole group
     , disabled // used in conjunction with barColor to communicate from multiBarHorizontalChart what series are disabled

@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <% include ../shared/head.ejs %>
-    <link href="/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
-</head>
-<body class="fixed-header menu-pin">
-<% include ../shared/sidepanel.ejs %>
-<!-- START PAGE-CONTAINER -->
-<div class="page-container ">
-    <% include ../shared/header.ejs %>
-    <!-- START PAGE CONTENT WRAPPER -->
-    <div class="page-content-wrapper ">
-        <!-- START PAGE CONTENT -->
-        <div class="content ">
-            <!-- START CONTAINER FLUID -->
-            <div class=" container-fluid   container-fixed-lg">
-                <o class="breadcrumb"></o>
-                <!-- BEGIN PlACE PAGE CONTENT HERE -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- START card -->
-                        <div class="card card-default">
-                            <div class="card-header ">
-                                <div class="card-title">
-                                    Mise à jour des patchs
+    <head>
+        <% include ../shared/head.ejs %>
+        <link href="/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body class="fixed-header menu-pin">
+    <% include ../shared/sidepanel.ejs %>
+    <!-- START PAGE-CONTAINER -->
+    <div class="page-container">
+        <% include ../shared/header.ejs %>
+        <!-- START PAGE CONTENT WRAPPER -->
+        <div class="page-content-wrapper">
+            <!-- START PAGE CONTENT -->
+            <div class="content">
+                <!-- START CONTAINER FLUID -->
+                <div class=" container-fluid   container-fixed-lg">
+                    <o class="breadcrumb"></o>
+                    <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- START card -->
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        Mise à jour des patchs
+                                    </div>
+                                </div>
+                                <div class="card-block no-scroll no-padding">
+                                    <form action="/admin/patch" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group required">
+                                            <label>IP</label>
+                                            <span class="help">Exemple : 127.0.0.1</span>
+                                            <input name="ip" class="form-control" required="" placeholder="127.0.0.1">
+                                        </div>
+                                        <div class="form-group required">
+                                            <label>Port</label>
+                                            <span class="help">Exemple : (0-65535)</span>
+                                            <input name="port" data-v-min="0" data-v-max="65535" class="autonumeric form-control">
+                                        </div>
+                                        <input name="multiclient" type="checkbox" data-init-plugin="switchery" class="form-control"/> Multiclient
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+
+                                        <div class="fallback">
+                                            <input name="file" type="file"/>
+                                        </div>
+                                        <br/>
+
+                                        <button class="btn btn-primary">Patcher</button>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="card-block no-scroll no-padding">
-                                <form action="/admin/patch" method="post" enctype="multipart/form-data">
-                                    <div class="form-group required">
-                                        <label>IP</label>
-                                        <span class="help">Exemple : 127.0.0.1</span>
-                                        <input name="ip" class="form-control" required="" placeholder="127.0.0.1">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label>Port</label>
-                                        <span class="help">Exemple : (0-65535)</span>
-                                        <input name="port" data-v-min="0" data-v-max="65535" class="autonumeric form-control">
-                                    </div>
-                                    <input name="multiclient" type="checkbox" data-init-plugin="switchery" class="form-control"/> Multiclient
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-
-                                    <div class="fallback">
-                                        <input name="file" type="file"/>
-                                    </div>
-                                    <br/>
-
-                                    <button class="btn btn-primary">Salut</button>
-                                </form>
-                            </div>
+                            <!-- END card -->
                         </div>
-                        <!-- END card -->
                     </div>
+                    <!-- END PLACE PAGE CONTENT HERE -->
                 </div>
-                <!-- END PLACE PAGE CONTENT HERE -->
+                <!-- END CONTAINER FLUID -->
             </div>
-            <!-- END CONTAINER FLUID -->
+            <!-- END PAGE CONTENT -->
+            <% include ../shared/copyright.ejs %>
         </div>
-        <!-- END PAGE CONTENT -->
-        <% include ../shared/copyright.ejs %>
+        <!-- END PAGE CONTENT WRAPPER -->
     </div>
-    <!-- END PAGE CONTENT WRAPPER -->
-</div>
-<!-- END PAGE CONTAINER -->
-<script type="text/javascript" src="/assets/plugins/jquery-inputmask/jquery.inputmask.min.js"></script>
-<script type="text/javascript" src="/assets/plugins/dropzone/dropzone.min.js"></script>
-<script src="/assets/js/form_elements.js" type="text/javascript"></script>
-<% include ../shared/javascript.ejs %>
-</body>
+    <!-- END PAGE CONTAINER -->
+    <script type="text/javascript" src="/assets/plugins/jquery-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="/assets/js/form_elements.js" type="text/javascript"></script>
+    <% include ../shared/javascript.ejs %>
+    </body>
 </html>

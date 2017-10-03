@@ -1,0 +1,89 @@
+<!-- BEGIN SIDEBPANEL-->
+<nav class="page-sidebar" data-pages="sidebar">
+    <!-- BEGIN SIDEBAR MENU HEADER-->
+    <div class="sidebar-header">
+        <img src="/assets/img/logo_white.png" alt="logo" class="brand" data-src="/assets/img/logo_white.png"
+             data-src-retina="/assets/img/logo_white_2x.png" width="78" height="22">
+    </div>
+    <!-- END SIDEBAR MENU HEADER-->
+    <!-- START SIDEBAR MENU -->
+    <div class="sidebar-menu">
+        <!-- BEGIN SIDEBAR MENU ITEMS-->
+        <ul class="menu-items">
+            <li class="m-t-30">
+                <a href="/user/" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.HOME %></span>
+                    <span class="details"><%= translate.SIDE_BAR.HOME_DESC %></span>
+                </a>
+                <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
+            </li>
+            <li>
+                <a href="/user/account" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.ACCOUNT %></span>
+                    <span class="details"><%= translate.SIDE_BAR.ACCOUNT_DESC %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
+            </li>
+            <li>
+                <a href="https://discord.gg/uyFs2yz" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.DONATE %></span>
+                    <span class="details"><%= translate.SIDE_BAR.DONATE_DESC %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fa fa-paypal"></i></span>
+            </li>
+            <li>
+                <a href="/shop" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.SHOP %></span>
+                    <span class="details"><%= translate.SIDE_BAR.SHOP_DESC %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-shopping_cart"></i></span>
+            </li>
+            <li>
+                <a class="detailed" id="kick">
+                    <span class="title"><%= translate.SIDE_BAR.KICK %></span>
+                    <span class="details"><%= translate.SIDE_BAR.KICK_DESC %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fa fa-eercast"></i></span>
+            </li>
+            <%
+            if (user && user.actualPanel != "user")
+            {
+            %>
+            <li class="m-t-30">
+                <a href="/user/" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.ADMIN_PANEL %></span>
+                </a>
+                <span class="bg-danger icon-thumbnail"><i class="fa fa-fire"></i></span>
+            </li>
+            <%
+            }
+            if (user && user.permissions && user.permissions.IS_GM && user.actualPanel != "moderator")
+            {
+            %>
+            <li class="m-t-30">
+                <a href="/moderator/" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.GM_PANEL %></span>
+                </a>
+                <span class="bg-warning icon-thumbnail"><i class="fa fa-fire"></i></span>
+            </li>
+            <%
+            }
+            if (user && user.permissions && user.permissions.IS_ADMIN && user.actualPanel != "admin")
+            {
+            %>
+            <li class="m-t-30">
+                <a href="/admin/" class="detailed">
+                    <span class="title"><%= translate.SIDE_BAR.ADMIN_PANEL %></span>
+                </a>
+                <span class="bg-danger icon-thumbnail"><i class="fa fa-fire"></i></span>
+            </li>
+            <%
+            }
+            %>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+</nav>
+<!-- END SIDEBAR -->
+<!-- END SIDEBPANEL-->

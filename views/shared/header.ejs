@@ -1,11 +1,11 @@
 <!-- START HEADER -->
-<div class="header ">
+<div class="header">
     <!-- START MOBILE SIDEBAR TOGGLE -->
     <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
     </a>
     <!-- END MOBILE SIDEBAR TOGGLE -->
     <div class="">
-        <div class="brand inline   ">
+        <div class="brand inline">
             <a href="/">
             <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png"
                  data-src-retina="/assets/img/logo_2x.png" width="78" height="22">
@@ -16,8 +16,8 @@
             <li class="p-r-10 inline">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">{SERVER}</a></li>
-                    <li class="breadcrumb-item active">{PageTitle}</li>
+                    <li class="breadcrumb-item"><a href="/"><%= translate.SERVER_NAME %></a></li>
+                    <li class="breadcrumb-item active"><%= title %></li>
                 </ol>
                 <!-- END BREADCRUMB -->
             </li>
@@ -30,13 +30,15 @@
             <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                 <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-                    <span><i class="fa fa-bolt"></i> 1337</span> | <span class="semi-bold">{USERNAME}</span>
+                    <span><i class="fa fa-money"></i> <%= user.money || '???' %></span>
+                    |
+                    <span class="semi-bold"><%= user.username || 'None' %></span>
                 </div>
             </button>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                <a href="#" class="dropdown-item"><i class="pg-settings_small"></i>{SETTINGS}</a>
-                <a href="#" class="clearfix bg-master-lighter dropdown-item">
-                    <span class="pull-left">{LOGOUT}</span>
+                <a href="#" class="dropdown-item"><i class="pg-settings_small"></i><%= translate.HEADER_BAR.SETTING %></a>
+                <a href="/logout" class="clearfix bg-master-lighter dropdown-item">
+                    <span class="pull-left"><%= translate.HEADER_BAR.LOGOUT %></span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                 </a>
             </div>

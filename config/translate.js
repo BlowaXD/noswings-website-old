@@ -1,33 +1,92 @@
+'use strict';
+
 module.exports = {
-    "AUTHENTICATED": "",
-    "PASSWORD_SUCCESSFULLY_CHANGED": "",
-    "WRONG_SERVER": "",
-    "WRONG_PASSWORD": "",
-    "WRONG_PASSWORD_LENGTH": "La taille du mot de passe doit être comprise entre 6 et 20 caractères",
-    "WRONG_PASSWORD_CONFIRMATION": "",
-    "WRONG_PASSWORD_EQUALS": "Mots de passes non similaires",
-    "WRONG_USERNAME": "",
-    "WRONG_USERNAME_NOT_ALPHA": "Votre identifiant doit contenir seulement des lettres et des chiffres",
-    "WRONG_EMAIL": "Mauvais mail",
-    "USER_ALREADY_EXIST": "L'identifiant existe déjà dans notre base de données",
-    "USER_DOES_NOT_EXIST": "",
-    "ACCOUNT_ALREADY_VALIDATED": "Votre compte a déjà été validé",
-    "ERROR_IN_DATABASE": "Erreur dans la base de données",
-    "REGISTER_SUCCESSFULL": "Votre inscription s'est déroulée avec succès, vous allez recevoir un mail de validation",
-    "REGISTRATION_MESSAGE": "",
-    "REGISTRATION_BUTTON_DESCRIPTION":"Cliquez sur le bouton afin de vérifier votre compte",
-    "REGISTRATION_BUTTON_TITLE": "Vérifier mon compte",
-    "REGISTRATION_EMAIL_ERROR": "Une erreur est survenue en voulant vous envoyer un mail",
-    "REGISTRATION_EMAIL_SENDER": "Inscription NosWings",
-    "REGISTRATION_GREETINGS": "Salutations",
-    "REGISTRATION_EMAIL_SUBJECT": "NosWings - Inscription",
-    "REGISTRATION_FOOTER_DESCRIPTION": "",
-    "TITLE_DASHBOARD": "Accueil",
-    "TITLE_REGISTER": "Inscription",
-    "TITLE_USER_MANAGEMENT": "Gestion de compte",
-    "TITLE_SHOP_CATEGORY_PET": "Nosmall - Pets",
-    "TITLE_SHOP": "Nosmall",
-    "TITLE_CART": "",
-    "TITLE_LOGIN": "Interface de connexion",
-    "STAFF_NAME": "L'équipe NosWings",
+    SERVER_NAME: 'NosWings',
+    HEADER_BAR: {
+        SETTING: 'Settings',
+        LOGOUT: 'Logout',
+    },
+    SIDE_BAR: {
+        HOME: 'Accueil',
+        HOME_DESC: 'L\'interface de gestion de compte',
+        ACCOUNT: 'Mon compte',
+        ACCOUNT_DESC: 'Changements d\'informations',
+        DONATE: 'Donations',
+        DONATE_DESC: 'GO DISCORD TEMPORAIREMENT',
+        SHOP: 'Boutique',
+        SHOP_DESC: 'Le nosmall de NosWings',
+        KICK: 'Kick en jeu',
+        KICK_DESC: 'ID Déjà utilisé ? Appuyez ici !',
+        GM_PANEL: 'GM Panel',
+        ADMIN_PANEL: 'Admin Panel',
+        USER_PANEL: 'User Panel',
+        GM : {
+            GIVE : 'GIVE'
+        },
+        ADMIN : {
+            ADD_MONEY : 'Ajouter des Nuggets'
+        }
+    },
+    WEBSITE: {
+        HOME_PAGE: {
+          TITLE: 'Serveur privé Nostale | Accueil',
+          DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+          'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        REGISTER_PAGE: {
+            TITLE: 'Inscription',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Inscrit toi dès maintenant pour nous rejoindre !'
+        },
+        FORGOTTEN_PAGE: {
+            TITLE: 'Mot de passe oublié',
+            DESC: 'Vous avez oublié votre mot de passe ? Vous voulez le retrouver ? C\'est ici !'
+        }
+    },
+    ADMIN: {
+        HOME_PAGE: {
+            TITLE: 'Admin Panel | Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
+        ADD_MONEY: {
+            TITLE: 'Admin Panel | AJOUT DONATION',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
+    },
+    MODERATOR: {
+        HOME_PAGE: {
+            TITLE: 'GM Panel | Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !',
+        },
+    },
+    USER: {
+        LOGIN_PAGE: {
+            TITLE: 'Connexion',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Connectez vous pour accéder aux paramètres de votre compte'
+        },
+        HOME_PAGE: {
+            TITLE: 'Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        ACCOUNT_PAGE: {
+            TITLE: 'Mon Compte',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        DONATE_PAGE: {
+            TITLE: 'Donations',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        SHOP_PAGE: {
+            TITLE: 'KFC-SHOP',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        }
+    }
 };

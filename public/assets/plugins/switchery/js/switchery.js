@@ -59,7 +59,7 @@ require.helper.semVerSort = function(a, b) {
  * If multiple modules exists, the highest semver is used. 
  * This function can only be used for remote dependencies.
 
- * @param {String} name - module name: `user~repo`
+ * @param {String} name - module name: `User~repo`
  * @param {Boolean} returnPath - returns the canonical require path if true, 
  *                               otherwise it returns the epxorted module
  */
@@ -360,7 +360,7 @@ function FastClick(layer) {
 	}
 
 	// If a handler is already declared in the element's onclick attribute, it will be fired before
-	// FastClick's onClick handler. Fix this by pulling out the user-defined handler function and
+	// FastClick's onClick handler. Fix this by pulling out the User-defined handler function and
 	// adding it as listener.
 	if (typeof layer.onclick === 'function') {
 
@@ -606,7 +606,7 @@ FastClick.prototype.onTouchStart = function(event) {
 		if (!this.deviceIsIOS4) {
 
 			// Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (issue #23):
-			// when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
+			// when the User next taps anywhere else on the page, new touchstart and touchend events are dispatched
 			// with the same identifier as the touch event that previously triggered the click that triggered the alert.
 			// Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
 			// immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
@@ -618,9 +618,9 @@ FastClick.prototype.onTouchStart = function(event) {
 			this.lastTouchIdentifier = touch.identifier;
 
 			// If the target element is a child of a scrollable layer (using -webkit-overflow-scrolling: touch) and:
-			// 1) the user does a fling scroll on the scrollable layer
-			// 2) the user stops the fling scroll with another tap
-			// then the event.target of the last 'touchend' event will be the element that was under the user's finger
+			// 1) the User does a fling scroll on the scrollable layer
+			// 2) the User stops the fling scroll with another tap
+			// then the event.target of the last 'touchend' event will be the element that was under the User's finger
 			// when the fling scroll was started, causing FastClick to send a click event to that layer - unless a check
 			// is made to ensure that a parent layer was not scrolled before sending a synthetic click (issue #42).
 			this.updateScrollParent(targetElement);
@@ -763,7 +763,7 @@ FastClick.prototype.onTouchEnd = function(event) {
 	} else if (this.needsFocus(targetElement)) {
 
 		// Case 1: If the touch started a while ago (best guess is 100ms based on tests for issue #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
-		// Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (issue #37).
+		// Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the User types (issue #37).
 		if ((event.timeStamp - trackingClickStart) > 100 || (this.deviceIsIOS && window.top !== window && targetTagName === 'input')) {
 			this.targetElement = null;
 			return false;
@@ -841,7 +841,7 @@ FastClick.prototype.onMouse = function(event) {
 	// to prevent ghost/doubleclicks.
 	if (!this.needsClick(this.targetElement) || this.cancelNextClick) {
 
-		// Prevent any user-added listeners declared on FastClick element from being fired.
+		// Prevent any User-added listeners declared on FastClick element from being fired.
 		if (event.stopImmediatePropagation) {
 			event.stopImmediatePropagation();
 		} else {
@@ -881,7 +881,7 @@ FastClick.prototype.onClick = function(event) {
 		return true;
 	}
 
-	// Very odd behaviour on iOS (issue #18): if a submit element is present inside a form and the user hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
+	// Very odd behaviour on iOS (issue #18): if a submit element is present inside a form and the User hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
 	if (event.target.type === 'submit' && event.detail === 0) {
 		return true;
 	}
@@ -945,8 +945,8 @@ FastClick.notNeeded = function(layer) {
 			metaViewport = document.querySelector('meta[name=viewport]');
 			
 			if (metaViewport) {
-				// Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
-				if (metaViewport.content.indexOf('user-scalable=no') !== -1) {
+				// Chrome on Android with User-scalable="no" doesn't need FastClick (issue #89)
+				if (metaViewport.content.indexOf('User-scalable=no') !== -1) {
 					return true;
 				}
 				// Chrome 32 and above with width=device-width or less don't need FastClick

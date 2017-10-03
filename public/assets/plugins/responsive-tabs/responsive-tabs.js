@@ -32,7 +32,7 @@
 		// Strict Mode is a new feature in ECMAScript 5 that allows you to
 		// place a program, or a function, in a "strict" operating context.
 		// This strict context prevents certain actions from being taken
-		// and throws more exceptions (generally providing the user with
+		// and throws more exceptions (generally providing the User with
 		// more information and a tapered-down coding experience).
 		//
 		// Since ECMAScript 5 is backwards-compatible with ECMAScript 3,
@@ -61,7 +61,7 @@
 					 $el = $(element),   // jQuery version of element
 					 windowSize;         // last measured window size
 
-				// Extend default options with those supplied by user.
+				// Extend default options with those supplied by User.
 				options = $.extend({}, $.fn[pluginName].defaults, options);
 
 				// Slide the tab itself (not the content)
@@ -250,7 +250,7 @@
 
 				function hook(hookName) {
 						if (options[hookName] !== undefined) {
-								// Call the user defined function.
+								// Call the User defined function.
 								// Scope is set to the jQuery element we are operating on.
 								options[hookName].call(el);
 						}

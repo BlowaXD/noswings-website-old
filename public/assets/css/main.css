@@ -1,0 +1,474 @@
+/* ==========================================================================
+   Global
+   ========================================================================== */
+html {
+    height: 100%;
+    font-size: 62.5%;
+    background-color: rgb(18, 18, 18);
+}
+body {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    background: url("../img/background.jpg") 43% top no-repeat;
+    will-change: content;
+}
+footer {
+    padding: 60px 0;
+    border-top: 4px solid rgb(237, 35, 35);
+    background: rgb(40, 44, 43);
+}
+footer .layout {
+    position: relative;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+}
+html, button, input, select, textarea {
+    color: rgb(34, 34, 34);
+}
+/* ==========================================================================
+   Header logo
+   ========================================================================== */
+.header-logo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    min-height: 44rem;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+}
+.header-logo .image {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+@media only screen and (min-width:799px) {
+    .header-logo .image {
+        font-size: 10rem;
+    }
+}
+@media only screen and (max-width:798px) {
+    .header-logo .image {
+        font-size: 3rem;
+    }
+}
+/* ==========================================================================
+   Container
+   ========================================================================== */
+#page-container {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 5%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 5%);
+    will-change: content;
+}
+#page-main {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    will-change: content;
+}
+/* ==========================================================================
+   Scroll bar
+   ========================================================================== */
+::-webkit-scrollbar-thumb {
+    background: rgba(255,0,0,0.8);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4);
+}
+::-webkit-scrollbar {
+    width: 8px;
+    background: rgb(41,41,41);
+}
+/* ==========================================================================
+   Figure
+   ========================================================================== */
+.header-logo {
+    flex-direction: column;
+    padding-right: 3.8rem;
+    min-height: 44rem;
+    vertical-align: middle;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+.header-logo .image {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.header-logo .caption {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    text-transform: uppercase;
+    font-family: "QuanticoBold",sans-serif;
+    font-size: 2rem;
+    letter-spacing: 22px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+@media only screen and (min-width:799px) {
+    .header-logo .image {
+        font-size: 10rem;
+    }
+}
+@media only screen and (max-width:798px) {
+    .header-logo .image {
+        font-size: 3rem;
+    }
+}
+/* ==========================================================================
+   News feed
+   ========================================================================== */
+.main-content {
+    padding-top: 30px;
+    overflow: auto;
+    zoom: 1;
+}
+.main-feed {
+    float: left;
+    width: 75%;
+}
+@media only screen and (max-width:798px) {
+    .main-feed {
+        float: none;
+        display: inline;
+    }
+}
+.news-block {
+    zoom: 1;
+    margin-bottom: 32px;
+    overflow: auto;
+}
+.news-block-layout {
+    box-sizing: border-box;
+    border-right: 2px solid transparent;
+}
+.news-block-header {
+    position: relative;
+    box-sizing: border-box;
+    height: 42px;
+    margin: 0 0 2px;
+    padding-left: 20px;
+    font: bold 15px/42px Quantico,Arial,Helvetica,sans-serif;
+    color: rgb(255, 255, 255);
+    background: rgb(40, 44, 43);
+    cursor: default;
+}
+.news-feed {
+    margin: 0 0 2px;
+}
+.news-block-header > a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+.news-feed .new {
+    display: block;
+    position: relative;
+    height: 151px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    background: rgb(40, 44, 43);
+}
+.news-feed .new .image {
+    width: 300px;
+    height: inherit;
+    float: left;
+}
+@media only screen and (max-width:648px) {
+    .news-feed .new .image {
+        display: none;
+    }
+}
+.news-feed .new .image .img {
+    float: left;
+    position: relative;
+    height: inherit;
+}
+.news-feed .new .image .img img {
+    width: inherit;
+}
+.news-feed .new .cover {
+    z-index: 1;
+    position: absolute;
+    box-sizing: border-box;
+    width: inherit;
+    height: inherit;
+    outline: 2px solid rgb(237, 35, 35);
+    outline-offset: -7px;
+    opacity: 0;
+    background: rgba(40,44,43,0.8);
+    transition: opacity 0.1s linear;
+}
+.news-feed .new .cover:before {
+    content: attr(data-more);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -56px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    overflow: visible;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: bold 18px/46px Quantico,Arial,Helvetica,sans-serif;
+    white-space: nowrap;
+    color: rgb(255, 255, 255);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.news-feed .new .cover:after {
+    content: attr(data-desc);
+    position: absolute;
+    top: 78px;
+    left: 50%;
+    width: 160px;
+    margin-left: -80px;
+    overflow: visible;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/20px Titillium,Arial,Helvetica,sans-serif;
+    color: rgb(255, 255, 255);
+}
+.news-feed .new .text {
+    margin-left: 300px;
+    box-sizing: border-box;
+    height: inherit;
+    padding: 14px 20px 16px;
+    overflow: hidden;
+}
+@media only screen and (max-width:648px) {
+    .news-feed .new .text {
+        margin-left: 0;
+    }
+}
+.news-feed .new .text .header .title {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font: 20px/24px Quantico,Arial,Helvetica,sans-serif;
+    white-space: nowrap;
+    color: rgb(237, 35, 35);
+}
+.news-feed .new .text .header .desc {
+    box-sizing: border-box;
+    height: 73px;
+    margin-bottom: 10px;
+    padding-top: 7px;
+    overflow: hidden;
+    font: 16px/21px Titillium,Arial,Helvetica,sans-serif;
+    color: #fff;
+    cursor: default;
+}
+.news-feed .new .text .info {
+    font-size: 0;
+}
+.news-feed .new .text .info > span:first-child {
+    margin-left: 0;
+    text-transform: uppercase;
+}
+.news-feed .new .text .info > span {
+    margin-left: 16px;
+    overflow: hidden;
+    font: bold 12px/16px Titillium,Arial,Helvetica,sans-serif;
+    color: #606060;
+    cursor: default;
+}
+.news-feed .new .text .info > span a {
+    text-decoration: none;
+    color: #ed2323;
+}
+/* ==========================================================================
+   Page
+   ========================================================================== */
+.page-block-header h1 {
+    background: rgb(39, 43, 46) none repeat scroll 0 0;
+    box-sizing: border-box;
+    color: #fff;
+    margin-bottom: 2px;
+    margin-top: 0;
+    padding: 24px 33px 23px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 100%;
+}
+.page-block {
+    float: right;
+    width: 75%;
+}
+.page-block-layout {
+    box-sizing: border-box;
+    border-left: 2px solid transparent;
+}
+.page-block .page-content {
+    width: inherit;
+    position: relative;
+    box-sizing: border-box;
+    background: rgb(40, 44, 43);
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 10px 50px 50px 50px;
+}
+.page-content .title {
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+.page-content .title-sub {
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 10px 0;
+    margin: 25px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.page-side {
+    float: left;
+    width: 25%;
+    background: rgb(40, 44, 43);
+    height: auto;
+}
+.page-side .user-avatar {
+    background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTcqj8b4mbeelCcb0rkUKOO0CIlqwUl0ny4mv_xQDEj0DUdBCnvEQ);
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    margin: 50px auto 25px auto;
+}
+.page-side .user-name {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    margin: 20px 0 30px 0;
+}
+.page-side .user-point {
+    text-align: center;
+    background: #ed2323;
+    border-left: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin: 20px 0 36px 0;
+    padding: 10px;
+}
+.page-side .user-medal {
+    text-align: center;
+    border-left: none;
+    margin: 20px 0 36px 0;
+    padding: 10px;
+}
+/* ==========================================================================
+   Form
+   ========================================================================== */
+.form .line {
+    margin: 20px 0;
+    padding: 20px 0;
+    clear: both;
+    line-height: 32px;
+}
+.form label {
+    display: block;
+    float: left;
+    width: 125px;
+}
+.form .form-content {
+    float: left;
+}
+.form .form-controls {
+    float: right;
+}
+.form .input-text {
+    background-color: rgb(66, 66, 66);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    width: 180px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+    transition: border-bottom 300ms ease;
+}
+.form .form-controls button {
+    float: right;
+    margin-left: 10px;
+}
+.button.normal {
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
+}
+.button.normal:hover {
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 1);
+}
+.button {
+    font-size: 12px;
+    height: 32px;
+    line-height: 18px;
+    min-width: 72px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 2px;
+    padding: 5px 20px;
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer-text p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #5E6468;
+}

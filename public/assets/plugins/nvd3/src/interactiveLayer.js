@@ -25,7 +25,7 @@ nv.interactiveGuideline = function() {
 	;
 
 	//Private variables
-	var isMSIE = navigator.userAgent.indexOf("MSIE") !== -1  //Check user-agent for Microsoft Internet Explorer.
+	var isMSIE = navigator.userAgent.indexOf("MSIE") !== -1  //Check User-agent for Microsoft Internet Explorer.
 	;
 
 
@@ -116,7 +116,7 @@ nv.interactiveGuideline = function() {
                             pointXValue: pointXValue
                       });
 
-                      //If user double clicks the layer, fire a elementDblclick dispatch.
+                      //If User double clicks the layer, fire a elementDblclick dispatch.
                       if (d3.event.type === "dblclick") {
                         dispatch.elementDblclick({
                             mouseX: mouseX,

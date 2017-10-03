@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .nw-reload
+            {
+                text-align: center;
+            }
+
+            .nw-reload img
+            {
+                max-height: 150px;
+                max-width: 250px;
+                margin-bottom: 15px;
+            }
+        </style>
+        <% include ../shared/head.ejs %>
+    </head>
+
+    <body class="fixed-header menu-pin">
+        <% include ../shared/sidepanel.ejs %>
+        <!-- START PAGE-CONTAINER -->
+        <div class="page-container">
+            <% include ../shared/header.ejs %>
+            <!-- START PAGE CONTENT WRAPPER -->
+            <div class="page-content-wrapper">
+                <!-- START PAGE CONTENT -->
+                <div class="content">
+                    <!-- START CONTAINER FLUID -->
+                    <div class=" container-fluid   container-fixed-lg">
+
+                        <div class=" container-fluid   container-fixed-lg">
+                            <div id="rootwizard" class="m-t-50">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist"
+                                    data-init-reponsive-tabs="dropdownfx">
+                                    <li class="nav-item">
+                                        <a class="active" data-toggle="tab" href="#tab1" role="tab"><i
+                                                    class="fa fa-shopping-cart tab-icon"></i> <span>Montant</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="" data-toggle="tab" href="#tab3" role="tab"><i
+                                                    class="fa fa-credit-card tab-icon"></i> <span>Moyens de paiement</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="" data-toggle="tab" href="#tab4" role="tab"><i
+                                                    class="fa fa-check tab-icon"></i> <span>Validation</span></a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane padding-20 sm-no-padding active slide-left" id="tab1">
+                                        <div class="row row-same-height">
+                                            <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
+                                                <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                                                    <i class="fa fa-shopping-cart fa-2x hint-text"></i>
+                                                    <h2>Your Bags are ready to check out!</h2>
+                                                    <p>Discover goods you'll love from brands that inspire. The easiest way to
+                                                        open your own online store. Discover amazing stuff or open your own
+                                                        store for free!</p>
+                                                    <p class="small hint-text">Below is a sample page for your cart , Created
+                                                        using pages design UI Elementes</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="padding-30 sm-padding-5">
+                                                    <h5>Donation</h5>
+                                                    <div class="row">
+                                                        <div class="col-lg-7 col-md-6">
+                                                            <p class="no-margin">Donate now and give clean, safe water to those
+                                                                in need. </p>
+                                                            <p class="small hint-text">
+                                                                100% of your donation goes to the field, and you can track the
+                                                                progress of every dollar spent. <a href="#">Click Here</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row b-a b-grey no-margin">
+                                                        <div class="col-md-3 p-l-10 sm-padding-15 align-items-center d-flex"></div>
+                                                        <div class="col-md-7 col-middle sm-padding-15 align-items-center d-flex"></div>
+                                                        <div class="col-md-2 text-right bg-primary padding-10">
+                                                            <h5 class="font-montserrat all-caps small no-margin hint-text text-white bold">
+                                                                Total</h5>
+                                                            <h4 class="no-margin text-white">
+                                                                <input id="donationAmount" data-a-sign="€ "
+                                                                       class="autonumeric form-control">
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab3">
+                                        <div class="row row-same-height">
+                                            <div class="col-md-5 b-r b-dashed b-grey">
+                                                <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                                                    <h2>We Secured Your Line</h2>
+                                                    <p>Below is a sample page for your cart , Created using pages design UI
+                                                        Elementes</p>
+                                                    <p class="small hint-text">Below is a sample page for your cart , Created
+                                                        using pages design UI Elementes</p>
+                                                    <table class="table table-condensed">
+                                                        <tr>
+                                                            <td class=" col-md-9">
+                                                                <span class="m-l-10 font-montserrat fs-11 all-caps">Webarch UI Framework</span>
+                                                                <span class="m-l-10">Dashboard UI Pack</span>
+                                                            </td>
+                                                            <td class=" col-md-3 text-right">
+                                                                <span>Qty 1</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class=" col-md-9">
+                                                                <span class="m-l-10 font-montserrat fs-11 all-caps">Pages UI Framework</span>
+                                                                <span class="m-l-10">Next Gen UI Pack</span>
+                                                            </td>
+                                                            <td class=" col-md-3 text-right">
+                                                                <span>Qty 1</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" class=" col-md-3 text-right">
+                                                                <h4 class="text-primary no-margin font-montserrat">$27</h4>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p class="small">Invoice are issued on the date of despatch. Payment terms:
+                                                        Pre-orders: within 10 days of invoice date with 4% discount, from the
+                                                        11th to the 30th day net. Re-orders: non-reduced stock items are payable
+                                                        net after 20 days. </p>
+                                                    <p class="small">By pressing Pay Now You will Agree to the Payment <a
+                                                                href="#">Terms &amp; Conditions</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="padding-30 sm-padding-5">
+                                                    <ul class="list-unstyled list-inline m-l-30">
+                                                        <li>
+                                                            <a href="#" class="p-r-30 text-black">
+                                                                <i class="fa fa-paypal"></i> PayPal
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="p-r-30 text-black  hint-text">
+                                                                <i class="fa fa-ticket"></i> PaysafeCard
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="p-r-30 text-black  hint-text">
+                                                                <i class="fa fa-phone"></i> YouPass
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
+                                        <h1>Thank you.</h1>
+                                    </div>
+                                    <div class="padding-20 sm-padding-5 sm-m-b-20 sm-m-t-20 bg-white clearfix">
+                                        <ul class="pager wizard no-style">
+                                            <li class="next">
+                                                <button class="btn btn-primary btn-cons btn-animated from-left fa fa-truck pull-right"
+                                                        type="button">
+                                                    <span>Prochain</span>
+                                                </button>
+                                            </li>
+                                            <li class="next finish hidden">
+                                                <button class="btn btn-primary btn-cons btn-animated from-left fa fa-cog pull-right"
+                                                        type="button">
+                                                    <span>Confirmation</span>
+                                                </button>
+                                            </li>
+                                            <li class="previous first hidden">
+                                                <button class="btn btn-default btn-cons btn-animated from-left fa fa-cog pull-right"
+                                                        type="button">
+                                                    <span>Premier</span>
+                                                </button>
+                                            </li>
+                                            <li class="previous">
+                                                <button class="btn btn-default btn-cons pull-right" type="button">
+                                                    <span>Précédent</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wizard-footer padding-20 bg-master-light">
+                                        <p class="small hint-text pull-left no-margin">
+                                            Description frere
+                                        </p>
+                                        <div class="pull-right">
+                                            <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png"
+                                                 data-src-retina="/assets/img/logo_2x.png" width="78" height="22">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTAINER FLUID -->
+                </div>
+                <!-- END PAGE CONTENT -->
+                <% include ../shared/copyright.ejs %>
+            </div>
+            <!-- END PAGE CONTENT WRAPPER -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+        <script src="/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/modernizr.custom.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/tether/js/tether.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery-actual/jquery.actual.min.js"></script>
+        <script src="/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="/assets/plugins/select2/js/select2.full.min.js"></script>
+        <script type="text/javascript" src="/assets/plugins/classie/classie.js"></script>
+        <script src="/assets/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <script type="text/javascript" src="/assets/plugins/jquery-autonumeric/autoNumeric.js"></script>
+        <script type="text/javascript" src="/assets/plugins/dropzone/dropzone.min.js"></script>
+        <script type="text/javascript" src="/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js"></script>
+        <script type="text/javascript" src="/assets/plugins/jquery-inputmask/jquery.inputmask.min.js"></script>
+        <script src="/assets/plugins/bootstrap-form-wizard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="/assets/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
+        <script src="/assets/plugins/moment/moment.min.js"></script>
+        <script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="/assets/js/form_wizard.js" type="text/javascript"></script>
+        <% include ../shared/javascript.ejs %>
+    </body>
+</html>

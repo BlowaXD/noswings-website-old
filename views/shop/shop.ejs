@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../shared/head.ejs %>
+</head>
+
+    <body class="fixed-header menu-pin">
+        <% include ../shared/sidepanel.ejs %>
+        <!-- START PAGE-CONTAINER -->
+        <div class="page-container">
+            <!-- DA JOKE XD -->
+            <span id="api-info" style="display: none;"><%= JSON.stringify(locals.packs) %></span>
+            <% include ../shared/header.ejs %>
+            <!-- START PAGE CONTENT WRAPPER -->
+            <div class="page-content-wrapper">
+                <!-- START PAGE CONTENT -->
+                <div class="content">
+                    <!-- START CONTAINER FLUID -->
+                    <div class="container-fluid container-fixed-lg">
+                        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+                        <div style="margin-top: 10px;margin-bottom: 18px;">
+                            <label for="cat-select">Category : </label>
+                            <select class="cs-select cs-skin-slide" id="cat-select" onchange="updateCategory()">
+                                <option value="0" selected>All</option>
+                                <%
+                                    for (const cat of locals.categories)
+                                    {
+                                %>
+                                <option value="<%= cat.id %>"><%= cat.name %></option>
+                                <%
+                                    }
+                                %>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <%
+                                if (locals.error)
+                                {
+                            %>
+                            <p>Error : <%= locals.error %></p>
+                            <%
+                                }
+                            %>
+                        </div>
+                    </div>
+                    <!-- END PLACE PAGE CONTENT HERE -->
+                </div>
+                <!-- END CONTAINER FLUID -->
+            </div>
+            <!-- END PAGE CONTAINER -->
+            <% include ../shared/javascript.ejs %>
+            <script>
+                updateCategory();
+                function updateCategory()
+                {
+                    let shop = '';
+                    const cat_id = parseInt($('#cat-select').val());
+                    const packs = JSON.parse($('#api-info').text());
+
+                    for (const pack of packs)
+                    {
+                        if (cat_id !== 0 && pack.CategoryId !== cat_id)
+                            continue;
+
+                        shop += `
+                            <form action="/shop" method="POST" class="col-lg-3">
+                                <div>
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <div class="card-title">${pack.Name}</div>
+                                        </div>
+                                        <div class="card-block">
+                                            <div class="nw-shop-image">
+                                                <p><img src="${pack.Image}" class="nw-shop-item"/></p>
+                                            </div>
+                                            <p>${pack.Description}</p>
+                                            <p>
+                                                <button type="submit" class="btn btn-success btn-md m-t-10">
+                                                    ${pack.Price} <i class="fa fa-money"></i>
+                                                </button>
+                                                <select class="cs-select cs-skin-slide" name="Character">
+                                                    <%
+                                                        for (const character of locals.user.characters)
+                                                        {
+                                                    %>
+                                                    <option value="<%= character.name %>"><%= character.name %></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                            </p>
+                                            <input type="hidden" name="PackId" value="${pack.PackId}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>`;
+                    }
+
+                    $('div.row').html('');
+                    $('div.row').append($(shop));
+                }
+            </script>
+        </div>
+    </body>
+</html>

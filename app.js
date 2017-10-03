@@ -5,16 +5,9 @@
 const express = require("express");
 const helmet = require("helmet");
 const path = require("path");
+const favicon = require("serve-favicon");
 const logger = require("morgan");
-const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-
-/*
-** ROUTES
-*/
-const user = require('./routes/user');
-const admin = require('./routes/admin');
-const moderator = require('./routes/moderator');
 
 /*
 ** GLOBALS
@@ -22,52 +15,40 @@ const moderator = require('./routes/moderator');
 global.config = require("./config/config");
 global.translate = require("./config/translate");
 
+/*
+** ROUTES
+*/
+const routes = require('./routes');
+const route_admin = routes.admin;
+const route_shop = routes.shop;
+const route_user = routes.user;
+const route_moderator = routes.moderator;
+const route_website = routes.website;
+
+/*
+** SETUP EXPRESS
+*/
 const app = express();
-
-app.use(function (req, res, next) {
-    res.locals.domain = global.config.domain;
-    res.locals.discordLink = global.config.urls.discord;
-    res.locals.forumLink = global.config.urls.forumLink;
-    res.locals.siteLink = global.config.urls.site;
-    res.locals.logoLink = global.config.urls.logo;
-    next();
-});
-
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.locals = { translate: global.translate, links: global.config.links };
 
 /*
 ** MIDDLEWARES
 */
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    limit: '8mb',
-    extended: false
-}));
-app.use(cookieParser());
 app.use(helmet());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+app.use(bodyParser.json({limit: '10mb'})); 
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true})); 
 
-/* Basic routes */
-app.use('/', user);
-
-/*
-    AUTH LEVEL
-    >= ADMIN
- */
-app.use('/admin', admin);
-
-/*
-    AUTH LEVEL
-    >= GM
- */
-app.use('/moderator', moderator);
-
-// NEED TO CHECK IF SESSION OR REDIRECT TO LOGIN
-/*app.get('*', function(req, res) {
-   res.render('dashboard');
-});*/
+/* CREATE ROUTES */
+app.use(route_website);
+app.use('/user', route_user);
+app.use('/admin', route_admin);
+app.use('/shop', route_shop);
+app.use('/moderator', route_moderator);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -84,8 +65,7 @@ app.use(function (err, req, res, next) {
 
     console.error(err);
     // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+    res.status(err.status || 500).send(err);
 });
 
 module.exports = app;

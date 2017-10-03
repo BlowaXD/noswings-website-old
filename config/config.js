@@ -1,41 +1,34 @@
 'use strict';
-const api_host = 'http://localhost:4000';
+const api_host = 'http://localhost:4500';
 
 module.exports = {
     server: 'NosWings',
     api: {
-        login_route: `${api_host}/user/login`,
+        admin : {
+            get_patch : `${api_host}/admin/patch`,
+            post_patch : `${api_host}/admin/patch`,
+            post_add_money: `${api_host}/admin/addmoney`,
+        },
+        get_news: `${api_host}/get_news`,
+        get_info: `${api_host}/user/get_info`,
+        get_token: `${api_host}/user/token`,
+        get_packs: `${api_host}/shop/packs`,
+        get_validate: `${api_host}/register/validate/`,
+        post_kick: `${api_host}/user/kick`,
+        post_buy: `${api_host}/shop/buy`,
+        post_register: `${api_host}/register`,
+        post_forgotten: `${api_host}/forgotten`
     },
-    secret: {
-        jwt_key: ''
-    },
+    links:
+        {
+            staticDomain: `https://static.noswings.fr`,
+            launcher: `https://static.noswings.fr/NosWings.exe`,
+            website: `https://noswings.fr/`,
+            forum: `https://forum.noswings.fr/`,
+            discord: `https://discord.gg/uyFs2yz`,
+        },
     e_permissions: {
         IS_ADMIN: 0b00000001,
-        IS_MODERATOR: 0b00000010,
+        IS_GM: 0b00000010,
     },
-    urls: {
-        logo: "https://static.noswings.fr/assets/img/logo.png",
-        site: "https://moncompte.noswings.fr/",
-        discord: "http://discord.noswings.fr/",
-        forum: "https://forum.noswings.fr/",
-        validate: "https://moncompte.v4.noswings.fr/register/validate/"
-    },
-    db: {
-        user: "sa",
-        password: "root",
-        server: "127.0.0.1",
-        database: "opennos"
-    },
-    smtp: {
-        host: 'noswings.fr',
-        port: 587,
-        secure: false, // secure:true for port 465, secure:false for port 587
-        auth: {
-            user: 'noreply@noswings.fr',
-            pass: 'cZhz57@8DOpqnzwn'
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    }
 };

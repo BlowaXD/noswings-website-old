@@ -374,7 +374,7 @@ Hammer.Instance = function(element, options) {
     }
   });
 
-  // keep a list of user event handlers which needs to be removed when calling 'dispose'
+  // keep a list of User event handlers which needs to be removed when calling 'dispose'
   this.eventHandlers = [];
 
   // return instance
@@ -937,7 +937,7 @@ var Detection = Hammer.detection = {
 
     // if the touches change, set the new touches over the startEvent touches
     // this because touchevents don't have all the touches on touchstart, or the
-    // user must place his fingers at the EXACT same time on the screen, which is not realistic
+    // User must place his fingers at the EXACT same time on the screen, which is not realistic
     // but, sometimes it happens that both fingers are touching at the EXACT same time
     if(ev.touches.length != startEv.touches.length || ev.touches === startEv.touches) {
       // extend 1 level deep to get the touchlist with the touch objects
@@ -1225,7 +1225,7 @@ Hammer.gestures.Hold = {
 
 /**
  * Release
- * Called as last, tells the user has released the screen
+ * Called as last, tells the User has released the screen
  * @events  release
  */
 Hammer.gestures.Release = {
@@ -1331,7 +1331,7 @@ Hammer.gestures.Tap = {
 
 /**
  * Touch
- * Called as first, tells the user has touched the screen
+ * Called as first, tells the User has touched the screen
  * @events  touch
  */
 Hammer.gestures.Touch = {
