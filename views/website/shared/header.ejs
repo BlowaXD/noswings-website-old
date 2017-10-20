@@ -2,7 +2,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <!-- SEO -->
-<title>NosWings | Serveur privé Nostale
+<title>NosWings | Serveur Privé Nostale
     <% if (locals.title) { %>
     | <%- title %>
     <% } %>
@@ -11,7 +11,7 @@
 <% if (locals.desc) { %>
   <%- desc %>
 <% } else { %>
-  NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
+  NosWings est un serveur privé vous permettant de trouver ce que vous n'avez pas trouvé ailleurs !
   Rejoignez nous dès maintenant et découvrez notre serveur !
 <% } %>">
 <meta name="keywords"
@@ -30,34 +30,4 @@
 <link rel="stylesheet" href="/assets/css/wide.css">
 <script src="/assets/js/modernizr.js"></script>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="noswings">
-<meta name="twitter:title" content="NosWings">
-<meta name="twitter:creator" content="NosWings">
-<meta name="twitter:description"
-      content="<% if (locals.desc) { %>
-  <%- desc %>
-  <center><img src='https://noswings.fr/assets/img/logo_square.png'/></center>
-<% } else { %>
-  NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
-  Rejoignez nous dès maintenant et découvrez notre serveur !
-  <center><img src='https://noswings.fr/assets/img/logo_square.png'/></center>
-<% } %>">
-<meta name="twitter:creator" content="@noswings">
-<meta name="twitter:image" content="https://noswings.fr/assets/img/logo_square.png"/>
-<!-- Open Graph -->
-<meta property="og:title" content="NosWings"/>
-<meta property="og:url" content="http://www.noswings.fr/"/>
-<meta property="og:image" content="https://noswings.fr/assets/img/logo_square.png"/>
-<meta property="og:image:type" content="image/png">
-<meta property="og:description"
-      content="<% if (locals.desc) { %>
-  <%- desc %>
-  <center><img src='https://noswings.fr/assets/img/logo_square.png'/></center>
-<% } else { %>
-  NosWings est un serveur privé Nostale vous permettant de trouver ce que vous n'avez pas trouvé sur l'officiel !
-  Rejoignez nous dès maintenant et découvrez notre serveur !
-  <center><img src='https://noswings.fr/assets/img/logo_square.png'/></center>
-<% } %>">
-<meta property="og:site_name" content="NosWings"/>
+<% include meta.ejs %>
