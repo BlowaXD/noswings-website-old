@@ -2,106 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NosWings - Serveur Privé Nostale - Accueil</title>
-    <!-- vendor css -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/animate/animate.min.css">
-    <!-- plugins css -->
-    <link href="plugins/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
-    <!-- theme css -->
-    <link rel="stylesheet" href="css/theme.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <% include shared/header.ejs %>
 </head>
 
 <body class="fixed-header">
-<!-- header -->
-<header id="header">
-    <div class="container">
-        <div class="navbar-backdrop">
-            <div class="navbar">
-                <div class="navbar-left">
-                    <a class="navbar-toggle"><i class="fa fa-bars"></i></a>
-                    <a href="index.html" class="logo"><img style="max-height: 35px;" src="img/logo.png" alt="NosWings - Logo"></a>
-                    <nav class="nav">
-                        <ul>
-                            <li>
-                                <a href="index.html">Nouveautés</a>
-                            </li>
-                            <li class="has-dropdown mega-menu mega-games">
-                                <a href="games.html">Liens-utiles</a>
-                                <ul>
-                                    <li>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="game-post.html"><img src="img/menu/menu-1.jpg" alt="Last of Us: Part 2"></a>
-                                                        <span class="badge badge-ps4">Launcher</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="game-post.html"><img src="img/menu/menu-2.jpg" alt="Injustice 2"></a>
-                                                        <span class="badge badge-steam">Discord</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="game-post.html"><img src="img/menu/menu-3.jpg" alt="Bioshock: Infinite"></a>
-                                                        <span class="badge badge-xbox-one">Forum</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="game-post.html"><img src="img/menu/menu-4.jpg" alt="Batman: Arkham Knight"></a>
-                                                        <span class="badge badge-ps4">Boutique</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="game-post.html"><img src="img/menu/menu-5.jpg" alt="Bioshock: Infinite"></a>
-                                                        <span class="badge badge-pc">PC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="index.html">Classement</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Nous Rejoindre</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="nav navbar-right">
-                    <ul>
-                        <li class="hidden-xs-down"><a href="login.html">Connexion</a></li>
-                        <li class="hidden-xs-down"><a href="register.html"><button class="btn btn-warning">Inscription</button></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="navbar-search">
-            <div class="container">
-                <form method="post">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <i class="fa fa-times close"></i>
-                </form>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- /header -->
+<% include shared/nav.ejs %>
 
 
 <!-- main -->
@@ -189,51 +94,16 @@
 <!-- /main -->
 
 <!-- footer -->
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h4 class="footer-title">A propos de NosWings</h4>
-                <p>Mhabeet est flexible</p>
-                <p>Mhabeet est facile à prendre en mains</p>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <h4 class="footer-title">Liens utiles</h4>
-                <div class="row">
-                    <div class="col">
-                        <ul>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Discord</a></li>
-                            <li><a href="#">Launcher</a></li>
-                            <li><a href="#">Boutique</a></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li><a href="games.html">Inscription</a></li>
-                            <li><a href="reviews.html">Nouveautés</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-social">
-                <a href="https://www.youtube.com/user/1YAKUZI" target="_blank" data-toggle="tooltip" title="youtube"><i class="fa fa-youtube"></i></a>
-            </div>
-            <p>Copyright &copy; 2017 <a href="https://noswings.fr/" target="_blank">NosWings</a>.</p>
-        </div>
-    </div>
-</footer>
+<% include shared/footer.ejs %>
 <!-- /footer -->
 
 <!-- vendor js -->
-<script src="plugins/jquery/jquery-3.2.1.min.js"></script>
-<script src="plugins/popper/popper.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="/assets/plugins/popper/popper.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- plugins js -->
-<script src="plugins/notification/notification.js" charset="utf-8"></script>
+<script src="/assets/plugins/notification/notification.js" charset="utf-8"></script>
 <script>
     (function($) {
         "use strict";
@@ -242,7 +112,7 @@
     })(jQuery);
 </script>
 <!-- theme js -->
-<script src="js/theme.min.js"></script>
+<script src="/assets/js/theme.min.js"></script>
 </body>
 
 </html>

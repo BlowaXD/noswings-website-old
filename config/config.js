@@ -1,5 +1,5 @@
 'use strict';
-const api_host = 'http://localhost:4500';
+const api_host = 'https://api.noswings.fr';
 
 module.exports = {
     server: 'NosWings',
