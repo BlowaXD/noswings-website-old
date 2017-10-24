@@ -1,100 +1,445 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <% include ./shared/header.ejs %>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NosWings - Serveur Privé Nostale - Accueil</title>
+    <!-- vendor css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate/animate.min.css">
+    <!-- plugins css -->
+    <link href="plugins/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
+    <!-- theme css -->
+    <link rel="stylesheet" href="css/theme.min.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
-<div id="page-container">
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">Vous utilisez un <strong>vieux</strong> navigateur. S'il vous plaît <a
-            href="http://browsehappy.com/">passez sur un navigateur plus récent</a> pour améliorer votre expérience.</p>
-    <![endif]-->
-
-    <% include ./shared/nav.ejs %>
-
-    <!-- Main -->
-    <main id="page-main" class="page-wide-container">
-        <!-- Main navigation bar -->
-        <nav class="main-nav">
-            <ul class="nav-menu nav-menu-wide">
-                <li class="menu-item">
-                    <a href="#" class="menu-item-label">
-                                            <span class="parent-link-wrapper">
-                                              <i class="icon icon-news fa fa-newspaper-o"></i>
-                                                Nouveautés
-                                              </span>
-                        <i class="arrow"></i>
+<body class="fixed-header">
+<!-- header -->
+<header id="header">
+    <div class="container">
+        <div class="navbar-backdrop">
+            <div class="navbar">
+                <div class="navbar-left">
+                    <a class="navbar-toggle">
+                        <i class="fa fa-bars"></i>
                     </a>
-                </li>
-                <li class="menu-item">
-                    <a href="http://www.rpg-paradize.com/?page=vote&vote=108093" class="menu-item-label">
-                                            <span class="parent-link-wrapper">
-                                              <i class="icon icon-news fa fa-thumbs-up"></i>
-                                              Votez pour nous !
-                                            </span>
-                        <i class="arrow"></i>
+                    <a href="index.html" class="logo">
+                        <img style="max-height: 35px;" src="img/logo.png" alt="NosWings - Logo">
                     </a>
-                </li>
-                <li class="menu-item menu-item-primary menu-item-play">
-                    <a href="<%- links.launcher %>" role="button" class="login-trigger menu-item-label"
-                       data-hash="#register">
-                        Téléchargez notre launcher
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Feed -->
-        <div class="main-content">
-            <!-- Feed -->
-            <div class="main-feed">
-                <!-- News feed -->
-                <section class="news-block">
-                    <!-- Article feed -->
-                    <div class="news-block-layout">
-                        <header class="news-block-header">
-                            <a href="/news">Les dernières nouvelles</a>
-                        </header>
-                        <div class="news-feed">
-                            <%
-                                for (const actualNews of locals.news)
-                                {
-                            %>
-                            <article class="new">
-                                <div class="image">
-                                    <a class="img" href="<%- actualNews.Link %>">
-                                        <div class="cover" data-more="Read more" data-desc="go to article to read more and discuss this article"></div>
-                                        <img src="<%- actualNews.Image %>" alt="<%- actualNews.Title %>">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <header class="header">
-                                        <a class="title" href="<%- actualNews.Link %>">[<%- actualNews.Tag %>] <%- actualNews.Title %></a>
-                                        <div class="desc">
-                                            <%- actualNews.Description %>
+                    <nav class="nav">
+                        <ul>
+                            <li>
+                                <a href="index.html">Nouveautés</a>
+                            </li>
+                            <li class="has-dropdown mega-menu mega-games">
+                                <a href="games.html">Liens-utiles</a>
+                                <ul>
+                                    <li>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html">
+                                                            <img src="img/menu/launcher.png" alt="Launcher">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html">
+                                                            <img src="img/menu/discord.png" alt="Discord">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html">
+                                                            <img src="img/menu/forum.png" alt="Forum">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html">
+                                                            <img src="img/menu/shop.png" alt="Shop">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html">
+                                                            <img src="img/menu/support.png" alt="Support">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </header>
-                                    <div class="info">
-                                        <div class="info">
-                                            <span><%- actualNews.Date %></span>
-                                            <span>Categories: <a href="<%- actualNews.Link %>"><%- actualNews.Tag %></a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <%
-                                }
-                            %>
-                        </div>
-                    </div>
-                </section>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/ranking">Classement</a>
+                            </li>
+                            <li>
+                                <a href="/join">Nous Rejoindre</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="nav navbar-right">
+                    <ul>
+                        <li class="hidden-xs-down">
+                            <a href="/login">Connexion</a>
+                        </li>
+                        <li class="hidden-xs-down">
+                            <a href="/register">
+                                <button class="btn btn-warning">Inscription</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </main>
-</div>
-<% include shared/footer.ejs %>
-<% include shared/scripts.ejs %>
+    </div>
+</header>
+<!-- /header -->
+
+<!-- main -->
+<section class="bg-inverse p-y-0">
+    <div class="owl-carousel owl-slide full-height">
+        <div class="carousel-item" style="background-image: url('img/news/halloween_1080p.png');">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-caption">
+                <div>
+                    <h3 class="carousel-title">NosWings - Hallowings</h3>
+                    <p>Halloween débarque sur NosWings !</p>
+                    <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="index.html" data-lightbox
+                       role="button">Plus d'informations</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('img/news/noswings.png');">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-caption">
+                <div>
+                    <h3 class="carousel-title">NosWings - Reborn</h3>
+                    <p>La mise à jour des pets !</p>
+                    <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="index.html" data-lightbox
+                       role="button">Plus d'informations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- post -->
+                <div class="post post-md">
+                    <div class="post-thumbnail">
+                        <a href="blog-post-medium.html">
+                            <img src="img/news/halloween.png" alt="Halloween sur NosWings">
+                        </a>
+                    </div>
+                    <div class="post-block">
+                        <h2 class="post-title">
+                            <a href="blog-post-medium.html">Halloween débarque sur NosWings !</a>
+                        </h2>
+                        <div class="post-meta">
+                                <span>
+                                    <i class="fa fa-clock-o"></i>
+                                    <a href="profile.html">Blowa</a> - le 24 Octobre 2017</span>
+                        </div>
+                        <p>Profitez en pour découvrir l'évènement Hallowings sur notre serveur !</p>
+                    </div>
+                </div>
+                <div class="post post-md">
+                    <div class="post-thumbnail">
+                        <a href="blog-post-medium.html">
+                            <img src="https://cdn.discordapp.com/attachments/352810727943307265/372041464445665280/Pikaz.png" alt="Vidéo de présentation du serveur privé nostale NosWings - Pikaz">
+                        </a>
+                    </div>
+                    <div class="post-block">
+                        <h2 class="post-title">
+                            <a href="blog-post-medium.html">Vidéo de Présentation du erveur NosWings - by Pikaz</a>
+                        </h2>
+                        <div class="post-meta">
+                                <span>
+                                    <i class="fa fa-clock-o"></i>
+                                    <a href="profile.html">Blowa</a> - le 24 Octobre 2017</span>
+                        </div>
+                        <p>Découvrez au travers d'une vidéo les fonctionnalités de NosWings !</p>
+                    </div>
+                </div>
+
+                <div class="pagination-results m-t-30">
+                    <span>Showing 1 to 2 of 2 results</span>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">Précédente</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">Suivante</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+
+                    <div class="widget widget-games">
+                        <h5 class="widget-title">Les Rates</h5>
+                        <a href="#" style="background-image: url('img/widget/xp.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">XP</div>
+                                <div class="description">
+                                    <h5 class="title">Rate x30</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('img/widget/gold.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">OR</div>
+                                <div class="description">
+                                    <h5 class="title">Rate x30</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('img/widget/drop.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">DROP</div>
+                                <div class="description">
+                                    <h5 class="title">Rate x5</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('img/widget/fairy.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">FÉE</div>
+                                <div class="description">
+                                    <h5 class="title">Rate x10</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('img/widget/reput.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">REPUT</div>
+                                <div class="description">
+                                    <h5 class="title">Rate x10</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- widget post  -->
+                    <div class="widget widget-post">
+                        <h5 class="widget-title">Discord</h5>
+                        <iframe src="https://discordapp.com/widget?id=246980749146718208&theme=dark" width="350" height="500" allowtransparency="true"
+                                frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main -->
+
+<section class="bg-secondary no-border-bottom p-y-80">
+    <div class="container">
+        <div class="heading">
+            <i class="fa fa-star"></i>
+            <h2>Nos fonctionnalités</h2>
+            <p>Vous souhaitez savoir ce qui est présent sur notre serveur ?</p>
+        </div>
+        <div class="owl-carousel owl-list">
+            <div class="card card-review">
+                <a class="card-img" href="review-post.html">
+                    <img src="img/features/act4.png" alt="">
+                </a>
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <a href="review-post.html">Acte 4</a>
+                    </h4>
+                    <p>Notre acte 4 est fonctionnel, a été refait pour être plus attirant qu'avant</p>
+                </div>
+            </div>
+            <div class="card card-review">
+                <a class="card-img" href="review-post.html">
+                    <img src="img/features/nosmate.png" alt="">
+                </a>
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <a href="review-post.html">Nosmates / Partenaires</a>
+                    </h4>
+                    <p>Vous souhaitiez avoir votre fibi à côté de vous ? Ou votre Kliff ? Chez nous c'est possible !</p>
+                </div>
+            </div>
+            <div class="card card-review">
+                <a class="card-img" href="review-post.html">
+                    <img src="img/features/shell.png" alt="">
+                </a>
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <a href="review-post.html">Runes / Cellonages</a>
+                    </h4>
+                    <p>En manque de points de SP ? Besoin de SL ? Les runes sont présentes sur NosWings !</p>
+                </div>
+            </div>
+            <div class="card card-review">
+                <a class="card-img" href="review-post.html">
+                    <img src="img/review/review-4.jpg" alt="">
+                </a>
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <a href="review-post.html">Du contenu inédit</a>
+                    </h4>
+                    <p>Vous souhaitiez un serveur unique en son genre ? Nous avons retravaillé tout le GamePlay de notre
+                        serveur !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-image">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="video-play" data-src="https://www.youtube.com/embed/7WnQjboj3L0?rel=0&amp;amp;autoplay=1&amp;amp;showinfo=0">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img class="embed-responsive-item" src="https://img.youtube.com/vi/7WnQjboj3L0/maxresdefault.jpg" alt="">
+                <div class="video-caption">
+                    <h5>NosWings - Présentation du serveur</h5>
+                    <span class="length">00:01</span>
+                </div>
+                <div class="video-play-icon">
+                    <i class="fa fa-play"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title">A propos de NosWings</h4>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title">Liens utiles</h4>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <a href="<%- links.forum %>">Forum</a>
+                            </li>
+                            <li>
+                                <a href="<%- links.discord %>">Discord</a>
+                            </li>
+                            <li>
+                                <a href="<%- links.launcher %>">Launcher</a>
+                            </li>
+                            <li>
+                                <a href="<%- links.shop %>">Boutique</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <a href="/register">Inscription</a>
+                            </li>
+                            <li>
+                                <a href="/">Nouveautés</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://www.youtube.com/user/NosWings" target="_blank" data-toggle="tooltip" title="youtube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </div>
+            <p>Copyright &copy; 2017
+                <a href="https://noswings.fr/" target="_blank">NosWings</a>.</p>
+        </div>
+    </div>
+</footer>
+<!-- /footer -->
+
+<!-- vendor js -->
+<script src="plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- plugins js -->
+<script src="plugins/lightbox/lightbox.js"></script>
+<script src="plugins/owl-carousel/js/owl.carousel.min.js"></script>
+<script>
+    (function ($) {
+        "use strict";
+
+        // Full Width Carousel
+        $('.owl-slide').owlCarousel({
+            nav: true,
+            loop: true,
+            autoplay: true,
+            items: 1
+        });
+
+        // Recent Reviews
+        $('.owl-list').owlCarousel({
+            margin: 25,
+            nav: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                500: {
+                    items: 2
+                },
+                701: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+
+        // lightbox
+        $('[data-lightbox]').lightbox();
+    })(jQuery);
+</script>
+
+<!-- theme js -->
+<script src="js/theme.min.js"></script>
 </body>
 
 </html>

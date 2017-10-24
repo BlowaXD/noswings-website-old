@@ -1,57 +1,248 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <% include ../shared/head.ejs %>
-    </head>
+<html lang="en">
 
-    <body class="fixed-header menu-pin">
-        <div class="register-container full-height sm-p-t-30">
-            <div class="d-flex justify-content-center flex-column full-height">
-                <div style="text-align: center;"><img src="/assets/img/logo.svg" alt="logo" data-src="/assets/img/logo.svg" data-src-retina="/assets/img/logo.svg" width="500"></div>
-                <h3>Inscription NosWings : Reborn</h3>
-                <p>
-                    Rejoignez nous sur NosWings : Reborn
-                </p>
-                <form id="form-register" class="p-t-15" role="form" action="/register" method="POST">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Username</label>
-                                <input type="text" name="username" placeholder="Username" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Password</label>
-                                <input type="password" name="password" placeholder="******" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Confirm password</label>
-                                <input type="password" name="passwordConfirmation" placeholder="******" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Email</label>
-                                <input type="email" name="email" placeholder="Un mail de confirmation vous sera envoyé" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm"></div>
-                    <button class="btn btn-primary btn-cons m-t-10" type="submit">Inscription</button>
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NosWings - Serveur Privé Nostale - Accueil</title>
+    <!-- vendor css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate/animate.min.css">
+    <!-- plugins css -->
+    <link href="plugins/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
+    <!-- theme css -->
+    <link rel="stylesheet" href="css/theme.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="fixed-header">
+<!-- header -->
+<header id="header">
+    <div class="container">
+        <div class="navbar-backdrop">
+            <div class="navbar">
+                <div class="navbar-left">
+                    <a class="navbar-toggle"><i class="fa fa-bars"></i></a>
+                    <a href="index.html" class="logo"><img style="max-height: 35px;" src="img/logo.png" alt="NosWings - Logo"></a>
+                    <nav class="nav">
+                        <ul>
+                            <li>
+                                <a href="index.html">Nouveautés</a>
+                            </li>
+                            <li class="has-dropdown mega-menu mega-games">
+                                <a href="games.html">Liens-utiles</a>
+                                <ul>
+                                    <li>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html"><img src="img/menu/menu-1.jpg" alt="Last of Us: Part 2"></a>
+                                                        <span class="badge badge-ps4">Launcher</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html"><img src="img/menu/menu-2.jpg" alt="Injustice 2"></a>
+                                                        <span class="badge badge-steam">Discord</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html"><img src="img/menu/menu-3.jpg" alt="Bioshock: Infinite"></a>
+                                                        <span class="badge badge-xbox-one">Forum</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html"><img src="img/menu/menu-4.jpg" alt="Batman: Arkham Knight"></a>
+                                                        <span class="badge badge-ps4">Boutique</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="img">
+                                                        <a href="game-post.html"><img src="img/menu/menu-5.jpg" alt="Bioshock: Infinite"></a>
+                                                        <span class="badge badge-pc">PC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="index.html">Classement</a>
+                            </li>
+                            <li>
+                                <a href="index.html">Nous Rejoindre</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="nav navbar-right">
+                    <ul>
+                        <li class="hidden-xs-down"><a href="login.html">Connexion</a></li>
+                        <li class="hidden-xs-down"><a href="register.html"><button class="btn btn-warning">Inscription</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-search">
+            <div class="container">
+                <form method="post">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <i class="fa fa-times close"></i>
                 </form>
             </div>
         </div>
-        <!-- BEGIN VENDOR JS -->
-        <% include ../shared/javascript.ejs %>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-    </body>
+    </div>
+</header>
+<!-- /header -->
+
+
+<!-- main -->
+<section class="bg-image bg-image-sm" style="background-image: url('https://noswings.fr/assets/img/demo/login-background.png');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><i class="fa fa-user-plus"></i> S'inscrire sur NosWings</h4>
+                    </div>
+                    <div class="card-block">
+                        <form action="/register">
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control form-control-secondary" placeholder="Identifiant">
+                            </div>
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" class="form-control form-control-secondary" placeholder="Adresse mail">
+                            </div>
+                            <div class="divider"><span>Sécurité</span></div>
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-lock"></i>
+                                <input type="password" class="form-control form-control-secondary" placeholder="Mot de passe">
+                            </div>
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-unlock"></i>
+                                <input type="password" class="form-control form-control-secondary" placeholder="Confirmer le mot de passe">
+                            </div>
+                            <div class="divider"><span>Je ne suis pas un robot !</span></div>
+                            <div class="g-recaptcha-outer">
+                                <script src='https://www.google.com/recaptcha/api.js'></script>
+                                <div class="g-recaptcha" data-sitekey="6LeBwhwUAAAAAG1RDj-rS2Wu4WYNoV021q0z-LNY"></div>
+                            </div>
+                            <div class="divider"><span>Conditions générales d'utilisation</span></div>
+                            <label class="custom-control custom-checkbox custom-checkbox-primary">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Accepter les <a href="#" data-toggle="modal" data-target="#terms">Conditions générales d'utilisation</a></span>
+                            </label>
+                            <button type="submit" class="btn btn-primary m-t-10 btn-block">Compléter l'inscription</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="terms">
+        <div class="modal-dialog modal-top" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-file-text-o"></i> Terms of Service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Morbi ut pharetra tellus</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis justo vel lorem sagittis, eu bibendum ipsum accumsan. Donec congue eget elit ut posuere. Curabitur congue, enim a viverra ultrices, elit velit auctor neque, eget vehicula
+                        augue purus et lectus. Mauris cursus ac ex in vehicula. Sed ut sagittis eros. Vivamus accumsan diam vitae lectus consectetur aliquet. Proin varius tempor ullamcorper. Quisque malesuada mollis arcu, in euismod nisi pharetra pellentesque.
+                        Sed ullamcorper quis dui sed varius. Fusce efficitur augue purus, vitae mattis orci blandit ac. Integer suscipit arcu ac diam tincidunt, sed elementum augue lobortis.</p>
+                    <p>Pellentesque finibus dui dui, sit amet scelerisque neque venenatis non. Nullam gravida nisi pretium malesuada luctus. Nunc porttitor ipsum a massa gravida congue. Vestibulum dapibus mauris sit amet volutpat faucibus. Nulla lacinia diam sed
+                        ultricies venenatis. Ut ultricies, urna commodo aliquam molestie, lectus leo efficitur tellus, et aliquam magna magna id est. In euismod ac magna quis imperdiet.</p>
+                    <p>Aliquam ornare elit neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi ut pharetra tellus. Vestibulum a dui nisl. Sed commodo sodales dolor, et malesuada nulla consectetur vitae. Quisque nec neque ac tellus auctor pellentesque
+                        vel eleifend urna. Phasellus non urna id tellus fringilla hendrerit. Quisque vel mauris nisi. Mauris nec odio vitae sapien sodales lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam sit amet nisi quis ex pretium
+                        congue id id magna. Aenean dictum justo sit amet augue mollis ullamcorper. Aliquam mattis vel mauris et elementum. Morbi et risus quis nisl ullamcorper pulvinar eget et erat.</p>
+                    <p>Ut viverra urna non orci interdum, in viverra urna pretium. Suspendisse potenti. Mauris et massa a enim lobortis facilisis. In hac habitasse platea dictumst. Ut varius erat vulputate libero sagittis, vitae feugiat nibh malesuada. Sed vel lacinia
+                        urna. Curabitur eget dui nisi.</p>
+                    <p>Vivamus orci felis, varius tempor lacus eu, scelerisque bibendum nunc. Vestibulum rutrum, enim quis maximus pretium, nisi est condimentum magna, venenatis dignissim magna nulla quis felis. Quisque id tellus nec mauris sagittis mattis non et
+                        quam. Etiam posuere, tellus sed tincidunt egestas, tortor orci interdum risus, nec egestas dolor tortor non turpis. Curabitur in tellus laoreet, congue eros a, bibendum tortor. Nulla in facilisis libero, sit amet sagittis tellus. Aliquam
+                        nec pulvinar velit, mattis pharetra urna. Donec et tincidunt libero. Duis at nisi in neque vulputate tempus. Curabitur et lobortis lacus. In sagittis egestas lorem, nec bibendum lacus maximus sed.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Accepter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main -->
+
+<!-- footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title">A propos de NosWings</h4>
+                <p>Mhabeet est flexible</p>
+                <p>Mhabeet est facile à prendre en mains</p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title">Liens utiles</h4>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li><a href="#">Forum</a></li>
+                            <li><a href="#">Discord</a></li>
+                            <li><a href="#">Launcher</a></li>
+                            <li><a href="#">Boutique</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li><a href="games.html">Inscription</a></li>
+                            <li><a href="reviews.html">Nouveautés</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://www.youtube.com/user/1YAKUZI" target="_blank" data-toggle="tooltip" title="youtube"><i class="fa fa-youtube"></i></a>
+            </div>
+            <p>Copyright &copy; 2017 <a href="https://noswings.fr/" target="_blank">NosWings</a>.</p>
+        </div>
+    </div>
+</footer>
+<!-- /footer -->
+
+<!-- vendor js -->
+<script src="plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- plugins js -->
+<script src="plugins/notification/notification.js" charset="utf-8"></script>
+<script>
+    (function($) {
+        "use strict";
+        // notification
+        $('[data-toggle="notification"]').notification();
+    })(jQuery);
+</script>
+<!-- theme js -->
+<script src="js/theme.min.js"></script>
+</body>
+
 </html>
