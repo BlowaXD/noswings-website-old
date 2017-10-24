@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include shared/header.ejs %>
+</head>
+
+<body class="fixed-header">
+<!-- header -->
+<% include shared/nav.ejs %>
+<!-- /header -->
+<!-- /header -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Pseudo</th>
+                        <th>Classe</th>
+                        <th>Niveau</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Blowa</td>
+                        <td>Archer</td>
+                        <td>150(+100)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Elendan</td>
+                        <td>BGSuprême</td>
+                        <td>1337</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Blowa</td>
+                        <td>Archer</td>
+                        <td>150(+100)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Blowa</td>
+                        <td>Archer</td>
+                        <td>150(+100)</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+
+                    <div class="widget widget-games">
+                        <h5 class="widget-title">Classement Personnages</h5>
+                        <a href="#" style="background-image: url('/assets/img/widget/level.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">Niveau</div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('/assets/img/widget/reput.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">Réputation</div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('/assets/img/widget/fxp.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">FXP</div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('/assets/img/widget/pvp.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">PVP</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="widget widget-games">
+                        <h5 class="widget-title">Classement Familles</h5>
+                        <a href="#" style="background-image: url('/assets/img/widget/family-members.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">Membres</div>
+                            </div>
+                        </a>
+                        <a href="#" style="background-image: url('/assets/img/widget/fxp.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">FXP</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main -->
+<!-- footer -->
+<% include shared/footer.ejs %>
+<!-- /footer -->
+
+<!-- vendor js -->
+<script src="/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="/assets/plugins/popper/popper.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+<!-- theme js -->
+<script src="/assets/js/theme.min.js"></script>
+</body>
+
+</html>
