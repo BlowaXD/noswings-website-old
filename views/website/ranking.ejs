@@ -58,25 +58,25 @@
 
                     <div class="widget widget-games">
                         <h5 class="widget-title">Classement Personnages</h5>
-                        <a href="#" style="background-image: url('/assets/img/widget/level.png')">
+                        <a href="#" onclick="getRanking('lvl')" style="background-image: url('/assets/img/widget/level.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Niveau</div>
                             </div>
                         </a>
-                        <a href="#" style="background-image: url('/assets/img/widget/reput.png')">
+                        <a href="#" onclick="getRanking('reput')"  style="background-image: url('/assets/img/widget/reput.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Réputation</div>
                             </div>
                         </a>
-                        <a href="#" style="background-image: url('/assets/img/widget/fxp.png')">
+                        <a href="#" onclick="getRanking('fxp')"  style="background-image: url('/assets/img/widget/fxp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">FXP</div>
                             </div>
                         </a>
-                        <a href="#" style="background-image: url('/assets/img/widget/pvp.png')">
+                        <a href="#" onclick="getRanking('pvp')"  style="background-image: url('/assets/img/widget/pvp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">PVP</div>
@@ -86,13 +86,13 @@
 
                     <div class="widget widget-games">
                         <h5 class="widget-title">Classement Familles</h5>
-                        <a href="#" style="background-image: url('/assets/img/widget/family-members.png')">
+                        <a href="#" onclick="getRanking('fmembres')"  style="background-image: url('/assets/img/widget/family-members.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Membres</div>
                             </div>
                         </a>
-                        <a href="#" style="background-image: url('/assets/img/widget/fxp.png')">
+                        <a href="#" onclick="getRanking('ffxp')"  style="background-image: url('/assets/img/widget/fxp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">FXP</div>
@@ -117,6 +117,15 @@
 
 <!-- theme js -->
 <script src="/assets/js/theme.min.js"></script>
+<script>
+    function getRanking(sortingMode) 
+    {
+        $.ajax(
+            {
+                url: '/ranking' + sortingMode
+            });
+    };
+</script>
 </body>
 
 </html>
