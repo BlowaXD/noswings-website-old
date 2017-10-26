@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include shared/header.ejs %>
+</head>
+
+<body class="fixed-header">
+<% include shared/nav.ejs %>
+
+
+<!-- main -->
+<section class="bg-image bg-image-sm" style="background-image: url('https://noswings.fr/assets/img/demo/login-background.png');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><i class="fa fa-user-plus"></i> Connexion</h4>
+                    </div>
+                    <div class="card-block">
+                        <form action="/login" method="post">
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control form-control-secondary" placeholder="Identifiant" name="username">
+                            </div>
+                            <div class="form-group input-icon-left m-b-10">
+                                <i class="fa fa-lock"></i>
+                                <input type="password" class="form-control form-control-secondary" placeholder="*******" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary m-t-10 btn-block"><i class=""></i> Connexion</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main -->
+
+<!-- footer -->
+<% include shared/footer.ejs %>
+<!-- /footer -->
+
+<!-- vendor js -->
+<script src="/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="/assets/plugins/popper/popper.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- plugins js -->
+<script src="/assets/plugins/notification/notification.js" charset="utf-8"></script>
+<script>
+    (function($) {
+        "use strict";
+        // notification
+        $('[data-toggle="notification"]').notification();
+    })(jQuery);
+</script>
+<!-- theme js -->
+<script src="/assets/js/theme.min.js"></script>
+</body>
+
+</html>
