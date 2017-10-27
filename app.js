@@ -8,6 +8,7 @@ const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const compression = require('compression');
 
 /*
 ** GLOBALS
@@ -29,6 +30,7 @@ const route_website = routes.website;
 ** SETUP EXPRESS
 */
 const app = express();
+app.use(compression());
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
