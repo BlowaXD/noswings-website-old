@@ -3,6 +3,60 @@
 
 <head>
     <% include shared/header.ejs %>
+    <script>
+        function sendNotification(title, type)
+        {
+            const id = 1 + Math.floor(Math.random() * 99);
+            let alert = type ? type : 'info';
+
+            $('body').append('<div id="notification-' + id + '" class="notification animated fadeInDown fast"><div class="alert alert-' + alert + '">' + title + '</div></div>');
+
+            setTimeout(function ()
+            {
+                $('body').find('#notification-' + id).removeClass('fadeInDown').addClass('fadeOutUp');
+            }, 4000);
+
+            setTimeout(function ()
+            {
+                $('body').find('#notification-' + id).remove();
+            }, 5000);
+        }
+
+        function updateRanking(data)
+        {
+            const tableBody = $("#ranking-body");
+            tableBody.empty();
+            let iterator = 1;
+            for (const i of data)
+            {
+                const newRow = `<tr><th scope="row">${iterator}</th><td>${i.Name}</td><td>${i.Class}</td><td>${i.Level}(+${i.HeroLevel})</td><td>${i.LevelXp})</td><td>${i.Reputation}</td></tr>`;
+                tableBody.append(newRow);
+                iterator++;
+            }
+        }
+
+        function getRanking(rankType)
+        {
+            console.log('/ranks/'+rankType);
+            $.ajax({
+                type: 'GET',
+                url: '/ranks/' + rankType,
+                success: function (stuff)
+                {
+                    sendNotification('Le classement a été actualisé', 'success');
+                    console.log(stuff);
+                    updateRanking(stuff.data);
+                },
+                error: function (xhr)
+                {
+                    const data = JSON.parse(xhr.responseText);
+
+                    sendNotification('Error: ' + data.error, 'danger');
+                },
+                dataType: 'json'
+            });
+        }
+    </script>
 </head>
 
 <body class="fixed-header">
@@ -21,33 +75,11 @@
                         <th>Pseudo</th>
                         <th>Classe</th>
                         <th>Niveau</th>
+                        <th>Xp</th>
+                        <th>Reputation</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Blowa</td>
-                        <td>Archer</td>
-                        <td>150(+100)</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Elendan</td>
-                        <td>BGSuprême</td>
-                        <td>1337</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Blowa</td>
-                        <td>Archer</td>
-                        <td>150(+100)</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Blowa</td>
-                        <td>Archer</td>
-                        <td>150(+100)</td>
-                    </tr>
+                    <tbody id="ranking-body">
                     </tbody>
                 </table>
             </div>
@@ -58,41 +90,54 @@
 
                     <div class="widget widget-games">
                         <h5 class="widget-title">Classement Personnages</h5>
-                        <a href="#" onclick="getRanking('lvl')" style="background-image: url('/assets/img/widget/level.png')">
+                        <a href="#" onclick="getRanking('lvl')"
+                           style="background-image: url('/assets/img/widget/level.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Niveau</div>
                             </div>
                         </a>
-                        <a href="#" onclick="getRanking('reput')"  style="background-image: url('/assets/img/widget/reput.png')">
+                        <a href="#" onclick="getRanking('reput')"
+                           style="background-image: url('/assets/img/widget/reput.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Réputation</div>
                             </div>
                         </a>
-                        <a href="#" onclick="getRanking('fxp')"  style="background-image: url('/assets/img/widget/fxp.png')">
+                        <a href="#" onclick="getRanking('fxp')"
+                           style="background-image: url('/assets/img/widget/fxp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">FXP</div>
                             </div>
                         </a>
-                        <a href="#" onclick="getRanking('pvp')"  style="background-image: url('/assets/img/widget/pvp.png')">
+                        <a href="#" onclick="getRanking('pvp')"
+                           style="background-image: url('/assets/img/widget/pvp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">PVP</div>
+                            </div>
+                        </a>
+                        <a href="#" onclick="getRanking('donator')"
+                           style="background-image: url('/assets/img/widget/donator.png')">
+                            <span class="overlay"></span>
+                            <div class="widget-block">
+                                <div class="count">DONATION</div>
                             </div>
                         </a>
                     </div>
 
                     <div class="widget widget-games">
                         <h5 class="widget-title">Classement Familles</h5>
-                        <a href="#" onclick="getRanking('fmembres')"  style="background-image: url('/assets/img/widget/family-members.png')">
+                        <a href="#" onclick="getRanking('fmembres')"
+                           style="background-image: url('/assets/img/widget/family-members.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">Membres</div>
                             </div>
                         </a>
-                        <a href="#" onclick="getRanking('ffxp')"  style="background-image: url('/assets/img/widget/fxp.png')">
+                        <a href="#" onclick="getRanking('ffxp')"
+                           style="background-image: url('/assets/img/widget/fxp.png')">
                             <span class="overlay"></span>
                             <div class="widget-block">
                                 <div class="count">FXP</div>
@@ -117,15 +162,6 @@
 
 <!-- theme js -->
 <script src="/assets/js/theme.min.js"></script>
-<script>
-    function getRanking(sortingMode) 
-    {
-        $.ajax(
-            {
-                url: '/ranking' + sortingMode
-            });
-    };
-</script>
 </body>
 
 </html>

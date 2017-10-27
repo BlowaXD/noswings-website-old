@@ -105,7 +105,6 @@
                                     error: function (xhr, status, error) {
                                         const data = JSON.parse(xhr.responseText);
 
-                                        console.log(data);
                                         sendNotification('Error: ' + data.error, 'danger');
                                         resetCaptcha();
                                     },

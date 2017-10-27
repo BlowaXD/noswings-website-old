@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+    ERRORS: {
+      DATABASE_ERR: "Erreur dans la base de donnée"
+    },
     SERVER_NAME: 'NosWings',
     HEADER_BAR: {
         SETTING: 'Settings',
