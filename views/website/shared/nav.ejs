@@ -71,6 +71,12 @@
                 </div>
                 <div class="nav navbar-right">
                     <ul>
+                        <li class="hidden-xs-down has-dropdown">
+                            <%- __('LANGUAGE') %>
+                            <ul>
+                                <li><a href="/en"><%= __('ENGLISH') %></a></li>
+                                <li><a href="/fr"><%= __('FRENCH') %></a></li>
+                            </ul>
                         </li>
                         <li class="hidden-xs-down">
                             <a href="/login"><%= __('LOGIN') %></a>
@@ -79,13 +85,6 @@
                             <a href="/register">
                                 <button class="btn btn-warning"><%= __('REGISTER') %></button>
                             </a>
-                        </li>
-                        <li class="hidden-xs-down has-dropdown">
-                            <%- __('LANGUAGE') %>
-                            <ul>
-                                <li><a href="/en"><%= __('ENGLISH') %></a></li>
-                                <li><a href="/fr"><%= __('FRENCH') %></a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>

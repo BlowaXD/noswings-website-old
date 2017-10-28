@@ -64,7 +64,9 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 
 /* CREATE ROUTES */
 app.use(function (req, res, next) {
-    res.setLocale(req.cookies.i18n);
+    if (req.cookies.i18n) {
+        res.setLocale(req.cookies.i18n);
+    }
     res.locals.user = req.user;
     res.locals.__ = i18n.__;
     return (next());
@@ -85,7 +87,6 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
