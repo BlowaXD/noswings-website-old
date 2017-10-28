@@ -57,8 +57,9 @@
                         <label class="custom-control custom-checkbox custom-checkbox-primary">
                             <input id="form-cgu-check" type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description"><%= __('ACCEPT_TERMS') %> <a href="#" data-toggle="modal"
-                                                                                     data-target="#terms"><%= __('TERMS_OF_SERVICE') %></a></span>
+                            <span class="custom-control-description"><%= __('ACCEPT_TERMS') %> <a href="#"
+                                                                                                  data-toggle="modal"
+                                                                                                  data-target="#terms"><%= __('TERMS_OF_SERVICE') %></a></span>
                         </label>
                         <script>
                             function sendNotification(title, type) {
@@ -98,11 +99,11 @@
                                     type: 'POST',
                                     url: '/register',
                                     data: data,
-                                    success: function (stuff) {
+                                    success: function () {
                                         sendNotification('<%= __("SUCCESSFUL_REGISTRATION") %>', 'success');
                                         clearForm();
                                     },
-                                    error: function (xhr, status, error) {
+                                    error: function (xhr) {
                                         const data = JSON.parse(xhr.responseText);
 
                                         sendNotification('Error: ' + data.error, 'danger');
@@ -150,7 +151,7 @@
                             }
                         </script>
                         <button onclick="validateForm()" type="submit" class="btn btn-primary m-t-10 btn-block">
-                            Compléter l'inscription
+                            <%- __('REGISTER') %>
                         </button>
                     </div>
                 </div>
@@ -170,9 +171,11 @@
                 </div>
                 <div class="modal-body">
                     <h6>1. NosWings Affiliation</h6>
-                    <p>NosWings n'est aucunement affilié aux entités telles que GameForge, Entwell ou autre société liée à l'univers Nostale.
+                    <p>NosWings n'est aucunement affilié aux entités telles que GameForge, Entwell ou autre société liée
+                        à l'univers Nostale.
                         Nous développons ce serveur pour montrer qu'il est possible de rendre Nostale
-                        L'argent récolté grâce aux donations de NosWings est réinjecté dans les frais impliqués dans NosWings.
+                        L'argent récolté grâce aux donations de NosWings est réinjecté dans les frais impliqués dans
+                        NosWings.
                         Ce serveur est fait par des joueurs passionés ayant des compétences diverses, pour des joueurs.
                         Merci de nous accorder votre confiance.
                     </p>
