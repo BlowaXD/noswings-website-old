@@ -40,7 +40,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.locals = {translate: global.translate, links: global.config.links};
 i18n.configure({
-    locales: ['en', 'fr'],
+    locales: ['en', 'fr', 'es'],
     directory: __dirname + '/locales',
     defaultLocale: 'en',
     cookie: 'i18n'
@@ -86,7 +86,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 

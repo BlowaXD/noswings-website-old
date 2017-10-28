@@ -4,6 +4,7 @@
 	"LANGUAGE": "🇫🇷",
 	"ENGLISH": "🇬🇧",
 	"FRENCH": "🇫🇷",
+  "SPANISH": "🇪🇸",
 	"NEWS": "Nouveautés",
 	"USEFUL_LINKS": "Liens Utiles",
 	"RANKING": "Classement",
@@ -42,5 +43,5 @@
 	"SUCCESSFUL_REGISTRATION": "Votre compte a été créé avec succès !",
 	"TEAM_ARENA": "L'arène des talents",
 	"TEAM_ARENA_DESCRIPTION": "Vous souhaitez montrer à tous que vous êtes le meilleur ? Rencontrez des joueurs de votre niveau et affrontez les dans une bataille sans foi ni loi",
-	"ACT_4_DESCRIPTION": "Nous avons retravaillé l'acte 4 pour qu'il soit de nouveau agréable à jouer et important dans votre jeu !"
+	"ACT_4_DESCRIPTION": "Nous avons retravaillé l'acte 4 pour qu'il soit de nouveau agréable à jouer et important dans votre jeu !",
 }
