@@ -12,10 +12,10 @@
                     <nav class="nav">
                         <ul>
                             <li>
-                                <a>Nouveautés</a>
+                                <a><%- __('NEWS') %></a>
                             </li>
                             <li class="has-dropdown mega-menu mega-games">
-                                <a>Liens-utiles</a>
+                                <a><%- __('USEFUL_LINKS') %></a>
                                 <ul>
                                     <li>
                                         <div class="container">
@@ -61,23 +61,31 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="/ranking">Classement</a>
+                                <a href="/ranking"><%- __('RANKING') %></a>
                             </li>
                             <li>
-                                <a href="/join">Nous Rejoindre</a>
+                                <a href="/join"><%- __('JOIN_US') %></a>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="nav navbar-right">
                     <ul>
+                        </li>
                         <li class="hidden-xs-down">
-                            <a href="/login">Connexion</a>
+                            <a href="/login"><%= __('LOGIN') %></a>
                         </li>
                         <li class="hidden-xs-down">
                             <a href="/register">
-                                <button class="btn btn-warning">Inscription</button>
+                                <button class="btn btn-warning"><%= __('REGISTER') %></button>
                             </a>
+                        </li>
+                        <li class="hidden-xs-down has-dropdown">
+                            <%- __('LANGUAGE') %>
+                            <ul>
+                                <li><a href="/en"><%= __('ENGLISH') %></a></li>
+                                <li><a href="/fr"><%= __('FRENCH') %></a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

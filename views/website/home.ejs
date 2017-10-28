@@ -19,7 +19,7 @@
                         <div>
                             <h3 class="carousel-title">NosWings - Hallowings</h3>
                             <p>Halloween débarque sur NosWings !</p>
-                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button">Plus d'informations</a>
+                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button"><%- __('MORE_INFORMATION') %></a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <div>
                             <h3 class="carousel-title">NosWings - Reborn</h3>
                             <p>La mise à jour des pets !</p>
-                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button">Plus d'informations</a>
+                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button"><%- __('MORE_INFORMATION') %></a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                         <div class="sidebar">
 
                             <div class="widget widget-games">
-                                <h5 class="widget-title">Les Rates</h5>
+                                <h5 class="widget-title"><%- __('OUR_RATES') %></h5>
                                 <a href="#" style="background-image: url('/assets/img/widget/xp.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
@@ -114,7 +114,7 @@
                                 <a href="#" style="background-image: url('/assets/img/widget/gold.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
-                                        <div class="count">OR</div>
+                                        <div class="count"><%- __('GOLD') %></div>
                                         <div class="description">
                                             <h5 class="title">Rate x30</h5>
                                         </div>
@@ -132,7 +132,7 @@
                                 <a href="#" style="background-image: url('/assets/img/widget/fairy.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
-                                        <div class="count">FÉE</div>
+                                        <div class="count"><%- __('FAIRY') %></div>
                                         <div class="description">
                                             <h5 class="title">Rate x10</h5>
                                         </div>
@@ -165,53 +165,96 @@
             <div class="container">
                 <div class="heading">
                     <i class="fa fa-star"></i>
-                    <h2>Nos fonctionnalités</h2>
-                    <p>Vous souhaitez savoir ce qui est présent sur notre serveur ?</p>
+                    <h2><%- __('OUR_FEATURES') %></h2>
+                    <p><%- __('OUR_FEATURES_DESCRIPTION') %></p>
                 </div>
                 <div class="owl-carousel owl-list">
                     <div class="card card-review">
-                        <a class="card-img" href="#">
-                            <img src="/assets/img/features/act4.png" alt="">
+                        <a class="card-img">
+                            <img src="/assets/img/features/nosmate.png" alt="<%- __('PET_PARTNER') %>">
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a>Acte 4</a>
+                                <a><%- __('PET_PARTNER') %></a>
                             </h4>
-                            <p>Notre acte 4 est fonctionnel, a été refait pour être plus attirant qu'avant</p>
+                            <p><%- __('PET_PARTNER_DESCRIPTION') %></p>
                         </div>
                     </div>
                     <div class="card card-review">
-                        <a class="card-img" href="#">
-                            <img src="/assets/img/features/nosmate.png" alt="">
+                        <a class="card-img">
+                            <img src="/assets/img/features/shell.png" alt="<%- __('SHELL_CELLON') %>">
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a>Nosmates / Partenaires</a>
+                                <a><%- __('SHELL_CELLON') %></a>
                             </h4>
-                            <p>Vous souhaitiez avoir votre fibi à côté de vous ? Ou votre Kliff ? Chez nous c'est possible !</p>
+                            <p><%- __('SHELL_CELLON_DESCRIPTION') %></p>
                         </div>
                     </div>
                     <div class="card card-review">
-                        <a class="card-img" href="#">
-                            <img src="/assets/img/features/shell.png" alt="">
+                        <a class="card-img">
+                            <img src="/assets/img/features/act4.png" alt="<%- __('ACT_4') %>">
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a>Runes / Cellonages</a>
+                                <a><%- __('ACT_4') %></a>
                             </h4>
-                            <p>En manque de points de SP ? Besoin de SL ? Les runes sont présentes sur NosWings !</p>
+                            <p><%- __('ACT_4_DESCRIPTION') %></p>
                         </div>
                     </div>
                     <div class="card card-review">
-                        <a class="card-img" href="#">
-                            <img src="/assets/img/features/contenu.png" alt="">
+                        <a class="card-img">
+                            <img src="/assets/img/features/combos.png" alt="<%- __('COMBOS') %>">
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a>Du contenu inédit</a>
+                                <a><%- __('COMBOS') %></a>
                             </h4>
-                            <p>Vous souhaitiez un serveur unique en son genre ? Nous avons retravaillé tout le GamePlay de notre
-                                serveur !</p>
+                            <p><%- __('COMBOS_DESCRIPTION') %></p>
+                        </div>
+                    </div>
+                    <div class="card card-review">
+                        <a class="card-img">
+                            <img src="/assets/img/features/teamarena.png" alt="<%- __('TEAM_ARENA') %>">
+                        </a>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                <a><%- __('TEAM_ARENA') %></a>
+                            </h4>
+                            <p><%- __('TEAM_ARENA_DESCRIPTION') %></p>
+                        </div>
+                    </div>
+                    <div class="card card-review">
+                        <a class="card-img">
+                            <img src="/assets/img/features/content.png" alt="<%- __('UNIQUE_CONTENT') %>">
+                        </a>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                <a><%- __('UNIQUE_CONTENT') %></a>
+                            </h4>
+                            <p><%- __('UNIQUE_CONTENT_DESCRIPTION') %></p>
+                        </div>
+                    </div>
+                    <div class="card card-review">
+                        <a class="card-img">
+                            <img src="/assets/img/features/icebreaker.png" alt="<%- __('ICEBREAKER') %>">
+                        </a>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                <a><%- __('ICEBREAKER') %></a>
+                            </h4>
+                            <p><%- __('ICEBREAKER_DESCRIPTION') %></p>
+                        </div>
+                    </div>
+                    <div class="card card-review">
+                        <a class="card-img">
+                            <img src="/assets/img/features/instantbattle.png" alt="<%- __('INSTANT_BATTLE') %>">
+                        </a>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                <a><%- __('INSTANT_BATTLE') %></a>
+                            </h4>
+                            <p><%- __('INSTANT_BATTLE_DESCRIPTION') %></p>
                         </div>
                     </div>
                 </div>
@@ -265,6 +308,9 @@
                         margin: 25,
                         nav: true,
                         dots: false,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout:3000,
                         responsive: {
                             0: {
                                 items: 1

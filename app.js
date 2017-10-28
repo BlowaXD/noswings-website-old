@@ -9,6 +9,9 @@ const favicon = require("serve-favicon");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 const compression = require('compression');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const i18n = require('i18n');
 
 /*
 ** GLOBALS
@@ -35,17 +38,38 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.locals = { translate: global.translate, links: global.config.links };
+app.locals = {translate: global.translate, links: global.config.links};
+i18n.configure({
+    locales: ['en', 'fr'],
+    directory: __dirname + '/locales',
+    defaultLocale: 'en',
+    cookie: 'i18n'
+});
+app.use(cookieParser("noswings_language"));
+app.use(session({
+    secret: "noswings_language",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 60000}
+}));
+app.use(i18n.init);
 
 /*
 ** MIDDLEWARES
 */
 app.use(helmet());
 app.use(logger('dev'));
-app.use(bodyParser.json({limit: '10mb'})); 
-app.use(bodyParser.urlencoded({limit: '10mb', extended: true})); 
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 
 /* CREATE ROUTES */
+app.use(function (req, res, next) {
+    res.setLocale(req.cookies.i18n);
+    res.locals.user = req.user;
+    res.locals.__ = i18n.__;
+    return (next());
+});
+
 app.use(route_website);
 app.use('/user', route_user);
 app.use('/admin', route_admin);
