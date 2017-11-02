@@ -19,24 +19,38 @@
             </li>
             <li>
                 <a href="/user/account" class="detailed">
-                    <span class="title"><%= translate.SIDE_BAR.ACCOUNT %></span>
-                    <span class="details"><%= translate.SIDE_BAR.ACCOUNT_DESC %></span>
+                    <span class="title"><%- __('ACCOUNT') %></span>
+                    <span class="details"><%- __('ACCOUNT_DESC') %></span>
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
             </li>
             <li>
                 <a href="https://discord.gg/uyFs2yz" class="detailed">
-                    <span class="title"><%= translate.SIDE_BAR.DONATE %></span>
-                    <span class="details"><%= translate.SIDE_BAR.DONATE_DESC %></span>
+                    <span class="title"><%- __('DONATE') %></span>
+                    <span class="details"><%- __('DONATE_DESC') %></span>
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-paypal"></i></span>
             </li>
             <li>
                 <a href="/shop" class="detailed">
-                    <span class="title"><%= translate.SIDE_BAR.SHOP %></span>
-                    <span class="details"><%= translate.SIDE_BAR.SHOP_DESC %></span>
+                    <span class="title"><%- __('SHOP') %></span>
+                    <span class="details"><%- __('SHOP_DESC') %></span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-shopping_cart"></i></span>
+            </li>
+            <li>
+                <a href="/shop/vip" class="detailed">
+                    <span class="title"><%- __('VIP_SHOP') %></span>
+                    <span class="details"><%- __('VIP_SHOP_DESC') %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-shopping_cart"></i></span>
+            </li>
+            <li>
+                <a href="/" class="detailed">
+                    <span class="title"><%- __('SITE') %></span>
+                    <span class="details"><%- __('SITE_DESC') %></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fa fa-globe"></i></span>
             </li>
             <%
             if (user && user.actualPanel != "user")
