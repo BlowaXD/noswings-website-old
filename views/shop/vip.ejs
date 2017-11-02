@@ -14,42 +14,287 @@
     <div class="page-content-wrapper">
         <!-- START PAGE CONTENT -->
         <div class="content">
+
+            <!-- START JUMBOTRON -->
+            <div class="jumbotron" data-pages="parallax">
+                <div class=" container-fluid   container-fixed-lg">
+                    <div class="inner">
+                        <!-- START BREADCRUMB -->
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">KFC-SHOP</a></li>
+                            <li class="breadcrumb-item active">VIP</li>
+                        </ol>
+                        <!-- END BREADCRUMB -->
+                        <div class="container-md-height m-b-20">
+                            <div class="row m-md-0">
+                                <div class="col-xl-7 col-lg-6 bg-white">
+                                    <!-- START card -->
+                                    <div class="full-height">
+                                        <div class="card-block text-center">
+                                            <img class="image-responsive-height demo-mw-500" src="/assets/img/logo.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <!-- END card -->
+                                </div>
+                                <div class="col-xl-5 col-lg-6 col-top">
+                                    <!-- START card -->
+                                    <div class="card card-transparent">
+                                        <div class="card-header ">
+                                            <div class="card-title"><%- __('VIP_PERKS') %>
+                                            </div>
+                                        </div>
+                                        <div class="card-block">
+                                            <h3><%- __('VIP_PERKS') %></h3>
+                                            <p><%- __('VIP_PERKS_DESC') %></p>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <!-- END card -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END JUMBOTRON -->
             <!-- START CONTAINER FLUID -->
             <div class=" container-fluid   container-fixed-lg">
                 <o class="breadcrumb"></o>
                 <!-- BEGIN PlACE PAGE CONTENT HERE -->
                 <div class="row">
-                    <div class="col-lg-2">
-                        <div class="card card-default">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <%- __('VIP_PACK') %>
+                    <div class="col-lg-12">
+                        <div class="card card-transparent">
+                            <div class="card-header ">
+                                <div class="card-title">VIP INFOS
                                 </div>
-                                <div class="card-controls">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="close" class="card-close" href="#">
-                                                <i class="card-icon card-icon-close"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                <div class="tools">
+                                    <a class="collapse" href="javascript:;"></a>
+                                    <a class="config" data-toggle="modal" href="#grid-config"></a>
+                                    <a class="reload" href="javascript:;"></a>
+                                    <a class="remove" href="javascript:;"></a>
                                 </div>
                             </div>
                             <div class="card-block">
-                                <p>
-                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th style="width:40%"><%- __('PERKS') %></th>
+                                            <th>VIP</th>
+                                            <th>VIP+</th>
+                                            <th>VIP++</th>
+                                            <th>DONATOR</th>
+                                            <th>DONATOR+</th>
+                                            <th>DONATOR++</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('MAX_ITEM_AMOUNT') %></td>
+                                            <td class="v-align-middle semi-bold">125</td>
+                                            <td class="v-align-middle semi-bold">150</td>
+                                            <td class="v-align-middle semi-bold">175</td>
+                                            <td class="v-align-middle bold">200</td>
+                                            <td class="v-align-middle bold">225</td>
+                                            <td class="v-align-middle bold">250</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('MAX_NOSBAZAAR_AMOUNT') %></td>
+                                            <td class="v-align-middle semi-bold bg-complete-lighter">200</td>
+                                            <td class="v-align-middle semi-bold bg-complete-lighter">300</td>
+                                            <td class="v-align-middle semi-bold bg-complete-lighter">500</td>
+                                            <td class="v-align-middle bold bg-complete-lighter"><%- __('UNLIMITED') %></td>
+                                            <td class="v-align-middle bold bg-complete-lighter"><%- __('UNLIMITED') %></td>
+                                            <td class="v-align-middle bold bg-complete-lighter"><%- __('UNLIMITED') %></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('XP_BONUS') %></td>
+                                            <td class="v-align-middle semi-bold">+ 0%</td>
+                                            <td class="v-align-middle semi-bold">+ 0%</td>
+                                            <td class="v-align-middle semi-bold bg-complete-lighter">+ 5%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 10%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 15%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 25%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('GOLD_BONUS') %></td>
+                                            <td class="v-align-middle semi-bold">+ 0%</td>
+                                            <td class="v-align-middle semi-bold">+ 0%</td>
+                                            <td class="v-align-middle semi-bold">+ 0%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 5%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 10%</td>
+                                            <td class="v-align-middle bold bg-complete-lighter">+ 15%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('NO_MEDAL') %></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('UNLIMITED_SP_POINT') %></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('FREE_WINGS_FRIENDSHIP') %></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('FREE_PET_BAG') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('UNLIMITED_PET_LOYALTY') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('ACCESS_FASHION_MAP') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold" style="color:blue"><%- __('BLUE_NAME') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('DISCORD_ROLE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('TELEPORT_COMMAND') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('PERSONAL_MAP_INSTANCE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i> (LOD ONLY)</td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('FIRST_BUY_SP_CHOICE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('FIRST_BUY_NOSMATE_CHOICE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('FIRST_BUY_PARTNER_CHOICE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle bold"><%- __('FIRST_BUY_PARTNER_SP_CHOICE') %></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle semi-bold"><i class="fa fa-times"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                            <td class="v-align-middle bold bg-success-lighter"><i class="fa fa-check"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-align-middle"><%- __('PRICE') %></td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">2500 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">5000 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">7500 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">10000 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">12500 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle semi-bold">
+                                                <button class="btn btn-success">17500 <i class="fa fa-money"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- END PLACE PAGE CONTENT HERE -->
             </div>
-            <!-- END CONTAINER FLUID -->
+            <!-- END PLACE PAGE CONTENT HERE -->
         </div>
-        <!-- END PAGE CONTENT -->
-        <% include ../shared/copyright.ejs %>
+        <!-- END CONTAINER FLUID -->
     </div>
-    <!-- END PAGE CONTENT WRAPPER -->
+    <!-- END PAGE CONTENT -->
+    <% include ../shared/copyright.ejs %>
+</div>
+<!-- END PAGE CONTENT WRAPPER -->
 </div>
 <!-- END PAGE CONTAINER -->
 <% include ../shared/javascript.ejs %>
