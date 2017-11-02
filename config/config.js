@@ -17,6 +17,7 @@ module.exports = {
         get_validate: `${api_host}/register/validate/`,
         post_kick: `${api_host}/user/kick`,
         post_buy: `${api_host}/shop/buy`,
+        post_buy_vip: `${api_host}/shop/vip`,
         post_register: `${api_host}/register`,
         post_forgotten: `${api_host}/forgotten`
     },
