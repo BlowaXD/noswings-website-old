@@ -1,5 +1,6 @@
 'use strict';
 const request = require('request');
+const requestp = require('request-promise');
 const router = require('express').Router();
 const reCaptcha = require('recaptcha2');
 const recaptcha = new reCaptcha({
@@ -34,9 +35,7 @@ router.post('/', async (req, res) => {
         await recaptcha.validateRequest(req);
     }
     catch (error) {
-        return res.render('website/register', {
-            error: "Recaptcha fail"
-        });
+        return res.status(403).json({success: false, error: "Merci de remplir le captcha !"});
     }
 
     const opt = {
@@ -53,11 +52,10 @@ router.post('/', async (req, res) => {
         }
     };
 
-    request(opt, (err, response, body) => {
-        /*
-        ** CHECK DU BODY
-        */
-        res.redirect(req.protocol + '://' + req.get('host') + '/');
+    await requestp(opt).then(function (err, resp, body) {
+        res.status(200).json({success: true});
+    }).catch(function (err) {
+        res.status(500).json(err.error);
     });
 });
 

@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+    ERRORS: {
+      DATABASE_ERR: "Erreur dans la base de donnée"
+    },
     SERVER_NAME: 'NosWings',
     HEADER_BAR: {
         SETTING: 'Settings',
@@ -29,9 +32,14 @@ module.exports = {
     },
     WEBSITE: {
         HOME_PAGE: {
-          TITLE: 'Accueil',
-          DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
-          'Rejoignez nous dès maintenant et découvrez notre serveur !'
+            TITLE: 'Accueil',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
+        },
+        RANKING: {
+            TITLE: 'Classement',
+            DESC: 'NosWings est un serveur privé Nostale innovant ayant pour but de moderniser et ajouter des fonctionnalités non présentes sur l\'officiel !\n' +
+            'Rejoignez nous dès maintenant et découvrez notre serveur !'
         },
         REGISTER_PAGE: {
             TITLE: 'Inscription',

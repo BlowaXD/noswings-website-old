@@ -2961,25 +2961,25 @@ hr.dotted {
 ------------------------------------
  */
 .bg-master {
-  background-color: #626262;
+  background-color: #626262 !important;
 }
 .bg-master-light {
-  background-color: #e6e6e6;
+  background-color: #e6e6e6 !important;
 }
 .bg-master-lighter {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0 !important;
 }
 .bg-master-lightest {
-  background-color: #fafafa;
+  background-color: #fafafa !important;
 }
 .bg-master-dark {
-  background-color: #2c2c2c;
+  background-color: #2c2c2c !important;
 }
 .bg-master-darker {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
 }
 .bg-master-darkest {
-  background-color: #121212;
+  background-color: #121212 !important;
 }
 /* Contextual Colors
 ------------------------------------
@@ -2991,34 +2991,34 @@ hr.dotted {
   background-color: #6d5cae !important;
 }
 .bg-primary-dark {
-  background-color: #584b8d;
+  background-color: #584b8d !important;
 }
 .bg-primary-darker {
-  background-color: #413768;
+  background-color: #413768 !important;
 }
 .bg-primary-light {
-  background-color: #8a7dbe;
+  background-color: #8a7dbe !important;
 }
 .bg-primary-lighter {
-  background-color: #e2deef;
+  background-color: #e2deef !important;
 }
 /* Complete 
 ------------------------------------
 */
 .bg-complete {
-  background-color: #48b0f7;
+  background-color: #48b0f7 !important;
 }
 .bg-complete-dark {
-  background-color: #3a8fc8;
+  background-color: #3a8fc8 !important;
 }
 .bg-complete-darker {
-  background-color: #2b6a94;
+  background-color: #2b6a94 !important;
 }
 .bg-complete-light {
-  background-color: #6dc0f9;
+  background-color: #6dc0f9 !important;
 }
 .bg-complete-lighter {
-  background-color: #daeffd;
+  background-color: #daeffd !important;
 }
 /* Success 
 ------------------------------------
@@ -3027,16 +3027,16 @@ hr.dotted {
   background-color: #10cfbd !important;
 }
 .bg-success-dark {
-  background-color: #0da899;
+  background-color: #0da899 !important;
 }
 .bg-success-darker {
-  background-color: #0a7c71;
+  background-color: #0a7c71 !important;
 }
 .bg-success-light {
-  background-color: #40d9ca;
+  background-color: #40d9ca !important;
 }
 .bg-success-lighter {
-  background-color: #cff5f2;
+  background-color: #cff5f2 !important;
 }
 /* Info
 ------------------------------------
@@ -3045,16 +3045,16 @@ hr.dotted {
   background-color: #3b4752 !important;
 }
 .bg-info-dark {
-  background-color: #303a42;
+  background-color: #303a42 !important;
 }
 .bg-info-darker {
-  background-color: #232b31;
+  background-color: #232b31 !important;
 }
 .bg-info-light {
-  background-color: #626c75;
+  background-color: #626c75 !important;
 }
 .bg-info-lighter {
-  background-color: #d8dadc;
+  background-color: #d8dadc !important;
 }
 /* Danger 
 ------------------------------------
@@ -3063,16 +3063,16 @@ hr.dotted {
   background-color: #f55753 !important;
 }
 .bg-danger-dark {
-  background-color: #c64643;
+  background-color: #c64643 !important;
 }
 .bg-danger-darker {
-  background-color: #933432;
+  background-color: #933432 !important;
 }
 .bg-danger-light {
-  background-color: #f77975;
+  background-color: #f77975 !important;
 }
 .bg-danger-lighter {
-  background-color: #fddddd;
+  background-color: #fddddd !important;
 }
 /* Warning
 ------------------------------------
@@ -3081,16 +3081,16 @@ hr.dotted {
   background-color: #f8d053 !important;
 }
 .bg-warning-dark {
-  background-color: #c9a843;
+  background-color: #c9a843 !important;
 }
 .bg-warning-darker {
-  background-color: #957d32;
+  background-color: #957d32 !important;
 }
 .bg-warning-light {
-  background-color: #f9d975;
+  background-color: #f9d975 !important;
 }
 .bg-warning-lighter {
-  background-color: #fef6dd;
+  background-color: #fef6dd !important;
 }
 /* More Color Options
 ------------------------------------

@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         desc: global.translate.USER.LOGIN_PAGE.DESC,
     };
 
-    res.render('user/login', data);
+    res.render('website/login', data);
 });
 
 router.post('/', (req, res) => {

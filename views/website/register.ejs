@@ -1,57 +1,199 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <% include ../shared/head.ejs %>
-    </head>
+<html lang="en">
 
-    <body class="fixed-header menu-pin">
-        <div class="register-container full-height sm-p-t-30">
-            <div class="d-flex justify-content-center flex-column full-height">
-                <div style="text-align: center;"><img src="/assets/img/logo.svg" alt="logo" data-src="/assets/img/logo.svg" data-src-retina="/assets/img/logo.svg" width="500"></div>
-                <h3>Inscription NosWings : Reborn</h3>
-                <p>
-                    Rejoignez nous sur NosWings : Reborn
-                </p>
-                <form id="form-register" class="p-t-15" role="form" action="/register" method="POST">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Username</label>
-                                <input type="text" name="username" placeholder="Username" class="form-control" required>
-                            </div>
-                        </div>
+<head>
+    <% include shared/header.ejs %>
+    <script src="/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/assets/plugins/popper/popper.min.js"></script>
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- theme js -->
+    <script src="/assets/js/theme.min.js"></script>
+</head>
+
+<body class="fixed-header">
+<% include shared/nav.ejs %>
+
+<!-- main -->
+<section class="bg-image bg-image-sm"
+         style="background-image: url('https://noswings.fr/assets/img/demo/login-background.png');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><i class="fa fa-user-plus"></i> <%= __('REGISTER') %></h4>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Password</label>
-                                <input type="password" name="password" placeholder="******" class="form-control" required>
-                            </div>
+                    <div class="card-block">
+                        <div class="form-group input-icon-left m-b-10">
+                            <i class="fa fa-user"></i>
+                            <input id="form-username" type="text" class="form-control form-control-secondary"
+                                   placeholder="<%= __('USERNAME') %>">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Confirm password</label>
-                                <input type="password" name="passwordConfirmation" placeholder="******" class="form-control" required>
-                            </div>
+                        <div class="form-group input-icon-left m-b-10">
+                            <i class="fa fa-envelope"></i>
+                            <input id="form-email" type="email" class="form-control form-control-secondary"
+                                   placeholder="<%= __('MAIL_ADDRESS') %>">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default">
-                                <label>Email</label>
-                                <input type="email" name="email" placeholder="Un mail de confirmation vous sera envoyé" class="form-control" required>
-                            </div>
+                        <div class="divider"><span><%= __('SECURITY') %></span></div>
+                        <div class="form-group input-icon-left m-b-10">
+                            <i class="fa fa-lock"></i>
+                            <input id="form-pass" type="password" class="form-control form-control-secondary"
+                                   placeholder="<%= __('PASSWORD') %>">
                         </div>
+                        <div class="form-group input-icon-left m-b-10">
+                            <i class="fa fa-unlock"></i>
+                            <input id="form-pass2" type="password" class="form-control form-control-secondary"
+                                   placeholder="<%= __('PASSWORD') %>">
+                        </div>
+                        <div class="divider"><span><%= __('NOT_ROBOT') %></span></div>
+                        <div class="g-recaptcha-outer">
+                            <script src='https://www.google.com/recaptcha/api.js'></script>
+                            <div id="form-captcha" class="g-recaptcha"
+                                 data-sitekey="6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm"></div>
+                        </div>
+                        <div class="divider"><span><%= __('TERMS_OF_SERVICE') %></span></div>
+                        <label class="custom-control custom-checkbox custom-checkbox-primary">
+                            <input id="form-cgu-check" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description"><%= __('ACCEPT_TERMS') %> <a href="#"
+                                                                                                  data-toggle="modal"
+                                                                                                  data-target="#terms"><%= __('TERMS_OF_SERVICE') %></a></span>
+                        </label>
+                        <script>
+                            function sendNotification(title, type) {
+                                const id = 1 + Math.floor(Math.random() * 99);
+                                let alert = type ? type : 'info';
+
+                                $('body').append('<div id="notification-' + id + '" class="notification animated fadeInDown fast"><div class="alert alert-' + alert + '">' + title + '</div></div>');
+
+                                setTimeout(function () {
+                                    $('body').find('#notification-' + id).removeClass('fadeInDown').addClass('fadeOutUp');
+                                }, 4000);
+
+                                setTimeout(function () {
+                                    $('body').find('#notification-' + id).remove();
+                                }, 5000);
+                            }
+
+                            function resetCaptcha() {
+                                grecaptcha.reset();
+                            }
+
+                            function clearPasswordFields() {
+                                $('#form-pass').val('');
+                                $('#form-pass2').val('');
+                            }
+
+                            function clearForm() {
+                                $('#form-username').val('');
+                                $('#form-email').val('');
+                                clearPasswordFields();
+                                resetCaptcha();
+                                $('#form-cgu-check').prop('checked', false);
+                            }
+
+                            function sendRegisterRequest(data) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '/register',
+                                    data: data,
+                                    success: function () {
+                                        sendNotification('<%= __("SUCCESSFUL_REGISTRATION") %>', 'success');
+                                        clearForm();
+                                    },
+                                    error: function (xhr) {
+                                        const data = JSON.parse(xhr.responseText);
+
+                                        sendNotification('Error: ' + data.error, 'danger');
+                                        resetCaptcha();
+                                    },
+                                    dataType: 'json'
+                                });
+                            }
+
+                            function verifyData(data) {
+                                if (!data.username || !data.email || !data.password || !data.passwordConfirmation) {
+                                    sendNotification("Merci de remplir tous les champs du formulaire !", 'danger');
+                                    return false;
+                                }
+
+                                if (data.password !== data.passwordConfirmation) {
+                                    sendNotification("Les deux mots de passe ne correspondent pas !", 'danger');
+                                    return false;
+                                }
+
+                                if (data.password.length < 6) {
+                                    sendNotification("Merci d'utiliser un mot de passe de 6 caractères au moins !", 'danger');
+                                    return false;
+                                }
+
+                                if (!document.getElementById('form-cgu-check').checked) {
+                                    sendNotification("Merci d'accepter les conditions d'utilisation !", 'danger');
+                                    return false;
+                                }
+                                return true;
+                            }
+
+                            function validateForm() {
+                                const data = {
+                                    username: $('#form-username').val(),
+                                    email: $('#form-email').val(),
+                                    password: $('#form-pass').val(),
+                                    passwordConfirmation: $('#form-pass2').val(),
+                                    'g-recaptcha-response': grecaptcha.getResponse(),
+                                };
+
+                                if (verifyData(data)) {
+                                    sendRegisterRequest(data);
+                                }
+                            }
+                        </script>
+                        <button onclick="validateForm()" type="submit" class="btn btn-primary m-t-10 btn-block">
+                            <%- __('REGISTER') %>
+                        </button>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6Lf-Gi0UAAAAAP-kYvvqBv9sVLn0GkGfBD0-gbCm"></div>
-                    <button class="btn btn-primary btn-cons m-t-10" type="submit">Inscription</button>
-                </form>
+                </div>
             </div>
         </div>
-        <!-- BEGIN VENDOR JS -->
-        <% include ../shared/javascript.ejs %>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-    </body>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="terms">
+        <div class="modal-dialog modal-top" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-file-text-o"></i> <%= __('TERMS_OF_SERVICE') %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. NosWings Affiliation</h6>
+                    <p>NosWings n'est aucunement affilié aux entités telles que GameForge, Entwell ou autre société liée
+                        à l'univers Nostale.
+                        Nous développons ce serveur pour montrer qu'il est possible de rendre Nostale
+                        L'argent récolté grâce aux donations de NosWings est réinjecté dans les frais impliqués dans
+                        NosWings.
+                        Ce serveur est fait par des joueurs passionés ayant des compétences diverses, pour des joueurs.
+                        Merci de nous accorder votre confiance.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= __('CLOSE') %></button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><%= __('ACCEPT') %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main -->
+
+<!-- footer -->
+<% include shared/footer.ejs %>
+<!-- /footer -->
+
+</body>
+
 </html>

@@ -1,9 +1,53 @@
-<footer>
-    <div class="layout">
-        <div class="block block-block">
-            <div class="footer-text">
-                <p>© <%- new Date().getFullYear(); %> NosWings</p>
+<!-- footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title">A propos de NosWings</h4>
+                <p></p>
+                <p></p>
             </div>
+            <div class="col-sm-12 col-md-6">
+                <h4 class="footer-title"><%- __('USEFUL_LINKS') %></h4>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <a href="<%- links.forum %>"><%- __('FORUM') %></a>
+                            </li>
+                            <li>
+                                <a href="<%- links.discord %>">Discord</a>
+                            </li>
+                            <li>
+                                <a href="<%- links.launcher %>">Launcher</a>
+                            </li>
+                            <li>
+                                <a href="<%- links.shop %>"><%- __('SHOP') %></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <a href="/register"><%- __('REGISTER') %></a>
+                            </li>
+                            <li>
+                                <a href="/"><%- __('NEWS') %></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://www.youtube.com/channel/UCPAlBMeIsOhY9zlx4n3H7jQ" target="_blank" data-toggle="tooltip" title="youtube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </div>
+            <p>Copyright &copy; 2017
+                <a href="https://noswings.fr/" target="_blank">NosWings</a>.</p>
         </div>
     </div>
 </footer>
+<!-- /footer -->
