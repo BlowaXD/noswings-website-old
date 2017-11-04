@@ -71,10 +71,10 @@ i18n.configure({
 refreshOnline();
 refreshNews();
 setInterval(function(){
-    refreshNews();
-}, 60000);
-setInterval(function(){
     refreshOnline();
+}, 15000);
+setInterval(function(){
+    refreshNews();
 }, 3600000);
 
 
