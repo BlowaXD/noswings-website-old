@@ -1,5 +1,5 @@
 'use strict';
-const api_host = 'https://api.noswings.fr';
+const api_host = 'http://localhost:4500';
 
 module.exports = {
     server: 'NosWings',
@@ -11,6 +11,7 @@ module.exports = {
         },
         get_ranking: `${api_host}/ranking`,
         get_news: `${api_host}/get_news`,
+        get_online: `${api_host}/online`,
         get_info: `${api_host}/user/get_info`,
         get_token: `${api_host}/user/token`,
         get_packs: `${api_host}/shop/packs`,

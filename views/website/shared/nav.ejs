@@ -12,7 +12,13 @@
                     <nav class="nav">
                         <ul>
                             <li>
-                                <a><%- __('NEWS') %></a>
+                                <a href="/status">
+                                    <% if (online) { %>
+                                    <%- __('SERVER_STATUS_ON') %>
+                                    <% } else { %>
+                                    <%- __('SERVER_STATUS_OFF') %>
+                                    <% } %>
+                                </a>
                             </li>
                             <li class="has-dropdown mega-menu mega-games">
                                 <a><%- __('USEFUL_LINKS') %></a>
@@ -64,7 +70,7 @@
                                 <a href="/ranking"><%- __('RANKING') %></a>
                             </li>
                             <li>
-                                <a href="/join"><%- __('JOIN_US') %></a>
+                                <a><%- __('JOIN_US') %></a>
                             </li>
                         </ul>
                     </nav>

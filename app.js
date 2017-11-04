@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const compression = require('compression');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const request = require('request');
 const i18n = require('i18n');
 
 /*
@@ -18,6 +19,8 @@ const i18n = require('i18n');
 */
 global.config = require("./config/config");
 global.translate = require("./config/translate");
+global.online = undefined;
+global.news = undefined;
 
 /*
 ** ROUTES
@@ -28,6 +31,21 @@ const route_shop = routes.shop;
 const route_user = routes.user;
 const route_moderator = routes.moderator;
 const route_website = routes.website;
+function refreshOnline() {
+    request.get(global.config.api.get_online, (err, response, body) => {
+        if (!err) {
+            global.online = JSON.parse(body);
+        }
+    });
+}
+
+function refreshNews() {
+    request.get(global.config.api.get_news, (err, response, body) => {
+        if (!err) {
+            global.news = JSON.parse(body);
+        }
+    });
+}
 
 /*
 ** SETUP EXPRESS
@@ -45,6 +63,20 @@ i18n.configure({
     defaultLocale: 'en',
     cookie: 'i18n'
 });
+
+
+/*
+** NEWS AND ONLINE STATUS
+ */
+refreshOnline();
+refreshNews();
+setInterval(function(){
+    refreshNews();
+}, 60000);
+setInterval(function(){
+    refreshOnline();
+}, 3600000);
+
 app.use(cookieParser("noswings_language"));
 app.use(session({
     secret: "noswings_language",
@@ -69,6 +101,7 @@ app.use(function (req, res, next) {
     }
     res.locals.user = req.user;
     res.locals.__ = i18n.__;
+    res.locals.online = global.online;
     return (next());
 });
 

@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const auth_middleware = require('../../middlewares/authMiddleware.js');
-
 const router = express.Router();
 
 /* Require authentification */

@@ -76,5 +76,10 @@
 	"FIRST_BUY_NOSMATE_CHOICE": "Nosmate de son choix au premier achat !",
 	"FIRST_BUY_PARTNER_CHOICE": "Partenaire de son choix au premier achat !",
 	"FIRST_BUY_PARTNER_SP_CHOICE": "SP Partenaire de son choix au premier achat !",
-	"PRICE": "Prix"
+	"PRICE": "Prix",
+	"MONTH": "Mois",
+	"SERVER_STATUS_OFF": "<span class='btn btn-danger'>Serveur hors ligne</span>",
+	"SERVER_STATUS_ON": "<span class='btn btn-success'>Serveur en ligne</span>",
+	"Adventurer": "Aventurier",
+	"ONLINE": "Connectés"
 }

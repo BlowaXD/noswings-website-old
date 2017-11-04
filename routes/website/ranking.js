@@ -1,7 +1,6 @@
 "use strict";
 
 const requestp = require('request-promise');
-const request = require('request');
 
 function get(req, res)
 {
