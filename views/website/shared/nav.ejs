@@ -14,7 +14,7 @@
                             <li>
                                 <a href="/status">
                                     <% if (online) { %>
-                                    <%- __('SERVER_STATUS_ON') %>
+                                    <span class="btn btn-success"><%- online %> <%- __('PLAYERS_ONLINE') %></span>
                                     <% } else { %>
                                     <%- __('SERVER_STATUS_OFF') %>
                                     <% } %>

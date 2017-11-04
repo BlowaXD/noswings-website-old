@@ -77,6 +77,10 @@ setInterval(function(){
     refreshOnline();
 }, 3600000);
 
+
+/*
+** MULTILANGUAGE SUPPORT
+*/
 app.use(cookieParser("noswings_language"));
 app.use(session({
     secret: "noswings_language",
@@ -102,6 +106,11 @@ app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.__ = i18n.__;
     res.locals.online = global.online;
+    let j = 0;
+    for (const channel of global.online){
+        j += channel.length;
+    }
+    res.locals.online = j;
     return (next());
 });
 

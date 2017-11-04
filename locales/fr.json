@@ -81,5 +81,6 @@
 	"SERVER_STATUS_OFF": "<span class='btn btn-danger'>Serveur hors ligne</span>",
 	"SERVER_STATUS_ON": "<span class='btn btn-success'>Serveur en ligne</span>",
 	"Adventurer": "Aventurier",
-	"ONLINE": "Connectés"
+	"ONLINE": "Connectés",
+	"PLAYERS_ONLINE": "Joueurs en ligne"
 }
