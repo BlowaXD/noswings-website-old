@@ -82,5 +82,8 @@
 	"SERVER_STATUS_ON": "<span class='btn btn-success'>Serveur en ligne</span>",
 	"Adventurer": "Aventurier",
 	"ONLINE": "Connectés",
-	"PLAYERS_ONLINE": "Joueurs en ligne"
+	"PLAYERS_ONLINE": "Joueurs en ligne",
+	"Archer": "Archer",
+	"Magician": "Magicien",
+	"Swordman": "Escrimeur"
 }

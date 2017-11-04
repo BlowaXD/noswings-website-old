@@ -19,8 +19,8 @@ const i18n = require('i18n');
 */
 global.config = require("./config/config");
 global.translate = require("./config/translate");
-global.online = undefined;
-global.news = undefined;
+global.online = {};
+global.news = {};
 
 /*
 ** ROUTES
