@@ -105,12 +105,7 @@ app.use(function (req, res, next) {
     }
     res.locals.user = req.user;
     res.locals.__ = i18n.__;
-    res.locals.online = global.online;
-    let j = 0;
-    for (const channel of global.online){
-        j += channel.length;
-    }
-    res.locals.online = j;
+    res.locals.online = Object.values(global.online).reduce((a, b) => a + b.length, 0);
     return (next());
 });
 
