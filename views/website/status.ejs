@@ -38,13 +38,20 @@
                                 </tr>
                                 </thead>
                                 <tbody id="ranking-body">
-                                <% for (var player of data[i]) { %>
+                                <% for (const player of data[i]) 
+                                {
+                                     if (player.Name && player.Level && player.Class) 
+                                    { 
+                                %>
                                 <tr>
                                     <td> <%= player.Name %></td>
                                     <td> <%- player.Level %></td>
                                     <td> <%- __(player.Class) %></td>
                                 </tr>
-                                <% } %>
+                                <% 
+                                    } 
+                                }
+                                 %>
                                 </tbody>
                             </table>
                         </div>
