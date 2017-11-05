@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
                     let description = "";
                     for (const image of descriptions) {
                         if (image.indexOf('KFC/') !== -1) {
-                            description += `<img src="https://static.noswings.fr/images/nosmall/${image.substring(4, image.length)}" width="25" height="25">`;
+                            description += `<img src="https://static.noswings.fr/images/nosmall/${image.substring(4, image.length)}" width="30">`;
                         }
                     }
                     pack.Description = description;
