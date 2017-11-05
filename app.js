@@ -72,7 +72,7 @@ refreshOnline();
 refreshNews();
 setInterval(function(){
     refreshOnline();
-}, 15000);
+}, 30000);
 setInterval(function(){
     refreshNews();
 }, 3600000);
