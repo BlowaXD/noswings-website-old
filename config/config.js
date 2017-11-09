@@ -24,7 +24,7 @@ module.exports = {
     },
     links: {
         staticDomain: `https://static.noswings.fr`,
-        launcher: `http://www40.zippyshare.com/v/jcp6fKQC/file.html`,
+        launcher: `https://www.dropbox.com/s/m70s37vwipz4e7z/NosWings.exe?dl=0`,
         website: `https://noswings.fr/`,
         forum: `https://forum.noswings.fr/`,
         discord: `https://discord.gg/uyFs2yz`,

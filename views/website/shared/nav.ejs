@@ -12,65 +12,16 @@
                     <nav class="nav">
                         <ul>
                             <li>
-                                <a href="/status">
-                                    <% if (online) { %>
-                                    <span class="btn btn-success"><%- online %> <%- __('PLAYERS_ONLINE') %></span>
-                                    <% } else { %>
-                                    <%- __('SERVER_STATUS_OFF') %>
-                                    <% } %>
-                                </a>
-                            </li>
-                            <li class="has-dropdown mega-menu mega-games">
-                                <a><%- __('USEFUL_LINKS') %></a>
-                                <ul>
-                                    <li>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="<%- links.launcher %>">
-                                                            <img src="/assets/img/menu/launcher.png" alt="Launcher">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="<%- links.discord %>">
-                                                            <img src="/assets/img/menu/discord.png" alt="Discord">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="<%- links.forum %>">
-                                                            <img src="/assets/img/menu/forum.png" alt="Forum">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="/shop">
-                                                            <img src="/assets/img/menu/shop.png" alt="Shop">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="img">
-                                                        <a href="<%- links.forum %>">
-                                                            <img src="/assets/img/menu/support.png" alt="Support">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <a href="<%- links.launcher %>"><i class="fa fa-download"></i> Launcher</a>
                             </li>
                             <li>
-                                <a href="/ranking"><%- __('RANKING') %></a>
+                                <a href="<%- links.discord %>"><i class="fa fa-discord"></i> Discord</a>
                             </li>
                             <li>
-                                <a><%- __('JOIN_US') %></a>
+                                <a href="<%- links.forum %>"><i class="fa fa-comments"></i> Forum</a>
+                            </li>
+                            <li>
+                                <a href="/ranking"><i class="fa fa-bar-chart"></i> <%- __('RANKING') %></a>
                             </li>
                         </ul>
                     </nav>
@@ -86,13 +37,22 @@
                             </ul>
                         </li>
                         <li class="hidden-xs-down">
-                            <a href="/login"><%= __('LOGIN') %></a>
+                            <a href="/login"><i class="fa fa-user-circle"></i> <%= __('LOGIN') %></a>
                         </li>
                         <li class="hidden-xs-down">
                             <a href="/register">
                                 <button class="btn btn-warning"><%= __('REGISTER') %></button>
                             </a>
                         </li>
+                            <li>
+                                <a href="/status">
+                                    <% if (online) { %>
+                                    <span class="btn btn-success"><%- online %> <%- __('PLAYERS_ONLINE') %></span>
+                                    <% } else { %>
+                                    <%- __('SERVER_STATUS_OFF') %>
+                                    <% } %>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
