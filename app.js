@@ -34,7 +34,12 @@ const route_website = routes.website;
 function refreshOnline() {
     request.get(global.config.api.get_online, (err, response, body) => {
         if (!err) {
+            try {
             global.online = JSON.parse(body);
+            } catch (error)
+            {
+                global.online = {};
+            }
         }
     });
 }
@@ -42,7 +47,12 @@ function refreshOnline() {
 function refreshNews() {
     request.get(global.config.api.get_news, (err, response, body) => {
         if (!err) {
+            try {
             global.news = JSON.parse(body);
+            } catch (error)
+            {
+                global.news = {};
+            }
         }
     });
 }
