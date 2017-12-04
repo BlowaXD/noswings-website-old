@@ -40,7 +40,7 @@
 	"USERNAME": "Identifiant",
 	"MAIL_ADDRESS": "Adresse mail",
 	"PASSWORD": "Mot de passe",
-	"SUCCESSFUL_REGISTRATION": "Votre compte a été créé avec succès !",
+	"SUCCESSFUL_REGISTRATION": "Votre compte a été créé avec succès ! Vérifiez vos mails pour valider votre compte !",
 	"TEAM_ARENA": "L'arène des talents",
 	"TEAM_ARENA_DESCRIPTION": "Vous souhaitez montrer à tous que vous êtes le meilleur ? Rencontrez des joueurs de votre niveau et affrontez les dans une bataille sans foi ni loi",
 	"ACT_4_DESCRIPTION": "Nous avons retravaillé l'acte 4 pour qu'il soit de nouveau agréable à jouer et important dans votre jeu !",
@@ -85,5 +85,11 @@
 	"PLAYERS_ONLINE": "Joueurs en ligne",
 	"Archer": "Archer",
 	"Magician": "Magicien",
-	"Swordman": "Escrimeur"
+	"Swordman": "Escrimeur",
+	"MALE_SWORD": "Escrimeur",
+	"FEMALE_WIZARD": "Sorcière",
+	"FEMALE_SWORD": "Escrimeuse",
+	"MALE_WIZARD": "Sorcier",
+	"MALE_ARCHER": "Archer",
+	"FEMALE_ARCHER": "Archère"
 }
