@@ -1,7 +1,7 @@
 'use strict';
 /*
-** MODULES
-*/
+ ** MODULES
+ */
 const express = require("express");
 const helmet = require("helmet");
 const path = require("path");
@@ -15,29 +15,29 @@ const request = require('request');
 const i18n = require('i18n');
 
 /*
-** GLOBALS
-*/
+ ** GLOBALS
+ */
 global.config = require("./config/config");
 global.translate = require("./config/translate");
 global.online = {};
 global.news = {};
 
 /*
-** ROUTES
-*/
+ ** ROUTES
+ */
 const routes = require('./routes');
 const route_admin = routes.admin;
 const route_shop = routes.shop;
 const route_user = routes.user;
 const route_moderator = routes.moderator;
 const route_website = routes.website;
+
 function refreshOnline() {
     request.get(global.config.api.get_online, (err, response, body) => {
         if (!err) {
             try {
-            global.online = JSON.parse(body);
-            } catch (error)
-            {
+                global.online = JSON.parse(body);
+            } catch (error) {
                 global.online = {};
             }
         }
@@ -48,9 +48,8 @@ function refreshNews() {
     request.get(global.config.api.get_news, (err, response, body) => {
         if (!err) {
             try {
-            global.news = JSON.parse(body);
-            } catch (error)
-            {
+                global.news = JSON.parse(body);
+            } catch (error) {
                 global.news = {};
             }
         }
@@ -58,15 +57,18 @@ function refreshNews() {
 }
 
 /*
-** SETUP EXPRESS
-*/
+ ** SETUP EXPRESS
+ */
 const app = express();
 app.use(compression());
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.locals = {translate: global.translate, links: global.config.links};
+app.locals = {
+    translate: global.translate,
+    links: global.config.links
+};
 i18n.configure({
     locales: ['en', 'fr', 'es'],
     directory: __dirname + '/locales',
@@ -76,37 +78,44 @@ i18n.configure({
 
 
 /*
-** NEWS AND ONLINE STATUS
+ ** NEWS AND ONLINE STATUS
  */
 refreshOnline();
 refreshNews();
-setInterval(function(){
+setInterval(function () {
     refreshOnline();
 }, 30000);
-setInterval(function(){
+setInterval(function () {
     refreshNews();
 }, 3600000);
 
 
 /*
-** MULTILANGUAGE SUPPORT
-*/
+ ** MULTILANGUAGE SUPPORT
+ */
 app.use(cookieParser("noswings_language"));
 app.use(session({
     secret: "noswings_language",
     resave: true,
     saveUninitialized: true,
-    cookie: {maxAge: 60000}
+    cookie: {
+        maxAge: 60000
+    }
 }));
 app.use(i18n.init);
 
 /*
-** MIDDLEWARES
-*/
+ ** MIDDLEWARES
+ */
 app.use(helmet());
 app.use(logger('dev'));
-app.use(bodyParser.json({limit: '10mb'}));
-app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
+app.use(bodyParser.json({
+    limit: '10mb'
+}));
+app.use(bodyParser.urlencoded({
+    limit: '10mb',
+    extended: true
+}));
 
 /* CREATE ROUTES */
 app.use(function (req, res, next) {
@@ -127,6 +136,7 @@ app.use('/moderator', route_moderator);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+    return res.redirect('/');
     const err = new Error('Not Found');
     err.status = 404;
     next(err);

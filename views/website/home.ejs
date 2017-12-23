@@ -13,13 +13,27 @@
         <!-- main -->
         <section class="bg-inverse p-y-0">
             <div class="owl-carousel owl-slide full-height">
-                <div class="carousel-item" style="background-image: url('/assets/img/news/halloween_1080p.png');">
+                <div class="carousel-item" style="background-image: url('/assets/img/news/christmas.png');">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div>
+                            <h3 class="carousel-title">NosWings - Christmas</h3>
+                            <p>You wanted a Christmas event on NosWings ? We made it !</p>
+                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button">
+                                <%- __('MORE_INFORMATION') %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('/assets/img/news/halloween.png');">
                     <div class="carousel-overlay"></div>
                     <div class="carousel-caption">
                         <div>
                             <h3 class="carousel-title">NosWings - Hallowings</h3>
-                            <p>Halloween débarque sur NosWings !</p>
-                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button"><%- __('MORE_INFORMATION') %></a>
+                            <p>NosWings brings the Halloween Event on the server !</p>
+                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button">
+                                <%- __('MORE_INFORMATION') %>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -28,8 +42,10 @@
                     <div class="carousel-caption">
                         <div>
                             <h3 class="carousel-title">NosWings - Reborn</h3>
-                            <p>La mise à jour des pets !</p>
-                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button"><%- __('MORE_INFORMATION') %></a>
+                            <p>The biggest update NosWings has known with most of the features added</p>
+                            <a class="btn btn-primary btn-rounded btn-shadow btn-lg" href="/" data-lightbox role="button">
+                                <%- __('MORE_INFORMATION') %>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -44,12 +60,50 @@
                         <div class="post post-md">
                             <div class="post-thumbnail">
                                 <a href="">
+                                    <img src="/assets/img/news/christmas.png" alt="Christmas Event on NosWings">
+                                </a>
+                            </div>
+                            <div class="post-block">
+                                <h2 class="post-title">
+                                    <a href="">NosWings - Christmas Event</a>
+                                </h2>
+                                <div class="post-meta">
+                                    <span>
+                                        <i class="fa fa-clock-o"></i>
+                                        Blowa - 23/12/2017</span>
+                                </div>
+                                <p>Bring a new event to NosWings</p>
+                            </div>
+                        </div>
+                        <!-- post -->
+                        <div class="post post-md">
+                            <div class="post-thumbnail">
+                                <a href="https://forum.noswings.io/index.php?/topic/68-event-calendrier-de-lavent-noswings/">
+                                    <img src="/assets/img/news/advent.png" alt="AdventCalendar Event on NosWings">
+                                </a>
+                            </div>
+                            <div class="post-block">
+                                <h2 class="post-title">
+                                    <a href="https://forum.noswings.io/index.php?/topic/68-event-calendrier-de-lavent-noswings/">NosWings - AdventCalendar</a>
+                                </h2>
+                                <div class="post-meta">
+                                    <span>
+                                        <i class="fa fa-clock-o"></i>
+                                        Clavs - 30/11/2017</span>
+                                </div>
+                                <p>Answer to questions and get a reward for that.</p>
+                            </div>
+                        </div>
+                        <!-- post -->
+                        <div class="post post-md">
+                            <div class="post-thumbnail">
+                                <a href="">
                                     <img src="/assets/img/news/halloween.png" alt="Halloween sur NosWings">
                                 </a>
                             </div>
                             <div class="post-block">
                                 <h2 class="post-title">
-                                    <a href="">Halloween débarque sur NosWings !</a>
+                                    <a href="">NosWings - Halloween is incoming !</a>
                                 </h2>
                                 <div class="post-meta">
                                     <span>
@@ -79,16 +133,16 @@
                         </div>
 
                         <div class="pagination-results m-t-30">
-                            <span>Showing 1 to 2 of 2 results</span>
+                            <span>Showing 1 to 4 of 4 results</span>
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">Précédente</a>
+                                            <span aria-hidden="true">Previous</a>
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">Suivante</span>
+                                            <span aria-hidden="true">Next</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -101,7 +155,9 @@
                         <div class="sidebar">
 
                             <div class="widget widget-games">
-                                <h5 class="widget-title"><%- __('OUR_RATES') %></h5>
+                                <h5 class="widget-title">
+                                    <%- __('OUR_RATES') %>
+                                </h5>
                                 <a href="#" style="background-image: url('/assets/img/widget/xp.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
@@ -114,7 +170,9 @@
                                 <a href="#" style="background-image: url('/assets/img/widget/gold.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
-                                        <div class="count"><%- __('GOLD') %></div>
+                                        <div class="count">
+                                            <%- __('GOLD') %>
+                                        </div>
                                         <div class="description">
                                             <h5 class="title">Rate x30</h5>
                                         </div>
@@ -132,7 +190,9 @@
                                 <a href="#" style="background-image: url('/assets/img/widget/fairy.png')">
                                     <span class="overlay"></span>
                                     <div class="widget-block">
-                                        <div class="count"><%- __('FAIRY') %></div>
+                                        <div class="count">
+                                            <%- __('FAIRY') %>
+                                        </div>
                                         <div class="description">
                                             <h5 class="title">Rate x10</h5>
                                         </div>
@@ -183,8 +243,12 @@
             <div class="container">
                 <div class="heading">
                     <i class="fa fa-star"></i>
-                    <h2><%- __('OUR_FEATURES') %></h2>
-                    <p><%- __('OUR_FEATURES_DESCRIPTION') %></p>
+                    <h2>
+                        <%- __('OUR_FEATURES') %>
+                    </h2>
+                    <p>
+                        <%- __('OUR_FEATURES_DESCRIPTION') %>
+                    </p>
                 </div>
                 <div class="owl-carousel owl-list">
                     <div class="card card-review">
@@ -193,9 +257,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('PET_PARTNER') %></a>
+                                <a>
+                                    <%- __('PET_PARTNER') %>
+                                </a>
                             </h4>
-                            <p><%- __('PET_PARTNER_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('PET_PARTNER_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -204,9 +272,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('SHELL_CELLON') %></a>
+                                <a>
+                                    <%- __('SHELL_CELLON') %>
+                                </a>
                             </h4>
-                            <p><%- __('SHELL_CELLON_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('SHELL_CELLON_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -215,9 +287,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('ACT_4') %></a>
+                                <a>
+                                    <%- __('ACT_4') %>
+                                </a>
                             </h4>
-                            <p><%- __('ACT_4_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('ACT_4_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -226,9 +302,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('COMBOS') %></a>
+                                <a>
+                                    <%- __('COMBOS') %>
+                                </a>
                             </h4>
-                            <p><%- __('COMBOS_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('COMBOS_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -237,9 +317,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('TEAM_ARENA') %></a>
+                                <a>
+                                    <%- __('TEAM_ARENA') %>
+                                </a>
                             </h4>
-                            <p><%- __('TEAM_ARENA_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('TEAM_ARENA_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -248,9 +332,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('UNIQUE_CONTENT') %></a>
+                                <a>
+                                    <%- __('UNIQUE_CONTENT') %>
+                                </a>
                             </h4>
-                            <p><%- __('UNIQUE_CONTENT_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('UNIQUE_CONTENT_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -259,9 +347,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('ICEBREAKER') %></a>
+                                <a>
+                                    <%- __('ICEBREAKER') %>
+                                </a>
                             </h4>
-                            <p><%- __('ICEBREAKER_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('ICEBREAKER_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                     <div class="card card-review">
@@ -270,9 +362,13 @@
                         </a>
                         <div class="card-block">
                             <h4 class="card-title">
-                                <a><%- __('INSTANT_BATTLE') %></a>
+                                <a>
+                                    <%- __('INSTANT_BATTLE') %>
+                                </a>
                             </h4>
-                            <p><%- __('INSTANT_BATTLE_DESCRIPTION') %></p>
+                            <p>
+                                <%- __('INSTANT_BATTLE_DESCRIPTION') %>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -328,7 +424,7 @@
                         dots: false,
                         loop: true,
                         autoplay: true,
-                        autoplayTimeout:3000,
+                        autoplayTimeout: 3000,
                         responsive: {
                             0: {
                                 items: 1
